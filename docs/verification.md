@@ -6,7 +6,13 @@
 - Supabase: resources 6행, project_templates 3행 확인.
 - 모든 public 테이블 RLS 활성화.
 - Supabase security advisor: 경고 0개.
-- 로컬 브라우저 검수: 접근 승인 후에도 브라우저 도구의 저장된 origin 차단 설정으로 실행 불가. 화면, 모바일 레이아웃, 실제 클릭·키보드·음성 동작은 아직 브라우저로 검증하지 못했습니다.
+- 브라우저 검수: 로컬 미리보기는 접근 승인 후에도 저장된 origin 차단 설정으로 실행 불가. 운영 사이트 브라우저 접근 역시 승인 도구에서 거절되었습니다. 화면, 모바일 레이아웃, 실제 클릭·키보드·음성 동작은 브라우저로 검증하지 못했습니다.
+- 운영 배포: https://chineses.vercel.app, production READY, Vercel 실행 지역 icn1 확인.
+- `/api/health`: HTTP 200, database connected, resources 6. 응답 헤더의 실제 실행 위치에도 icn1 확인.
+- 홈, 자료 검색, 자료 상세, 프로젝트 상세, 4개 수업 도구, 학습 노트의 HTTP 200 및 예상 서버 렌더링 콘텐츠 확인.
+- 존재하지 않는 자료는 안내 페이지를 출력합니다. Next.js 스트리밍 응답에서는 안내 페이지가 HTTP 200으로 전달될 수 있습니다.
+- 익명 역할은 공개 자료 INSERT 불가, 개인 workspace_items SELECT 불가 확인.
+- 초기 운영 배포의 error/fatal 로그 조회: 해당 조건의 로그 없음.
 
 ## 수동 검수 동선
 1. 홈 → 첫 수업 → 자료 담기 → 담아 둔 자료에서 확인.

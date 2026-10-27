@@ -3,6 +3,7 @@
 한국 학생을 위한 중국어 수업 공간. 학습 자료, 수업 도구, 프로젝트 활동을 같은 디자인 시스템 위에서 확장하는 Next.js 애플리케이션입니다.
 
 ## 서비스 구성
+- 운영 사이트: https://chineses.vercel.app
 - GitHub: https://github.com/chicjin0311-web/chineses
 - Vercel 프로젝트: chineses / 혜진 계정. 서버 함수 지역은 서울 `icn1`.
 - Supabase 프로젝트: chineses (`iqsfimlxilzcmvpffzje`). 데이터베이스 지역은 서울 `ap-northeast-2`.
