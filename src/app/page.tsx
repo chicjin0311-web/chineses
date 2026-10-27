@@ -1,38 +1,37 @@
 import Link from 'next/link';
-import { ArrowRight, ArrowUpRight, AudioLines, BookOpen, FileText, FolderOpen, Layers, NotebookPen, Shapes, Shuffle, Timer } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, AudioLines, BookOpen, BookMarked, FileText, FolderOpen, Globe2, Layers, LibraryBig, NotebookPen, Shuffle, Timer } from 'lucide-react';
 import { FolderCard } from '@/components/folder-card';
-import { getResources, getProjects } from '@/lib/catalog';
+import { getResources } from '@/lib/catalog';
 import { classroomTools } from '@/lib/tools';
+import { homeFolders, site } from '@/lib/site';
 
 export const revalidate = 60;
 const toolIcons = [Layers, AudioLines, Timer, Shuffle];
+const folderIcons = { lessons: BookOpen, activities: FolderOpen, exchange: Globe2, reading: BookMarked, diary: NotebookPen, research: LibraryBig };
 
 export default async function Home() {
-  const [resources, projects] = await Promise.all([getResources(), getProjects()]);
+  const resources = await getResources();
   return (
     <div className="page home-page">
       <header className="workspace-heading">
         <div>
-          <p className="workspace-caption">혜진 선생님의 중국어 교실</p>
-          <h1>중국어 수업, 한곳에.</h1>
-          <p>배울 자료를 찾고, 수업 도구를 꺼내고, 함께 만들어 보세요.</p>
+          <p className="workspace-caption">{site.name}</p>
+          <h1>수업도, 기록도. 차곡차곡.</h1>
+          <p>함께 배운 시간과 일상의 생각을 모아, 다음 수업으로 이어 갑니다.</p>
         </div>
-        <Link href="/resources" className="button primary">학습 자료 찾기 <ArrowUpRight size={17} aria-hidden="true" /></Link>
+        <Link href="/write" className="button primary">새 초안 쓰기 <ArrowUpRight size={17} aria-hidden="true" /></Link>
       </header>
 
       <section className="workspace-folders" aria-labelledby="folders-heading">
-        <div className="section-heading"><h2 id="folders-heading">수업 폴더</h2><span className="section-hint">필요한 공간을 바로 열어 보세요</span></div>
+        <div className="section-heading"><h2 id="folders-heading">배움과 기록의 폴더</h2><span className="section-hint">차곡차곡 쌓아 가는 여섯 공간</span></div>
         <div className="home-folder-grid">
-          <FolderCard href="/resources" title="학습 자료" description="발음 · 회화 · 어휘 · 한자 · 문화" meta={`${resources.length}개 자료`} icon={<BookOpen size={25} strokeWidth={1.6} />} />
-          <FolderCard href="/tools" title="수업 도구" description="카드부터 타이머까지, 수업의 도구함" meta={`${classroomTools.length}개 도구`} icon={<Shapes size={25} strokeWidth={1.6} />} />
-          <FolderCard href="/projects" title="프로젝트" description="친구들과 함께 만드는 중국어 활동" meta={`${projects.length}개 활동`} icon={<FolderOpen size={25} strokeWidth={1.6} />} />
-          <FolderCard href="/notebook" title="나의 학습 노트" description="오늘 배운 표현과 아이디어를 기록해요" meta="개인 기록" icon={<NotebookPen size={25} strokeWidth={1.6} />} />
+          {homeFolders.map(folder => { const Icon = folderIcons[folder.icon]; return <FolderCard key={folder.href} {...folder} icon={<Icon size={25} strokeWidth={1.6} />} />; })}
         </div>
       </section>
 
       <div className="home-content-grid">
         <section aria-labelledby="materials-heading">
-          <div className="section-heading"><h2 id="materials-heading">학습 자료 둘러보기</h2><Link href="/resources">전체 보기 <ArrowRight size={15} aria-hidden="true" /></Link></div>
+          <div className="section-heading"><h2 id="materials-heading">수업 자료 둘러보기</h2><Link href="/lessons">언어 · 문화 <ArrowRight size={15} aria-hidden="true" /></Link></div>
           <div className="document-list">
             {resources.slice(0, 4).map(resource => (
               <Link href={`/resources/${resource.slug}`} className="document-row" key={resource.slug}>
@@ -55,10 +54,7 @@ export default async function Home() {
         </section>
       </div>
 
-      {projects.length > 0 && <section className="home-projects" aria-labelledby="projects-heading">
-        <div className="section-heading"><h2 id="projects-heading">함께 만드는 프로젝트</h2><Link href="/projects">전체 보기 <ArrowRight size={15} aria-hidden="true" /></Link></div>
-        <div className="home-project-grid">{projects.slice(0, 3).map(project => <FolderCard key={project.slug} href={`/projects/${project.slug}`} title={project.title} description={project.description} meta={`${project.category} · ${project.duration}`} compact />)}</div>
-      </section>}
+      <Link href="/research" className="research-strip"><LibraryBig size={25} strokeWidth={1.5} aria-hidden="true" /><div><h2>지난 수업에서, 다음 수업으로.</h2><p>기존 자료 정리 <span aria-hidden="true">→</span> 수업 성찰 <span aria-hidden="true">→</span> 새 수업안</p></div><ArrowUpRight size={20} aria-hidden="true" /></Link>
     </div>
   );
 }
