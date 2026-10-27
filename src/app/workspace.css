@@ -1,0 +1,117 @@
+/* Clear folder navigation on a white canvas. */
+.workspace-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  margin: 8px 0 38px;
+}
+.workspace-caption { color: #60626a; font-size: 12px; margin-bottom: 12px; }
+.workspace-heading h1 { font-size: 34px; font-weight: 650; letter-spacing: -1.35px; }
+.workspace-heading h1 + p { color: var(--muted); font-size: 14px; margin-top: 12px; line-height: 1.8; }
+.workspace-heading .button { flex-shrink: 0; padding-inline: 18px; }
+.section-hint { color: #6b6d75; font-size: 12px; }
+.workspace-folders .section-heading { margin-bottom: 22px; }
+.home-folder-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.classroom-folder { display: flex; flex-direction: column; position: relative; padding-top: 16px; min-width: 0; border-radius: 12px 16px 16px; }
+.folder-tab { position: absolute; left: 0; top: 0; width: 42%; height: 35px; background: #eaeaec; border: 1px solid #d9dadd; border-radius: 10px 16px 0 0; }
+.folder-surface { position: relative; flex: 1; display: flex; flex-direction: column; padding: 23px 21px 18px; min-height: 212px; background: linear-gradient(150deg, #fff 20%, #fafafa); border: 1px solid #d8d9de; border-radius: 0 15px 15px 15px; box-shadow: 0 4px 10px #20212405, inset 0 1px 0 #fff; transition: border-color .18s, box-shadow .18s, transform .18s; }
+.folder-topline { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 21px; }
+.folder-symbol { color: #25262a; display: inline-flex; }
+.folder-meta { color: #656770; font-size: 11px; line-height: 1.5; text-align: right; }
+.folder-surface h2, .folder-surface h3 { font-size: 18px; font-weight: 650; letter-spacing: -.55px; color: #202124; }
+.folder-surface p { color: #62646b; font-size: 12px; line-height: 1.75; margin-top: 8px; margin-bottom: 20px; word-break: keep-all; }
+.folder-open { margin-top: auto; padding-top: 15px; border-top: 1px solid #e9e9ec; display: flex; justify-content: space-between; align-items: center; color: #41434b; font-size: 11px; font-weight: 550; }
+.classroom-folder:hover .folder-surface, .classroom-folder:focus-visible .folder-surface { border-color: #8c8e96; box-shadow: 0 7px 17px #2021240b; transform: translateY(-2px); }
+.classroom-folder:focus-visible { outline-offset: 6px; }
+.home-content-grid { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 32px; margin-top: 37px; }
+.document-list, .shortcut-list { border: 1px solid #e0e1e5; border-radius: 14px; padding: 0 20px; background: #fff; overflow: hidden; }
+.document-row { display: flex; align-items: center; gap: 14px; min-height: 78px; padding: 15px 0; border-bottom: 1px solid #eeeeF0; }
+.document-row:last-child, .shortcut-row:last-child { border-bottom: 0; }
+.document-icon { width: 38px; height: 43px; display: grid; place-items: center; color: #52545c; background: #f5f5f7; border: 1px solid #e9e9ed; border-radius: 7px; flex-shrink: 0; }
+.document-copy { flex: 1; min-width: 0; }
+.document-copy h3 { font-size: 14px; color: #292b30; font-weight: 550; }
+.document-copy p { font-size: 11px; color: #6d6f77; margin-top: 5px; }
+.document-duration { font-size: 11px; color: #686a72; white-space: nowrap; }
+.document-row > svg, .shortcut-row > svg { color: #777981; }
+.document-row:hover h3, .shortcut-row:hover > span:not(.shortcut-icon) { text-decoration: underline; text-underline-offset: 4px; }
+.shortcut-row { display: flex; align-items: center; gap: 14px; min-height: 78px; padding: 16px 0; border-bottom: 1px solid #eeeeF0; font-size: 14px; font-weight: 550; }
+.shortcut-icon { width: 37px; height: 37px; border-radius: 10px; background: #f3f3f5; color: #393b43; display: grid; place-items: center; }
+.shortcut-row > svg { margin-left: auto; }
+.home-projects { margin-top: 37px; margin-bottom: 25px; }
+.home-projects .section-heading { margin-bottom: 21px; }
+.home-project-grid, .project-folder-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 23px; }
+.project-folder-grid { margin-top: 34px; }
+.project-folder-grid .folder-surface { min-height: 265px; }
+.project-folder-grid .folder-surface h2 { font-size: 19px; }
+.classroom-folder.compact .folder-surface { min-height: 200px; padding: 19px 20px 17px; }
+.classroom-folder.compact .folder-topline { margin-bottom: 16px; }
+.classroom-folder.compact h3 { font-size: 16px; }
+.classroom-folder.compact p { margin-bottom: 16px; }
+.list-empty { padding: 25px 0; color: var(--muted); font-size: 14px; }
+
+@media (max-width: 1200px) {
+  .home-folder-grid { gap: 15px; }
+  .folder-surface { padding: 19px 16px 16px; }
+  .folder-surface h2, .folder-surface h3 { font-size: 16px; }
+  .folder-meta { font-size: 10px; }
+  .home-content-grid { gap: 23px; }
+}
+@media (max-width: 1050px) {
+  .home-folder-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 23px 18px; }
+  .folder-surface { min-height: 205px; padding: 21px; }
+  .workspace-heading { align-items: flex-start; }
+  .workspace-heading h1 { font-size: 29px; }
+  .workspace-heading .button { margin-top: 30px; padding-inline: 12px; }
+  .workspace-heading h1 + p { font-size: 12px; }
+  .home-project-grid, .project-folder-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .home-content-grid { grid-template-columns: minmax(0, 1fr); }
+  .shortcut-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 24px; }
+  .shortcut-row:nth-last-child(2) { border-bottom: 0; }
+}
+@media (max-width: 760px) {
+  .workspace-heading { margin: 5px 0 30px; display: block; }
+  .workspace-caption { font-size: 11px; margin-bottom: 10px; }
+  .workspace-heading h1 { font-size: 28px; letter-spacing: -1px; }
+  .workspace-heading h1 + p { font-size: 12px; max-width: 310px; }
+  .workspace-heading .button { margin-top: 18px; padding: 10px 15px; }
+  .section-hint { font-size: 10px; }
+  .section-heading h2 { font-size: 16px; }
+  .section-heading > a { font-size: 11px; }
+  .home-folder-grid { gap: 21px 12px; }
+  .folder-surface { min-height: 202px; padding: 17px 14px 14px; }
+  .folder-topline { margin-bottom: 16px; gap: 5px; }
+  .folder-symbol svg { width: 23px; height: 23px; }
+  .folder-surface h2, .folder-surface h3 { font-size: 16px; }
+  .folder-surface p { font-size: 11px; line-height: 1.8; margin-top: 7px; margin-bottom: 15px; }
+  .folder-open { font-size: 10px; padding-top: 12px; }
+  .folder-meta { font-size: 10px; }
+  .home-content-grid { margin-top: 29px; gap: 28px; }
+  .document-list, .shortcut-list { padding-inline: 15px; }
+  .document-row { gap: 11px; }
+  .document-copy h3 { font-size: 13px; }
+  .document-row > svg { display: none; }
+  .document-duration { font-size: 10px; }
+  .shortcut-list { gap: 0 15px; }
+  .shortcut-row { font-size: 12px; gap: 9px; min-height: 70px; }
+  .shortcut-icon { width: 30px; height: 33px; }
+  .shortcut-row > svg { width: 13px; }
+  .home-projects { margin-top: 30px; }
+  .home-project-grid, .project-folder-grid { grid-template-columns: minmax(0, 1fr); gap: 23px; }
+  .classroom-folder.compact .folder-surface { min-height: 190px; }
+  .project-folder-grid .folder-surface { min-height: 220px; }
+}
+@media (max-width: 370px) {
+  .home-folder-grid { gap: 20px 10px; }
+  .folder-surface { padding: 15px 11px; }
+  .folder-surface h3 { font-size: 14px; }
+  .section-hint { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .folder-surface { transition: none; }
+  .classroom-folder:hover .folder-surface, .classroom-folder:focus-visible .folder-surface { transform: none; }
+}
+@media print {
+  .folder-surface { background: #fff; box-shadow: none; break-inside: avoid; }
+  .workspace-heading .button, .folder-open { display: none; }
+}

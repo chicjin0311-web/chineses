@@ -1,14 +1,64 @@
 import Link from 'next/link';
-import { ArrowUpRight, ArrowRight, BookOpen, AudioLines, Layers, Timer, Shuffle, ChevronRight, Sparkles } from 'lucide-react';
-import { DailyCard } from '@/components/interactive';
+import { ArrowRight, ArrowUpRight, AudioLines, BookOpen, FileText, FolderOpen, Layers, NotebookPen, Shapes, Shuffle, Timer } from 'lucide-react';
+import { FolderCard } from '@/components/folder-card';
 import { getResources, getProjects } from '@/lib/catalog';
-export const revalidate=60;
-export default async function Home(){
-  const [resources,projects]=await Promise.all([getResources(),getProjects()]);
-  return <div className="page home-page"><div className="page-greeting"><div><p className="greeting-caption"><span className="live-dot"/>오늘도, 반가워요</p><h1>중국어로 만나는<br className="mobile-only"/> 조금 더 넓은 세상.</h1><p>한마디씩 배우고, 함께 만들고. 우리들의 중국어 시간이 시작됩니다.</p></div><span className="greeting-seal" lang="zh-CN">学<br/>习</span></div>
-    <section className="hero-grid" aria-label="오늘의 배움"><div className="hero-panel"><div className="hero-copy"><span className="small-pill"><span/>우리의 첫 번째 중국어</span><h2>가벼운 인사로<br/>시작해 볼까요?</h2><p>낯선 언어가 반가운 인사가 되는 순간.<br/>오늘은 친구에게 你好라고 말해 보세요.</p><Link href="/resources/hello" className="button primary">첫 수업 만나기 <ArrowUpRight size={18}/></Link><span className="hero-bottom"><BookOpen size={14}/> 입문자를 위한 15분 수업</span></div><div className="desk-art" aria-hidden="true"><div className="paper-back paper-back-one"/><div className="paper-back paper-back-two"/><div className="flash-paper"><div className="paper-top"><span>첫 번째 인사</span><span>01</span></div><span className="paper-pinyin">nǐ hǎo</span><div className="hanzi-grid"><span>你</span><span>好</span></div><span className="paper-meaning">안녕, 만나서 반가워!</span><div className="paper-rule"/><span className="paper-bottom">작은 용기로 시작하는 한마디</span></div><div className="pencil"><span/></div><div className="hello-sticker">你好<span>hello, friend!</span></div><span className="art-spark spark-one">✦</span><span className="art-spark spark-two">✧</span></div></div><DailyCard/></section>
-    <section className="quick-section"><div className="section-heading"><h2>오늘 수업, 이렇게 시작해요</h2><Link href="/tools">도구 모두 보기 <ArrowUpRight size={15}/></Link></div><div className="quick-tools"><Link className="quick-tool" href="/tools/flashcards"><span className="tool-icon sage"><Layers/></span><span><strong>단어 카드</strong><small>한 장씩, 차곡차곡</small></span><ChevronRight size={17}/></Link><Link className="quick-tool" href="/tools/pronunciation"><span className="tool-icon peach"><AudioLines/></span><span><strong>발음 연습</strong><small>소리 내어 읽어 보기</small></span><ChevronRight size={17}/></Link><Link className="quick-tool" href="/tools/timer"><span className="tool-icon butter"><Timer/></span><span><strong>집중 타이머</strong><small>함께 몰입하는 시간</small></span><ChevronRight size={17}/></Link><Link className="quick-tool" href="/tools/random"><span className="tool-icon sky"><Shuffle/></span><span><strong>랜덤 뽑기</strong><small>이번에는 누구 차례?</small></span><ChevronRight size={17}/></Link></div></section>
-    <div className="lower-grid"><section><div className="section-heading"><div><h2>배움이 쌓이는 자료실</h2><p>처음부터 차근차근, 나에게 맞는 한 걸음.</p></div><Link href="/resources">전체 보기 <ArrowUpRight size={15}/></Link></div><div className="resource-preview-list">{resources.slice(0,3).map((r,i)=><Link className="resource-preview" href={`/resources/${r.slug}`} key={r.slug}><span className={`resource-thumb ${r.accent}`} lang="zh-CN">{r.symbol}</span><div><span className="resource-meta">{r.category}<span>·</span>{r.level}</span><h3>{r.title}</h3><p>{r.description}</p></div><span className="preview-minutes">{r.minutes}분</span><ArrowUpRight className="preview-arrow" size={19}/></Link>)}</div></section><section className="project-preview-section"><div className="section-heading"><div><h2>함께 만드는 프로젝트</h2><p>배운 중국어를 우리의 이야기로.</p></div><Link href="/projects" aria-label="프로젝트 전체 보기"><ArrowUpRight size={18}/></Link></div><Link href={`/projects/${projects[0].slug}`} className="project-feature"><div className="project-feature-art" aria-hidden="true"><div className="passport"><span>我们的旅行</span><strong>旅</strong><small>our little journey</small></div><div className="ticket"><span>다음 목적지</span><strong>北京</strong><small>BEIJING</small><div className="ticket-dots"/></div><span className="post-stamp">一起去!</span></div><div className="project-feature-copy"><span className="small-pill">{projects[0].category}<span className="pill-dot"/>{projects[0].duration}</span><h3>{projects[0].title}</h3><p>함께 고르고, 만들고, 떠나 볼까요?</p><span className="project-go"><ArrowUpRight size={20}/></span></div></Link></section></div>
-    <div className="closing-note"><Sparkles size={16}/><span>완벽하지 않아도 좋아요. 오늘 배운 한마디가 내일의 대화가 됩니다.</span><span lang="zh-CN">每天进步一点点。</span></div>
-  </div>;
+import { classroomTools } from '@/lib/tools';
+
+export const revalidate = 60;
+const toolIcons = [Layers, AudioLines, Timer, Shuffle];
+
+export default async function Home() {
+  const [resources, projects] = await Promise.all([getResources(), getProjects()]);
+  return (
+    <div className="page home-page">
+      <header className="workspace-heading">
+        <div>
+          <p className="workspace-caption">혜진 선생님의 중국어 교실</p>
+          <h1>중국어 수업, 한곳에.</h1>
+          <p>배울 자료를 찾고, 수업 도구를 꺼내고, 함께 만들어 보세요.</p>
+        </div>
+        <Link href="/resources" className="button primary">학습 자료 찾기 <ArrowUpRight size={17} aria-hidden="true" /></Link>
+      </header>
+
+      <section className="workspace-folders" aria-labelledby="folders-heading">
+        <div className="section-heading"><h2 id="folders-heading">수업 폴더</h2><span className="section-hint">필요한 공간을 바로 열어 보세요</span></div>
+        <div className="home-folder-grid">
+          <FolderCard href="/resources" title="학습 자료" description="발음 · 회화 · 어휘 · 한자 · 문화" meta={`${resources.length}개 자료`} icon={<BookOpen size={25} strokeWidth={1.6} />} />
+          <FolderCard href="/tools" title="수업 도구" description="카드부터 타이머까지, 수업의 도구함" meta={`${classroomTools.length}개 도구`} icon={<Shapes size={25} strokeWidth={1.6} />} />
+          <FolderCard href="/projects" title="프로젝트" description="친구들과 함께 만드는 중국어 활동" meta={`${projects.length}개 활동`} icon={<FolderOpen size={25} strokeWidth={1.6} />} />
+          <FolderCard href="/notebook" title="나의 학습 노트" description="오늘 배운 표현과 아이디어를 기록해요" meta="개인 기록" icon={<NotebookPen size={25} strokeWidth={1.6} />} />
+        </div>
+      </section>
+
+      <div className="home-content-grid">
+        <section aria-labelledby="materials-heading">
+          <div className="section-heading"><h2 id="materials-heading">학습 자료 둘러보기</h2><Link href="/resources">전체 보기 <ArrowRight size={15} aria-hidden="true" /></Link></div>
+          <div className="document-list">
+            {resources.slice(0, 4).map(resource => (
+              <Link href={`/resources/${resource.slug}`} className="document-row" key={resource.slug}>
+                <span className="document-icon" aria-hidden="true"><FileText size={21} strokeWidth={1.5} /></span>
+                <div className="document-copy"><h3>{resource.title}</h3><p>{resource.category} · {resource.level}</p></div>
+                <span className="document-duration">{resource.minutes}분</span><ArrowUpRight size={17} aria-hidden="true" />
+              </Link>
+            ))}
+            {!resources.length && <p className="list-empty">새로운 학습 자료를 준비하고 있어요.</p>}
+          </div>
+        </section>
+        <section aria-labelledby="tools-heading">
+          <div className="section-heading"><h2 id="tools-heading">바로 쓰는 수업 도구</h2><Link href="/tools">전체 보기 <ArrowRight size={15} aria-hidden="true" /></Link></div>
+          <div className="shortcut-list">
+            {classroomTools.map((tool, index) => {
+              const Icon = toolIcons[index];
+              return <Link href={`/tools/${tool.slug}`} className="shortcut-row" key={tool.slug}><span className="shortcut-icon" aria-hidden="true"><Icon size={20} strokeWidth={1.6} /></span><span>{tool.title}</span><ArrowUpRight size={16} aria-hidden="true" /></Link>;
+            })}
+          </div>
+        </section>
+      </div>
+
+      {projects.length > 0 && <section className="home-projects" aria-labelledby="projects-heading">
+        <div className="section-heading"><h2 id="projects-heading">함께 만드는 프로젝트</h2><Link href="/projects">전체 보기 <ArrowRight size={15} aria-hidden="true" /></Link></div>
+        <div className="home-project-grid">{projects.slice(0, 3).map(project => <FolderCard key={project.slug} href={`/projects/${project.slug}`} title={project.title} description={project.description} meta={`${project.category} · ${project.duration}`} compact />)}</div>
+      </section>}
+    </div>
+  );
 }
