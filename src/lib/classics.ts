@@ -10,6 +10,18 @@ export const caigentan = {
   poster: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/928d44e3-db3c-4508-9678-dd20dda26b99.jpg',
 };
 
+export const kindness = {
+  href: '/lessons/classics/think-of-others',
+  title: '내 마음처럼 친구 마음도 생각해요',
+  chinese: '己所不欲，勿施于人。',
+  pinyin: 'Jǐ suǒ bù yù, wù shī yú rén.',
+  meaning: '내가 원하지 않는 일을 남에게 하지 말라.',
+  source: '『논어』 위령공편',
+  sourceUrl: 'https://zh.wikisource.org/wiki/論語/衛靈公第十五',
+  video: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/32641094-9b08-4888-b34a-daf376a30943.mp4',
+  poster: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/a89cabec-7738-4c12-ad05-59fa9934f2bb.jpg',
+};
+
 export const reviewNew = {
   href: '/lessons/classics/old-and-new',
   title: '다시 익히면 새로운 길이 보여요',
