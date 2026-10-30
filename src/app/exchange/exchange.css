@@ -49,3 +49,5 @@
 .exchange-table-wrap { overflow-x: auto; }
 .exchange-table-wrap table { min-width: 620px; border-collapse: collapse; font-size: 14px; line-height: 1.8; }
 .exchange-table-wrap th, .exchange-table-wrap td { padding: 14px 12px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+
+.exchange-figure video { display: block; width: 100%; height: auto; border-radius: 12px; background: #111; }

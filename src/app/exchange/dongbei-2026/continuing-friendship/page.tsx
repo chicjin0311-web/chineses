@@ -16,6 +16,7 @@ export default function ContinuingFriendship() {
         <p>온라인 교류에서는 책을 대화의 소재로 삼았다. 우리 쪽에서는 『어린 왕자』를 바탕으로 ‘나에게 소중한 존재’와 ‘서로에게 특별해지는 과정’을 이야기할 수 있도록 자료를 준비했다. 중국 쪽 발표 자료에는 『서유기』의 인물과 모험, 우정과 성장에 관한 이야기가 담겼다.</p>
         <p>서로 다른 책을 통해 각자가 중요하게 생각하는 것을 나눌 수 있는 만남을 준비한 것이다. 작년에 알게 된 친구들과 올해는 조금 다른 이야기를 이어 가고 싶었다.</p>
         <p>그리고 최근에는 동북육재학교 학생들이 우리 학생들을 위한 수능 응원영상을 보내왔다. 입시를 앞둔 시기에, 멀리 있는 친구들이 보내온 응원이라 더욱 의미 있게 느껴졌다.</p>
+        <figure className="exchange-figure"><video controls playsInline preload="metadata" poster="/videos/exchange/dongbei-2026/cheering-intro.jpg" width="1280" height="720" aria-label="응원영상 도입부 7.5초: 종이비행기와 편지 애니메이션. 소리 없음."><source src="/videos/exchange/dongbei-2026/cheering-intro.mp4" type="video/mp4" />브라우저에서 영상을 재생할 수 없습니다.</video><figcaption>응원영상 도입부 · 7.5초 · 무음. 종이비행기가 날아가고 편지가 열리는 장면입니다. 학생 얼굴과 이름이 없는 부분만 담았습니다.</figcaption></figure>
         <p className="exchange-key"><strong>작년의 만남이,<br />올해 서로를 응원하는 사이로 이어지고 있다.</strong></p>
         <p>우리 학생들도 중국 친구들에게 응원영상을 만들어 보낼 생각이다. 소포도 준비할 예정이고, 그 안에는 학생들이 마음을 적은 엽서를 함께 넣으려 한다. 온라인에서 전한 인사가 영상과 손글씨로도 이어지기를 바란다.</p>
         <p>올해 교류는 아직 진행 중이다. 온라인으로 만나고, 응원을 받고, 이제 우리가 보낼 마음을 준비하고 있다. 작년의 교류가 한 번의 방문으로 끝나지 않고 이렇게 이어지고 있다는 점을 기록해 두고 싶다.</p>
