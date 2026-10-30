@@ -10,6 +10,18 @@ export const caigentan = {
   poster: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/928d44e3-db3c-4508-9678-dd20dda26b99.jpg',
 };
 
+export const reviewNew = {
+  href: '/lessons/classics/old-and-new',
+  title: '다시 익히면 새로운 길이 보여요',
+  chinese: '温故而知新，可以为师矣。',
+  pinyin: 'Wēn gù ér zhī xīn, kě yǐ wéi shī yǐ.',
+  meaning: '옛것을 익혀 새것을 알면, 스승이 될 수 있다.',
+  source: '『논어』 위정편 제11장',
+  sourceUrl: 'https://zh.wikisource.org/wiki/論語/爲政第二',
+  video: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/46919af8-c167-40b8-b28d-1541bdc32e66.mp4',
+  poster: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/429b4602-cfbe-4c3a-9690-1108ac2fd8ad.jpg',
+};
+
 export const learningJoy = {
   href: '/lessons/classics/joy-of-learning',
   title: '배우고 익히니 즐거워요',
