@@ -10,6 +10,18 @@ export const caigentan = {
   poster: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/928d44e3-db3c-4508-9678-dd20dda26b99.jpg',
 };
 
+export const learningJoy = {
+  href: '/lessons/classics/joy-of-learning',
+  title: '배우고 익히니 즐거워요',
+  chinese: '学而时习之，不亦说乎？',
+  pinyin: 'Xué ér shí xí zhī, bù yì yuè hū?',
+  meaning: '배우고 때때로 익히면, 또한 기쁘지 아니한가?',
+  source: '『논어』 학이편 제1장 첫 구절',
+  sourceUrl: 'https://zh.wikisource.org/wiki/論語/學而第一',
+  video: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/147fbd7f-e217-4f94-b811-0b67290ed0b1.mp4',
+  poster: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/d6943037-7ea6-49c2-9b0f-79f88eeedead.jpg',
+};
+
 export const analects = {
   href: '/lessons/classics/three-friends',
   title: '함께 걷는 친구에게도 배울 점이 있어요',
