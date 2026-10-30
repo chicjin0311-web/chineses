@@ -30,7 +30,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <Link href="/lessons/classics" className="classic-home-link"><div><strong>고전 한 문장 · 채근담</strong><p>토끼와 고슴도치의 이야기로 배우는 ‘한 걸음 양보하기’</p></div><ArrowRight size={20} aria-hidden="true" /></Link>
+      <Link href="/lessons/classics" className="classic-home-link"><div><strong>고전 한 문장 · 논어와 채근담</strong><p>귀여운 친구들의 이야기로 배우는 배움과 배려</p></div><ArrowRight size={20} aria-hidden="true" /></Link>
       <div className="home-content-grid">
         <section aria-labelledby="materials-heading">
           <div className="section-heading"><h2 id="materials-heading">수업 자료 둘러보기</h2><Link href="/lessons">언어 · 문화 <ArrowRight size={15} aria-hidden="true" /></Link></div>
