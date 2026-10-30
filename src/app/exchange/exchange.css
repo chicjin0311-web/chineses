@@ -21,6 +21,15 @@
 .exchange-prose p { margin: 0 0 24px; }
 .exchange-prose h2 { margin: 40px 0 16px; font-size: 22px; line-height: 1.5; }
 .exchange-article-footer { border-top: 1px solid var(--line); margin-top: 40px; padding-top: 24px; color: var(--muted); line-height: 1.8; }
+.exchange-key { font-size: clamp(21px, 2.3vw, 26px); line-height: 1.65; letter-spacing: -.025em; padding: 18px 0 18px 20px; border-left: 3px solid var(--ink); word-break: keep-all; overflow-wrap: anywhere; }
+.exchange-checklist { margin-top: 44px; padding: clamp(20px, 4vw, 32px); background: var(--surface-raised); border: 1px solid var(--line); border-radius: 18px; line-height: 1.85; word-break: keep-all; overflow-wrap: anywhere; }
+.exchange-checklist h2 { font-size: clamp(23px, 3vw, 28px); line-height: 1.5; }
+.exchange-checklist ol { padding-left: 24px; }
+.exchange-checklist li { padding: 10px 0 16px 6px; }
+.exchange-checklist li + li { border-top: 1px solid var(--line); }
+.exchange-checklist h3 { margin: 6px 0 8px; font-size: 19px; line-height: 1.6; }
+.exchange-checklist li p { margin: 0; }
+.exchange-checklist .exchange-critical-step h3 { font-size: 22px; }
 @media (max-width: 600px) {
   .exchange-series li { grid-template-columns: 45px 1fr; gap: 12px; }
   .exchange-status { grid-column: 2; padding-top: 0; }

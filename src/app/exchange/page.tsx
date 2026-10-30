@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const series = [
   { year: '2025', school: '동북육재학교', context: '교육부 한중고교생교류사업', description: '온라인 만남과 방중·방한을 한 흐름으로 돌아봅니다.' },
   { year: '2025', school: '샤먼과학기술고등학교', context: '학교 자체 추진 국제교류', description: '서로의 나라를 오간 교류와 홈스테이·호텔 숙박의 경험을 정리합니다.' },
-  { year: '2026', school: '대만 교류', context: '온라인에서 다음 만남으로', description: '학생들이 학교와 지역을 소개하며 서로를 알아 가는 과정을 담습니다.' },
+  { year: '2026', school: '대만 교류', context: '온라인에서 다음 만남으로', description: '1차 온라인 교류 → 사전답사 → 2차 온라인 교류', href: '/exchange/taiwan-2026' },
 ];
 
 export default function ExchangePage() {
@@ -32,8 +32,8 @@ export default function ExchangePage() {
       <p className="exchange-muted">학교별 이야기는 준비되는 대로 한 편씩 이어 갑니다.</p>
       <ol>{series.map(item => <li key={item.school}>
         <span className="exchange-year">{item.year}</span>
-        <div><p className="exchange-context">{item.context}</p><h3>{item.school}</h3><p>{item.description}</p></div>
-        <span className="exchange-status">준비 중</span>
+        <div><p className="exchange-context">{item.context}</p><h3>{item.href ? <Link href={item.href}>{item.school}</Link> : item.school}</h3><p>{item.description}</p></div>
+        <span className="exchange-status">{item.href ? <Link href={item.href}>첫 글 읽기 →</Link> : '준비 중'}</span>
       </li>)}</ol>
     </section>
   </div>;
