@@ -4,6 +4,7 @@ import { FolderCard } from './folder-card';
 import { ResourceLibrary } from './resource-library';
 import { getProjects, getResources } from '@/lib/catalog';
 import { writingCategories, type ClassroomSection } from '@/lib/site';
+import { PublishedPostList } from './published-post-list';
 
 function EmptyRecords({ category, title }: { category: string; title: string }) {
   return <section className="record-empty" aria-label={`${title} 기록`}>
@@ -35,7 +36,8 @@ export async function SectionPage({ section }: { section: ClassroomSection }) {
     </>}
 
     {(section.kind === 'language' || section.kind === 'culture') && <>
-      <p className="collection-footnote">현재 자료는 입문 수업 예시입니다. 실제 수업 자료를 이 분류에 맞춰 추가할 예정이에요.</p>
+      <PublishedPostList category={section.kind} />
+      <p className="collection-footnote">아래 자료는 짧게 활용할 수 있는 입문 수업 예시입니다.</p>
       <ResourceLibrary key={section.kind} resources={resources} categories={section.kind === 'language' ? ['전체', '회화', '발음', '어휘', '한자'] : ['전체', '문화']} />
     </>}
 

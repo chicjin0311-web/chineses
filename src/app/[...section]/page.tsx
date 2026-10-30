@@ -2,12 +2,7 @@ import { notFound } from 'next/navigation';
 import { SectionPage } from '@/components/section-page';
 import { classroomSections } from '@/lib/site';
 
-export const revalidate = 60;
-export const dynamicParams = false;
-
-export function generateStaticParams() {
-  return classroomSections.map(item => ({ section: item.path.split('/') }));
-}
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({ params }: { params: Promise<{ section: string[] }> }) {
   const { section } = await params;
