@@ -18,8 +18,8 @@ export const askAndLearn = {
   meaning: '아랫사람에게 묻는 것을 부끄러워하지 않는다.',
   source: '『논어』 공야장편 제15장 중 발췌',
   sourceUrl: 'https://zh.wikisource.org/wiki/論語/公冶長第五',
-  video: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/06c60082-f308-425e-abd7-daf57e522d8b.mp4',
-  poster: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/e717d855-69cb-438c-b114-4b69931cdb59.jpg',
+  video: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/b2cb783c-06cf-4c69-a53d-2428d2d4c1a7.mp4',
+  poster: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/da406437-fc2a-475f-b149-4bec60f919d2.jpg',
 };
 
 export const slowAndSteady = {
