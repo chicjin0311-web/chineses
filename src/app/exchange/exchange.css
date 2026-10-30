@@ -36,3 +36,16 @@
   .exchange-prose { font-size: 16px; line-height: 1.95; }
   .exchange-article { margin-top: 24px; }
 }
+
+.exchange-figure { margin: 32px 0; }
+.exchange-figure img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); }
+.exchange-figure figcaption, .exchange-prose .exchange-small { font-size: 13px; line-height: 1.8; color: var(--muted); }
+.exchange-figure figcaption { margin-top: 10px; }
+.exchange-details { border: 1px solid var(--line); border-radius: 14px; padding: 20px; margin: 24px 0; background: var(--surface-raised); }
+.exchange-details summary { cursor: pointer; font-size: 21px; font-weight: 700; line-height: 1.6; }
+.exchange-details p { margin-top: 16px; }
+.exchange-details li { margin: 16px 0; }
+.exchange-details ol { padding-left: 24px; }
+.exchange-table-wrap { overflow-x: auto; }
+.exchange-table-wrap table { min-width: 620px; border-collapse: collapse; font-size: 14px; line-height: 1.8; }
+.exchange-table-wrap th, .exchange-table-wrap td { padding: 14px 12px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }

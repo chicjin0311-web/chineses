@@ -1,16 +1,15 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import '../../exchange.css';
 
-export const metadata: Metadata = { title: '대만 친구들과 처음 인사한 날 — 1차 온라인 교류', description: '2026년 5월 29일 대만 허우쭝고등학교와의 첫 온라인 교류. 사전 협의, 학생 매칭, 회의·소그룹 접속 점검까지 준비 과정을 정리합니다.' };
+export const metadata: Metadata = { title: '대만 친구들과 처음 인사한 날 — 1차 온라인 교류', description: '2026년 5월 29일 대만 허우쭝고등학교와의 첫 온라인 교류. 패들렛 학교소개와 활동지, 학생 소그룹 매칭과 구글미트 접속 준비를 돌아봅니다.' };
 
 const steps = [
-  { title: '양교 담당자 사전 협의', text: '양국 현지 시각을 함께 적어 일정을 확정하고, 참여 인원·교류 언어·주제·진행 순서·담당자 역할을 맞춘다. 사용할 플랫폼과 회의 개설·소그룹 운영 담당자, 접속 문제가 생겼을 때 연락할 방법도 정한다.' },
-  { title: '참여 학생과 소그룹 매칭', text: '양교 인원과 학생들의 언어 수준·관심사를 고려해 그룹을 구성한다. 그룹별 인원, 발표 순서와 역할을 정하고 결석 시 조정 방법도 마련한다. 학생에게는 자기 그룹과 입장할 방을 미리 안내한다. 매칭 명단은 필요한 참여자에게만 공유한다.' },
-  { title: '회차별 활동과 자료 준비', text: '각 회차의 목표와 공통 과제를 정한다. 첫 만남에는 자기소개와 학교소개처럼 가까운 주제를 활용하고, 학생별 발표 자료·질문·답변 예시·활동지를 준비한다. 전체 활동과 소그룹 활동 시간을 나누고 자료 제출 기한도 양교가 맞춘다.' },
-  { title: '회의 실행과 소그룹까지 실제로 시험하기', text: '줌·구글미트 등 사용할 플랫폼에 양교가 실제 계정과 당일 사용할 기기·학교 네트워크로 접속한다. 입장 승인, 마이크·스피커·카메라, 화면 공유와 영상 소리를 확인한다. 해당 계정·요금제·학교 설정에서 소그룹 기능을 사용할 수 있는지도 확인하고, 방 생성 → 학생 배정 → 이동 → 교사 방문 → 전체방 복귀까지 직접 시험한다. 소그룹 기능을 쓸 수 없다면 별도 회의 링크와 담당 교사 배치 등 대안을 함께 시험한다.' },
-  { title: '학생 사전교육과 최종 안내', text: '문화 이해와 온라인 예절을 다루고 대본·발표 자료를 점검한다. 그룹별 접속 방법과 활동 순서를 안내하고, 연결이 끊겼을 때 돌아올 곳과 도움을 요청할 방법을 알려 준다. 당일에는 본 활동 전에 접속을 마치고 그룹별 참여 여부를 확인한다.' },
-  { title: '진행 후 돌아보기와 다음 회차 연결', text: '학생 소감과 활동 결과를 모으고, 양교 담당자가 시간 배분·소그룹 구성·접속 문제를 함께 돌아본다. 다음 교류의 주제와 준비 과제를 정해 첫 만남이 이어지도록 한다.' },
+  { title: '일정·큰 주제·회의 접속 확인', text: '양교 실무자가 일정과 큰 주제, 사용할 플랫폼을 정한다. 실무자끼리 회의를 열어 서로 접속되는지, 소리와 화면 공유가 되는지 확인한다.' },
+  { title: '학생 매칭과 소그룹 준비', text: '참여 학생을 소그룹으로 매칭하고 그룹별 접속 방법을 준비한다. 사전 점검에는 학생이 없어 소그룹 이동을 직접 해 보지는 못했다. 대신 방 구성과 학생 배정, 안내할 내용을 미리 정리했다.' },
+  { title: '각 학교 자료 준비와 사전교육', text: '큰 주제가 정해지면 활동과 자료는 각 학교가 준비한다. 우리 학교는 패들렛 학교소개 페이지와 활동지를 마련하고, 온라인 교류 전에 사진·중국어 표현·접속 방법·교류 예절을 지도했다.' },
+  { title: '교류 후 구글폼 후기', text: '활동을 마친 뒤 학생들이 구글폼으로 후기를 작성하도록 했다.' },
 ];
 
 export default function FirstOnlineExchange() {
@@ -20,22 +19,26 @@ export default function FirstOnlineExchange() {
       <header><p className="eyebrow">2026 대만 교류 · 첫 번째 이야기</p><h1>대만 친구들과 처음 인사한 날</h1><p className="exchange-muted">온라인 교류 1차 · 활동일 2026년 5월 29일</p></header>
       <div className="exchange-prose">
         <p>2026년 5월 29일, 대만 허우쭝고등학교와 첫 온라인 교류를 진행했다. 우리 학교 학생 25명과 대만 학생 35명이 화면으로 만났다. 12월 대면 교류를 앞두고, 서로를 알아 가는 첫 시간이었다.</p>
-        <p>첫 만남을 준비하는 일은 접속 링크를 만드는 것보다 훨씬 앞에서 시작됐다. 5월 12일 사전교육에서는 대만 문화와 온라인 교류 예절을 살펴보고, 화상회의 플랫폼 사용법을 익히며 접속 테스트를 했다. 학생별 발표 주제를 정하고 자기소개 대본도 함께 점검했다.</p>
+        <p>첫 만남을 준비하는 일은 접속 링크를 만드는 것보다 훨씬 앞에서 시작됐다. 온라인 교류에 앞서 5월 12일 사전교육을 실시했다. 대만 문화와 온라인 교류 예절, 화상회의 접속 방법을 안내했다. 학생별 발표 주제를 정하고 자기소개 대본도 함께 점검했다.</p>
         <p className="exchange-key"><strong>학생들이 대화를 시작할 수 있는 활동지를 준비했다.</strong></p>
         <p>인사와 자기소개에 필요한 질문·답변을 넣고, 중국어 문장에 병음과 한글 발음, 뜻을 함께 적었다. 처음부터 모든 말을 외우기보다, 필요한 표현을 찾아보며 말을 건넬 수 있도록 준비했다.</p>
-        <p>학교 소개도 학생들에게 익숙한 일상에서 출발했다. 급식과 교복, 도서관, 축제와 체육대회처럼 직접 설명할 수 있는 소재를 활동지에 담았다. 사진을 보여 주며 소개하고, 상대의 이야기에 짧게 반응할 수 있는 표현도 함께 준비했다.</p>
+        <figure className="exchange-figure"><a href="/images/exchange/taiwan-2026/worksheet-1.png" target="_blank" rel="noopener noreferrer"><Image src="/images/exchange/taiwan-2026/worksheet-1.png" alt="1차 온라인 교류 활동지의 인사와 자기소개 질문·답변 예시. 학생이 작성하기 전의 빈 양식" width={893} height={1263} sizes="(max-width: 760px) 100vw, 720px" /></a><figcaption>말을 건넬 때 참고하도록 준비한 자기소개 활동지. 이미지를 누르면 크게 볼 수 있습니다.</figcaption></figure>
+        <p>학교 소개를 위해 패들렛에 학생들이 우리 학교를 소개할 수 있는 페이지를 만들어 공유했다. 학생들이 직접 학교 사진을 찍고, 사진 속 장소와 사물의 중국어 명칭을 익히도록 지도했다.</p>
+        <p>체육관(体育馆, tǐyùguǎn), 급식실(食堂, shítáng), 교실(教室, jiàoshì), 운동장(操场, cāochǎng), 교복(校服, xiàofú)처럼 매일 마주하는 것들이 소개할 거리가 되었다.</p>
+        <p className="exchange-muted exchange-small">위 어휘는 간화자와 한어병음으로 적었다. 아래 활동지는 대만 학생들과의 교류를 위해 번체자를 사용한 원본이다.</p>
+        <figure className="exchange-figure"><a href="/images/exchange/taiwan-2026/worksheet-3.png" target="_blank" rel="noopener noreferrer"><Image src="/images/exchange/taiwan-2026/worksheet-3.png" alt="급식·교복·학교 시설·축제 소개와 상대방 반응 표현을 담은 학교소개 활동지" width={893} height={1263} sizes="(max-width: 760px) 100vw, 720px" /></a><figcaption>사진을 보여 주며 학교생활을 소개하도록 준비한 활동지. 학생 개인정보가 기입되지 않은 양식입니다.</figcaption></figure>
         <p className="exchange-key"><strong>학생들이 자기 말로 설명할 수 있는 소재부터.</strong></p>
         <p>교류를 준비하는 분들께도 학생들의 일상에서 대화 주제를 골라 보시라고 권하고 싶다. 당일에는 양교 학교장 인사와 학교 소개로 문을 열고, 소회의실을 활용한 그룹별 활동으로 이어 갔다. 학생들은 자기소개와 학교소개를 하고, 준비한 시청각 자료를 활용해 서로의 문화를 나누며 자유롭게 소통했다.</p>
-        <p>전체가 함께하는 시간과 학생들이 직접 말하는 시간을 나누어 구성한 것이다. 자유롭게 이야기하는 시간에도 시작할 질문과 보여 줄 자료가 있으면 활동의 방향을 잡기 좋다. 양교 학생 수가 다를 때는 그룹 구성과 말할 기회도 미리 살펴볼 필요가 있다.</p>
-        <p>첫 온라인 교류는 앞으로 이어질 만남의 출발점이었다. 화면에서 나눈 인사와 학교 이야기가 다음 교류의 바탕이 되도록, 이후에도 소그룹 활동을 이어 가기로 했다.</p>
+        <p>대만과는 구글미트로 교류했다. 앞서 중국과 교류할 때는 줌으로 준비했지만 연결이 잘되지 않아 부브로 진행한 경험이 있었다. 그래서 플랫폼을 정하는 것만큼, 양교 실무자가 미리 회의를 열어 접속되는지 확인하는 일을 중요하게 생각했다.</p>
+        <p>교류를 마친 뒤에는 학생들이 구글폼으로 후기를 작성하도록 했다. 화면에서 나눈 인사와 학교 이야기가 다음 만남으로 이어지기를 바라며 첫 교류를 마무리했다.</p>
       </div>
       <section className="exchange-checklist" aria-labelledby="preparation-title">
         <p className="eyebrow">온라인 교류를 준비하는 분께</p><h2 id="preparation-title">준비 절차, 이렇게 정리해 두기</h2>
-        <p>이번 경험을 바탕으로 정리한 운영 체크리스트다. 계정과 학교 환경에 따라 필요한 설정은 달라질 수 있다.</p>
-        <p className="exchange-key"><strong>가장 중요한 점검은 실제 접속.<br />회의 시작부터 소그룹 이동과 복귀까지 양교가 함께 시험한다.</strong></p>
-        <ol>{steps.map((step, index) => <li key={step.title} className={index === 3 ? 'exchange-critical-step' : undefined}><h3>{step.title}</h3><p>{step.text}</p></li>)}</ol>
+        <p>실제로 준비하고 진행한 일을 네 가지로 줄여 보았다.</p>
+        <p className="exchange-key"><strong>회의는 실무자끼리 미리 열어 보고,<br />학생 소그룹은 매칭과 접속 안내를 준비하기.</strong></p>
+        <ol>{steps.map((step, index) => <li key={step.title} className={index === 0 ? 'exchange-critical-step' : undefined}><h3>{step.title}</h3><p>{step.text}</p></li>)}</ol>
       </section>
-      <footer className="exchange-article-footer"><p>다음 글에서는 대면 교류를 준비하며 진행한 대만 사전답사 이야기를 남겨 보려 한다.</p><Link href="/exchange/taiwan-2026" className="text-button">대만 교류 연재 목록 →</Link></footer>
+      <footer className="exchange-article-footer"><p><Link href="/exchange/taiwan-2026/site-visit">다음 이야기: 학생들과 함께 걸을 길을 먼저 살펴보다 →</Link></p><Link href="/exchange/taiwan-2026" className="text-button">대만 교류 연재 목록 →</Link></footer>
     </article>
   </div>;
 }
