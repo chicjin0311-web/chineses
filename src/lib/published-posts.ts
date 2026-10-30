@@ -14,7 +14,8 @@ export function publicPostClient() {
 export async function getPublishedPosts(category: string): Promise<PublishedPost[]> {
   const { data, error } = await publicPostClient().from('classroom_posts').select(columns).eq('status', 'published').eq('category', category).order('record_date', { ascending: false }).order('title');
   if (error) throw new Error('수업 자료를 불러오지 못했어요. 잠시 후 다시 시도해 주세요.');
-  return data ?? [];
+  const titleOrder = new Intl.Collator('ko', { numeric: true });
+  return (data ?? []).sort((a, b) => b.record_date.localeCompare(a.record_date) || titleOrder.compare(a.title, b.title));
 }
 
 export async function getPublishedPost(id: string): Promise<PublishedPost | null> {
@@ -29,3 +30,4 @@ export async function getPublishedAttachments(postId: string): Promise<Published
   if (error) throw new Error('첨부파일을 불러오지 못했어요.');
   return data ?? [];
 }
+
