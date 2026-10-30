@@ -10,6 +10,18 @@ export const caigentan = {
   poster: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/928d44e3-db3c-4508-9678-dd20dda26b99.jpg',
 };
 
+export const fixMistake = {
+  href: '/lessons/classics/fix-a-mistake',
+  title: '괜찮아, 잘못했으면 고치면 돼!',
+  chinese: '过则勿惮改。',
+  pinyin: 'Guò zé wù dàn gǎi.',
+  meaning: '잘못했으면 고치기를 꺼리지 말라.',
+  source: '『논어』 학이편 제8장 중 발췌',
+  sourceUrl: 'https://zh.wikisource.org/wiki/論語/學而第一',
+  video: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/716ea840-dccc-4d10-810d-c95303da5a7c.mp4',
+  poster: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/1c6ea5f9-bba0-4708-8f93-b923407409f4.jpg',
+};
+
 export const kindness = {
   href: '/lessons/classics/think-of-others',
   title: '내 마음처럼 친구 마음도 생각해요',
