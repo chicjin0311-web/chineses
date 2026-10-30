@@ -48,7 +48,7 @@ export default function TaiwanSiteVisit() {
 <li><strong>귀국 후 계획에 반영.</strong> 확인 완료·개선 요청·재확인 항목을 나누고, 학교·여행사와 변경 사항을 다시 확인한다. 숙소·식단·휴식·이동 계획을 조정한 뒤 학생 사전교육 자료에 반영한다.</li>
 <li><strong>방문 직전 다시 확인.</strong> 답사 이후의 공사·운영 시간·통제·예약·집결 공간 변화를 확인하고, 현장에서는 인원 점검과 인솔자 역할을 다시 맞춘다.</li>
 </ol></details>
-<footer className="exchange-article-footer"><p>다음 이야기에서는 사전답사 이후 진행한 2차 온라인 교류를 돌아봅니다.</p><p className="exchange-small exchange-muted">사진 3장은 대만 교통부 관광청 공식 멀티미디어 자료실에서 선별한 공개 허용 자료입니다. 원본 내용 변경 없이 표시했습니다. 각 사진의 제작·촬영자와 출처를 기재했으며, <a href="https://data.gov.tw/license">정부자료 개방 이용허락 제1판(OGDL 1.0)</a>에 따라 이용합니다. 현장 안전 점검 내용은 답사보고서를 바탕으로 했으며 홍보 사진으로 안전 상태나 집결 위치를 판정하지 않았습니다.</p></footer>
+<footer className="exchange-article-footer"><p><Link href="/exchange/taiwan-2026/online-2">다음 이야기: 이번에는 우리 지역을 소개합니다 →</Link></p><p className="exchange-small exchange-muted">사진 3장은 대만 교통부 관광청 공식 멀티미디어 자료실에서 선별한 공개 허용 자료입니다. 원본 내용 변경 없이 표시했습니다. 각 사진의 제작·촬영자와 출처를 기재했으며, <a href="https://data.gov.tw/license">정부자료 개방 이용허락 제1판(OGDL 1.0)</a>에 따라 이용합니다. 현장 안전 점검 내용은 답사보고서를 바탕으로 했으며 홍보 사진으로 안전 상태나 집결 위치를 판정하지 않았습니다.</p></footer>
 
     <Link href="/exchange/taiwan-2026" className="text-button">대만 교류 연재 목록 →</Link>
     </article>
