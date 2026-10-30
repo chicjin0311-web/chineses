@@ -10,6 +10,18 @@ export const caigentan = {
   poster: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/928d44e3-db3c-4508-9678-dd20dda26b99.jpg',
 };
 
+export const askAndLearn = {
+  href: '/lessons/classics/ask-and-learn',
+  title: '모르면 물어봐도 괜찮아!',
+  chinese: '不耻下问。',
+  pinyin: 'Bù chǐ xià wèn.',
+  meaning: '아랫사람에게 묻는 것을 부끄러워하지 않는다.',
+  source: '『논어』 공야장편 제15장 중 발췌',
+  sourceUrl: 'https://zh.wikisource.org/wiki/論語/公冶長第五',
+  video: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/06c60082-f308-425e-abd7-daf57e522d8b.mp4',
+  poster: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/e717d855-69cb-438c-b114-4b69931cdb59.jpg',
+};
+
 export const slowAndSteady = {
   href: '/lessons/classics/slow-and-steady',
   title: '서두르지 말고, 차근차근!',
