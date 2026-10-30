@@ -10,6 +10,18 @@ export const caigentan = {
   poster: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/928d44e3-db3c-4508-9678-dd20dda26b99.jpg',
 };
 
+export const slowAndSteady = {
+  href: '/lessons/classics/slow-and-steady',
+  title: '서두르지 말고, 차근차근!',
+  chinese: '欲速则不达。',
+  pinyin: 'Yù sù zé bù dá.',
+  meaning: '서두르면 도리어 목적을 이루지 못한다.',
+  source: '『논어』 자로편 제17장 중 발췌',
+  sourceUrl: 'https://zh.wikisource.org/wiki/論語/子路第十三',
+  video: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/bc0f90cb-64fa-40b7-9a60-9cbbef2c8817.mp4',
+  poster: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/74da6aa9-1a5d-4040-8f99-38c713019e2f.jpg',
+};
+
 export const fixMistake = {
   href: '/lessons/classics/fix-a-mistake',
   title: '괜찮아, 잘못했으면 고치면 돼!',
