@@ -13,6 +13,7 @@ export type WritingCategory = {
 };
 
 export const writingCategories: WritingCategory[] = [
+  { id: 'exchange', title: '국제교류 기록', group: '국제교류', href: '/exchange', description: '온라인에서 시작해 직접 만나고, 다음 교류로 이어지는 이야기를 모아요.', prompts: ['교류 연도와 함께한 학교', '만나기 전 준비와 온라인 활동', '직접 만나 함께한 활동', '다음 만남으로 이어진 이야기'] },
   { id: 'classics', title: '고전 한 문장', group: '중국어 수업', href: '/lessons/classics', description: '짧은 애니메이션으로 만나는 중국 고전의 지혜. 간화자와 병음으로 함께 읽어요.', prompts: ['고전 속 문장과 출전', '간화자와 한어병음', '한국어 뜻과 영상 속 상황', '내 일상에 적용할 질문'] },
   { id: 'language', title: '언어 수업', group: '중국어 수업', href: '/lessons/language', description: '발음, 어휘, 회화, 한자를 배우는 수업 자료를 모아요.', prompts: ['수업 주제와 대상', '학습 목표와 핵심 표현', '수업 흐름과 활동', '활용한 자료와 참고 링크'] },
   { id: 'culture', title: '문화 수업', group: '중국어 수업', href: '/lessons/culture', description: '음식과 생활, 예술과 문화를 함께 탐구해요.', prompts: ['함께 탐구할 문화 주제', '수업 목표와 질문', '비교하고 체험하는 활동', '활용한 자료와 참고 링크'] },
@@ -39,7 +40,6 @@ export type ClassroomSection = {
 
 export const classroomSections: ClassroomSection[] = [
   { path: 'lessons', title: '중국어 수업', description: '말을 익히고, 문화를 이해하고, 고전의 지혜를 일상에 연결해요.', eyebrow: '언어와 문화가 만나는 교실', kind: 'group', children: ['language', 'culture', 'classics'] },
-  { path: 'exchange', title: '국제교류', description: '화면 너머에서, 그리고 같은 공간에서. 서로의 일상과 배움을 나눕니다.', eyebrow: '만나고 나누며 넓어지는 세상', kind: 'group', children: ['online', 'in-person'] },
   { path: 'research', title: '수업 연구 노트', description: '그동안의 자료를 정리하고, 수업을 돌아보고, 새로운 수업안을 만듭니다.', eyebrow: '지난 수업에서 다음 수업으로', kind: 'group', children: ['archive', 'reflection', 'plans'] },
   ...writingCategories.map((category): ClassroomSection => ({
     path: category.href.slice(1), title: category.title, description: category.description, eyebrow: category.group,
@@ -52,7 +52,7 @@ export const classroomSections: ClassroomSection[] = [
 export const homeFolders = [
   { href: '/lessons', title: '중국어 수업', description: '언어 수업 · 문화 수업 · 고전 한 문장', meta: '배움의 자료실', icon: 'lessons' },
   { href: '/activities', title: '학생 활동', description: '함께한 활동과 프로젝트의 과정', meta: '함께 만드는 교실', icon: 'activities' },
-  { href: '/exchange', title: '국제교류', description: '온라인 교류 · 대면교류', meta: '서로의 세상을 만나요', icon: 'exchange' },
+  { href: '/exchange', title: '국제교류', description: '학교별로 이어지는 만남과 배움의 기록', meta: '서로의 세상을 만나요', icon: 'exchange' },
   { href: '/reading', title: '독서록', description: '책에서 만난 문장과 나의 생각', meta: '읽고 생각하기', icon: 'reading' },
   { href: '/diary', title: '일기', description: '기억하고 싶은 하루의 장면들', meta: '일상의 기록', icon: 'diary' },
   { href: '/research', title: '수업 연구 노트', description: '자료 정리 → 수업 성찰 → 새 수업안', meta: '다음 수업을 준비해요', icon: 'research' },

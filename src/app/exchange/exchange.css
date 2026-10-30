@@ -1,0 +1,29 @@
+.exchange-page { max-width: 1120px; }
+.exchange-feature { padding: clamp(24px, 4vw, 44px); border: 1px solid var(--line); border-radius: 20px; background: var(--surface-raised); margin: 28px 0 48px; }
+.exchange-feature h2 { font-size: clamp(23px, 3vw, 32px); line-height: 1.45; max-width: 720px; margin: 12px 0; word-break: keep-all; }
+.exchange-feature h2 a { color: inherit; text-decoration: none; }
+.exchange-feature h2 a:hover { text-decoration: underline; text-underline-offset: 5px; }
+.exchange-feature > p:not(.eyebrow) { color: var(--muted); line-height: 1.9; word-break: keep-all; }
+.exchange-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0; }
+.exchange-tags span { border: 1px solid var(--line); border-radius: 99px; padding: 6px 12px; font-size: 12px; background: var(--surface); color: var(--muted); }
+.exchange-series h2 { font-size: 22px; margin-bottom: 8px; }
+.exchange-muted, .exchange-context { color: var(--muted); }
+.exchange-series ol { list-style: none; padding: 0; margin: 24px 0 0; }
+.exchange-series li { display: grid; grid-template-columns: 64px 1fr auto; gap: 20px; padding: 24px 0; border-top: 1px solid var(--line); align-items: start; }
+.exchange-year { font-size: 20px; font-weight: 600; }
+.exchange-context { font-size: 12px; margin: 0 0 7px; }
+.exchange-series h3 { margin: 0 0 8px; font-size: 19px; }
+.exchange-series li div > p:last-child { margin: 0; line-height: 1.8; color: var(--muted); word-break: keep-all; }
+.exchange-status { color: var(--muted); font-size: 12px; padding-top: 4px; white-space: nowrap; }
+.exchange-article { max-width: 720px; margin: 32px auto 0; }
+.exchange-article h1 { font-size: clamp(28px, 3.5vw, 40px); line-height: 1.5; letter-spacing: -.035em; word-break: keep-all; }
+.exchange-prose { font-size: 17px; line-height: 2; word-break: keep-all; overflow-wrap: anywhere; }
+.exchange-prose p { margin: 0 0 24px; }
+.exchange-prose h2 { margin: 40px 0 16px; font-size: 22px; line-height: 1.5; }
+.exchange-article-footer { border-top: 1px solid var(--line); margin-top: 40px; padding-top: 24px; color: var(--muted); line-height: 1.8; }
+@media (max-width: 600px) {
+  .exchange-series li { grid-template-columns: 45px 1fr; gap: 12px; }
+  .exchange-status { grid-column: 2; padding-top: 0; }
+  .exchange-prose { font-size: 16px; line-height: 1.95; }
+  .exchange-article { margin-top: 24px; }
+}
