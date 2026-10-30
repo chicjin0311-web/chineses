@@ -31,6 +31,7 @@ export default async function Home() {
       </section>
 
       <Link href="/lessons/classics" className="classic-home-link"><div><strong>고전 한 문장 · 논어와 채근담</strong><p>귀여운 친구들의 이야기로 배우는 배움과 배려</p></div><ArrowRight size={20} aria-hidden="true" /></Link>
+      <Link href="/lessons/overview" className="classic-home-link"><div><strong>언어·문화 1~20차시 전체 구성표</strong><p>두 트랙의 주제와 핵심 활동을 한눈에 보고 수업자료로 이동해요.</p></div><ArrowRight size={20} aria-hidden="true" /></Link>
       <div className="home-content-grid">
         <section aria-labelledby="materials-heading">
           <div className="section-heading"><h2 id="materials-heading">수업 자료 둘러보기</h2><Link href="/lessons">언어 · 문화 <ArrowRight size={15} aria-hidden="true" /></Link></div>

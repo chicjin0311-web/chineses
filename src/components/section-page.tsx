@@ -29,6 +29,8 @@ export async function SectionPage({ section }: { section: ClassroomSection }) {
     </header>
     {siblings.length > 0 && <nav className="section-tabs" aria-label={`${section.eyebrow} 세부 폴더`}>{siblings.map(item => <Link key={item.id} href={item.href} aria-current={item.id === category?.id ? 'page' : undefined}>{item.title}</Link>)}</nav>}
 
+    {(section.path === 'lessons' || section.kind === 'language' || section.kind === 'culture') && <p><Link className="button soft" href="/lessons/overview">언어·문화 1~20차시 전체 구성표 <ArrowRight size={16} aria-hidden="true" /></Link></p>}
+
     {children && <>
       <div className={`collection-grid ${children.length === 3 ? 'three' : ''}`}>{children.map((item, index) => <FolderCard key={item.id} href={item.href} title={item.title} description={item.description} meta={section.path === 'research' ? `0${index + 1}` : section.title} heading="h2" />)}</div>
       {section.path === 'research' && <aside className="research-note"><span className="research-note-mark" aria-hidden="true">↗</span><div><h2>한 번의 수업이 다음 수업의 시작이 되도록.</h2><p>기존 자료에서 남길 것을 찾고, 학생들의 반응을 돌아본 뒤, 새 수업안에 연결해 보세요. 각 폴더에 맞는 질문으로 초안을 시작할 수 있어요.</p></div></aside>}
