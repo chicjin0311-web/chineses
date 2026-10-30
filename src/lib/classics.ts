@@ -1,3 +1,15 @@
+export const standTogether = {
+  href: '/lessons/classics/stand-together',
+  title: '친구야, 함께 일어나자!',
+  chinese: '己欲立而立人。',
+  pinyin: 'Jǐ yù lì ér lì rén.',
+  meaning: '자신이 바로 서고자 하면 다른 사람도 바로 서도록 돕는다.',
+  source: '『논어』 옹야편 중 발췌',
+  sourceUrl: 'https://ctext.org/analects/yong-ye/zh',
+  video: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/7a65141b-09a1-489e-8d63-c7bf64911644.mp4',
+  poster: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/54faa62d-7828-4eaf-884a-7a9d8b1986c2.jpg',
+};
+
 export const caigentan = {
   href: '/lessons/classics/one-step',
   title: '한 걸음 양보하면 함께 갈 수 있어요',
