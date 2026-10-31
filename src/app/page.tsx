@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, ArrowUpRight, AudioLines, BookOpen, BookMarked, FileText, FolderOpen, Globe2, Layers, LibraryBig, NotebookPen, Shuffle, Timer } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, AudioLines, BookOpen, BookMarked, FileText, FolderOpen, Globe2, Layers, LibraryBig, NotebookPen, Shuffle, Timer, Mic } from 'lucide-react';
 import { FolderCard } from '@/components/folder-card';
 import { getResources } from '@/lib/catalog';
 import { classroomTools } from '@/lib/tools';
@@ -7,7 +7,7 @@ import { homeFolders, site } from '@/lib/site';
 import './lessons/classics/style.css';
 
 export const revalidate = 60;
-const toolIcons = [Layers, AudioLines, Timer, Shuffle];
+const toolIcons = [Mic, Layers, AudioLines, Timer, Shuffle];
 const folderIcons = { lessons: BookOpen, activities: FolderOpen, exchange: Globe2, reading: BookMarked, diary: NotebookPen, research: LibraryBig };
 
 export default async function Home() {

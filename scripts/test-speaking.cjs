@@ -1,0 +1,21 @@
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),ts=require('typescript'),ExcelJS=require('exceljs');
+const {NextRequest}=require('next/server');
+const q={id:'price',text:'多少钱？',instruction:'합계',title:'가격',cue:'¥27',expected:'二十七块',source:'70쪽'};
+const attempt={id:'fixture',student_no:'=1+1',student_name:'테스트',questions:[q],answers:[{question_no:0,duration:1,mime:'audio/webm',rating:'충분',note:'명확한 응답'}],score:50,comment:'모든 반응 적절',submitted_at:'2026-10-31T14:00:00Z',reviewed_at:'2026-10-31T14:01:00Z'};
+const sandbox={exports:{},require:id=>id==='@supabase/supabase-js'?{createClient:()=>({auth:{getUser:async t=>t==='valid'?{data:{user:{id:'teacher'}}}:{data:{},error:{}}},rpc:async(_n,{p_action})=>({data:p_action==='room'?{room:{id:'room',title:'검증'},attempts:[attempt]}:p_action==='attempt'?structuredClone(attempt):{ok:true},error:null})})}:id==='@/lib/speaking-bank'?{speakingBank:[],validateBank:()=>true}:require(id),process:{env:{NEXT_PUBLIC_SUPABASE_URL:'https://example.invalid',NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY:'test',SPEAKING_GATEWAY_SECRET:'fixture-only'}},Buffer,Uint8Array,File,JSON,Number,Date,URL,Error};
+vm.runInNewContext(ts.transpileModule(fs.readFileSync('src/app/api/speaking/route.ts','utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022,esModuleInterop:true}}).outputText,sandbox);
+const request=(body,auth,origin='http://localhost')=>new NextRequest('http://localhost/api/speaking',{method:'POST',headers:{Origin:origin,'Content-Type':'application/json',...(auth?{Authorization:`Bearer ${auth}`}:{})},body:JSON.stringify(body)});
+(async()=>{
+ assert.equal((await sandbox.exports.POST(request({action:'rooms'}))).status,401);
+ assert.equal((await sandbox.exports.POST(request({action:'rooms'},'bad'))).status,401);
+ assert.equal((await sandbox.exports.POST(request({action:'join'},null,'https://other.invalid'))).status,403);
+ const response=await sandbox.exports.POST(request({action:'attempt'}));const data=await response.json();
+ assert.equal(data.questions[0].expected,undefined);assert.equal(data.questions[0].source,undefined);assert.equal(data.questions[0].cue,'¥27');
+ const result=await sandbox.exports.POST(request({action:'export',id:'room'},'valid'));assert.equal(result.status,200);
+ const book=new ExcelJS.Workbook();await book.xlsx.load(Buffer.from(await result.arrayBuffer()));
+ assert.deepEqual(book.worksheets.map(s=>s.name),['성적','문항별 기록','평가 안내']);
+ assert.equal(book.getWorksheet('성적').getCell('A2').value,'=1+1');assert.equal(book.getWorksheet('성적').getCell('A2').type,ExcelJS.ValueType.String);
+ assert.equal(book.getWorksheet('성적').getCell('E2').value,50);assert.equal(book.getWorksheet('문항별 기록').getCell('F2').value,'二十七块');
+ assert.equal((await sandbox.exports.POST(request({action:'review',score:99,answers:[],comment:'bad'},'valid'))).status,400);
+ console.log('PASS: origin/auth checks, student answer redaction, XLSX workbook/Unicode/score/formula safety, invalid score rejection');
+})().catch(e=>{console.error(e);process.exitCode=1;});
