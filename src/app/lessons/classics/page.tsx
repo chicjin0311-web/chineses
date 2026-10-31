@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { ArrowLeft, ArrowUpRight, Play } from 'lucide-react';
-import { caigentan, analects, learningJoy, reviewNew, kindness, fixMistake, slowAndSteady, askAndLearn, standTogether } from '@/lib/classics';
+import { caigentan, analects, learningJoy, reviewNew, kindness, fixMistake, slowAndSteady, askAndLearn, standTogether, harmony } from '@/lib/classics';
 import './style.css';
 
 export const metadata = { title: '고전 한 문장', description: '귀여운 애니메이션으로 배우는 중국 고전 명문장. 간화자, 한어병음, 한국어 뜻과 출전을 함께 확인하세요.' };
@@ -10,6 +10,10 @@ export default function Classics() {
     <Link className="back-link" href="/lessons"><ArrowLeft size={15} aria-hidden="true" />중국어 수업으로 돌아가기</Link>
     <header className="page-intro"><p className="eyebrow">중국어 수업 · 보고 읽고 생각하기</p><h1>고전 한 문장</h1><p>짧은 이야기로 뜻을 만나고, 중국어 한 문장을 일상으로 가져와요.</p></header>
     <nav className="section-tabs" aria-label="중국어 수업 세부 폴더"><Link href="/lessons/language">언어 수업</Link><Link href="/lessons/culture">문화 수업</Link><Link href="/lessons/classics" aria-current="page">고전 한 문장</Link></nav>
+    <Link className="classic-card" href={harmony.href}>
+      <div className="classic-thumbnail"><img src={harmony.poster} alt="서로 다른 발표 자료를 살펴보는 토끼와 고슴도치" width={960} height={540} /><span className="classic-play"><Play size={24} aria-hidden="true" />영상 보기</span></div>
+      <div className="classic-card-copy"><p className="eyebrow">10 · 논어 · 화이부동 · 3D</p><h2>{harmony.title}</h2><p className="classic-chinese" lang="zh-CN">{harmony.chinese}</p><p>통계와 인터뷰, 어떤 근거로 발표할까? 의견이 다른 조원과 함께 답을 찾아요.</p><span className="classic-card-link">영상과 문장 함께 보기 <ArrowUpRight size={18} aria-hidden="true" /></span></div>
+    </Link>
     <Link className="classic-card" href={standTogether.href}>
       <div className="classic-thumbnail"><img src={standTogether.poster} alt="앉아 있는 고슴도치가 일어나도록 손을 내미는 토끼" width={960} height={540} /><span className="classic-play"><Play size={24} aria-hidden="true" />영상 보기</span></div>
       <div className="classic-card-copy"><p className="eyebrow">09 · 논어 · 함께 성장하기 · 3D</p><h2>{standTogether.title}</h2><p className="classic-chinese" lang="zh-CN">{standTogether.chinese}</p><p>먼저 일어난 토끼가 친구에게 손을 내밀어요. 나와 친구가 함께 잘되도록 도와요.</p><span className="classic-card-link">영상과 문장 함께 보기 <ArrowUpRight size={18} aria-hidden="true" /></span></div>

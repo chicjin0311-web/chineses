@@ -1,3 +1,15 @@
+export const harmony = {
+  href: '/lessons/classics/harmony-in-difference',
+  title: '의견이 달라도, 같은 팀',
+  chinese: '君子和而不同。',
+  pinyin: 'Jūnzǐ hé ér bù tóng.',
+  meaning: '군자는 조화를 이루되 무조건 같은 의견을 따르지는 않는다.',
+  source: '『논어』 자로편 제23장 중 발췌',
+  sourceUrl: 'https://ctext.org/text.pl?if=gb&node=1428&show=parallel',
+  video: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/0cc50016-da1c-4664-8914-0cf4d78fd797.mp4',
+  poster: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/07ac3562-f372-49b0-beea-b538a08a3535.jpg',
+};
+
 export const standTogether = {
   href: '/lessons/classics/stand-together',
   title: '친구야, 함께 일어나자!',
