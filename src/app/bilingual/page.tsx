@@ -5,7 +5,7 @@ import './style.css';
 
 export const metadata: Metadata = {
   title: '이중언어교육',
-  description: '초등팀과 중등팀이 함께 만드는 이중언어 교재. 기초 중국어와 중국 문화 이해를 통한 다문화 감수성의 배움을 나눕니다.',
+  description: '이중언어 교재 공동 개발과 대만 여행 실용서를 만드는 클래스랩 프로젝트. 언어와 문화가 만나는 배움을 기록합니다.',
   alternates: { canonical: 'https://chineses.vercel.app/bilingual' },
 };
 
@@ -19,8 +19,8 @@ export default function BilingualPage() {
     </section>
     <div className="bilingual-areas">
       <section><BookOpen size={24} aria-hidden="true" /><h2>이중언어 교재 제작</h2><p>기초 중국어 표현부터 다문화 감수성까지. 두 팀의 전문성을 모아 교재를 구성한 과정을 소개합니다.</p><Link className="text-button" href="/bilingual/textbook-development">공동 개발 기록 보기 →</Link></section>
-      <section><Users size={24} aria-hidden="true" /><h2>클래스랩 운영</h2><p>교실에서 이루어진 활동과 학생들의 배움을 나눌 공간입니다.</p><span className="bilingual-pending">운영 기록 준비 중</span></section>
+      <section><Users size={24} aria-hidden="true" /><h2>클래스랩 운영</h2><p>직접 엮은 소책자에 대만의 정보와 여행 회화를 담습니다. 영상 제작까지 진행한 2학기 프로젝트 수업을 소개합니다.</p><Link className="text-button" href="/bilingual/classlab-taiwan-guide">대만 여행 실용서 제작 이야기 →</Link></section>
     </div>
-    <section className="bilingual-records" aria-labelledby="records-title"><h2 id="records-title">교재 제작 기록</h2><Link href="/bilingual/textbook-development"><div><span>2026. 10. 31. · 공동 개발</span><h3>말하고, 노래하고, 놀며 배우는 중국어</h3><p>초등팀과 중등팀의 협업으로 완성을 앞둔 이중언어 교재 이야기</p></div><ArrowRight size={22} aria-hidden="true" /></Link></section>
+    <section className="bilingual-records" aria-labelledby="records-title"><h2 id="records-title">교재와 수업의 기록</h2><Link href="/bilingual/classlab-taiwan-guide"><div><span>2026. 10. 31. · 클래스랩 · 진행 중</span><h3>내 손으로 엮는 대만 여행 실용서</h3><p>오침안정법 소책자에서 테마별 여행 회화와 영상까지</p></div><ArrowRight size={22} aria-hidden="true" /></Link><Link href="/bilingual/textbook-development"><div><span>2026. 10. 31. · 공동 개발</span><h3>말하고, 노래하고, 놀며 배우는 중국어</h3><p>초등팀과 중등팀의 협업으로 완성을 앞둔 이중언어 교재 이야기</p></div><ArrowRight size={22} aria-hidden="true" /></Link></section>
   </div>;
 }
