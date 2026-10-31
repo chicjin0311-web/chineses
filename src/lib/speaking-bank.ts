@@ -2,10 +2,10 @@ export type Variant = { id: string; image?: string; cue?: string; expected: stri
 export type Question = { id: string; text: string; title: string; instruction: string; variants: Variant[] };
 export type AssignedQuestion = Omit<Question, 'variants'> & Variant;
 export const speakingBank: Question[] = [
-  {id:'buy', title:'구매 품목',text:'你要买什么？',instruction:'그림 속 물건을 사려고 합니다. 물건 이름을 말하세요. 수량은 말하지 않아도 됩니다.',variants:[
-    {id:'tablet',image:'/speaking/tablet.png',expected:'平板电脑 / 我要买一台平板电脑。',source:'교과서 69쪽 · 지도서 193쪽'},
-    {id:'skirts',image:'/speaking/skirts.png',expected:'裙子 / 我要买两条裙子。',source:'교과서 69쪽 · 지도서 193쪽'},
-    {id:'apples',image:'/speaking/apples.png',expected:'苹果 / 我要买三斤苹果。',source:'교과서 69쪽 · 지도서 193쪽'}]},
+  {id:'buy', title:'구매 품목',text:'你要买什么？',instruction:'화면에 제시된 물건을 사려고 합니다. 질문에 맞게 중국어로 답하세요. 수량은 말하지 않아도 됩니다.',variants:[
+    {id:'tablet',cue:'平板电脑',expected:'平板电脑 / 我要买一台平板电脑。',source:'교과서 69쪽 · 지도서 193쪽'},
+    {id:'skirts',cue:'裙子',expected:'裙子 / 我要买两条裙子。',source:'교과서 69쪽 · 지도서 193쪽'},
+    {id:'apples',cue:'苹果',expected:'苹果 / 我要买三斤苹果。',source:'교과서 69쪽 · 지도서 193쪽'}]},
   {id:'bag',title:'봉투 필요 여부',text:'需要塑料袋吗？',instruction:'자신의 생각에 따라 답하세요.',variants:[{id:'free',expected:'需要 / 不用 / 不用，我们带了环保袋。',source:'교과서 67쪽'}]},
   {id:'price',title:'가격',text:'多少钱？',instruction:'당신은 계산원입니다. 표시된 합계 금액을 말하세요.',variants:[
     {id:'180',cue:'¥180',expected:'一百八十块 / 一共一百八十块。',source:'교과서 67쪽'},
@@ -13,10 +13,14 @@ export const speakingBank: Question[] = [
   {id:'pay',title:'결제 방법',text:'您怎么付？',instruction:'교과서에서 배운 결제 방법으로 답하세요.',variants:[{id:'qr',expected:'我扫一下二维码 / 扫码。',source:'교과서 67쪽'}]},
   {id:'choice',title:'식사 방식',text:'咱们出去吃还是叫外卖？',instruction:'자신이 원하는 방식 하나를 골라 답하세요.',variants:[{id:'free',expected:'出去吃 / 出去吃面 / 叫外卖。',source:'교과서 95·100쪽'}]},
   {id:'suggest',title:'제안에 반응',text:'出去吃面，怎么样？',instruction:'자신의 생각에 따라 답하세요.',variants:[{id:'free',expected:'好啊 / 好的 / 我不想吃面。',source:'교과서 95쪽'}]},
-  {id:'food',title:'음식 선택',text:'想吃什么？',instruction:'그림 속 음식을 먹고 싶습니다. 음식 이름을 말하세요.',variants:[
-    {id:'noodles',image:'/speaking/noodles.png',expected:'炸酱面 / 我想吃炸酱面。',source:'교과서 101쪽 · 지도서 267쪽'},
-    {id:'fried-noodles',image:'/speaking/fried-noodles.png',expected:'炒面 / 我想吃炒面。',source:'교과서 101쪽 · 지도서 267쪽'}]},
-  {id:'experience',title:'음식 경험',text:'你吃过牛肉面吗？',instruction:'자신의 경험에 따라 답하세요.',variants:[{id:'free',expected:'吃过 / 没吃过 / 我还没吃过牛肉面。',source:'교과서 97쪽 경험 표현을 질문으로 변형'}]},
+  {id:'food',title:'음식 선택',text:'你想吃什么？',instruction:'화면에 제시된 음식을 먹고 싶습니다. 질문에 맞게 중국어로 답하세요.',variants:[
+    {id:'noodles',cue:'炸酱面',expected:'炸酱面 / 我想吃炸酱面。',source:'교과서 101쪽 · 지도서 267쪽'},
+    {id:'fried-noodles',cue:'炒面',expected:'炒面 / 我想吃炒面。',source:'교과서 101쪽 · 지도서 267쪽'}]},
+  {id:'drink',title:'음료 선택',text:'你想喝什么？',instruction:'화면에 제시된 음료를 마시고 싶습니다. 질문에 맞게 중국어로 답하세요.',variants:[
+    {id:'water',cue:'矿泉水',expected:'矿泉水 / 我想喝矿泉水。',source:'교과서 101쪽 · 지도서 267쪽'},
+    {id:'tea',cue:'红茶',expected:'红茶 / 我想喝红茶。',source:'교과서 101쪽 · 지도서 267쪽'},
+    {id:'juice',cue:'果汁',expected:'果汁 / 我想喝果汁。',source:'교과서 101쪽 · 지도서 267쪽'},
+    {id:'cola',cue:'可乐',expected:'可乐 / 我想喝可乐。',source:'교과서 101쪽 · 지도서 267쪽'}]},
 ];
 
 export function validateBank(value: unknown): value is Question[] {
