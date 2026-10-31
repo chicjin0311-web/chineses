@@ -167,3 +167,16 @@ export const smallGoodDeeds = {
   poster: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/386752ca-4ef9-4e89-9b37-1153ce243d02.jpg',
 };
 
+
+export const sameStandard = {
+  "href": "/lessons/classics/same-standard",
+  "title": "내 책상은 예외일까?",
+  "chinese": "以责人之心责己，恕己之心恕人。",
+  "pinyin": "Yǐ zé rén zhī xīn zé jǐ, shù jǐ zhī xīn shù rén.",
+  "meaning": "남을 꾸짖는 마음으로 자신을 꾸짖고, 자신을 용서하는 마음으로 남을 용서하라.",
+  "source": "『명심보감』 존심편 중 발췌",
+  "sourceUrl": "https://db.cyberseodang.or.kr/front/sabuList/BookMain.do?bnCode=jti_5a0501&titleId=C8",
+  "video": "https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/658bb4fb-968c-4850-887e-1f0ede7e8b57.mp4",
+  "poster": "https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/8686d55f-5631-470c-b293-0328c445813e.jpg"
+};
+
