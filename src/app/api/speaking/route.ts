@@ -15,7 +15,9 @@ function respond(data:unknown,status=200){return NextResponse.json(data,{status,
 
 export async function POST(req:NextRequest){
  try{
-  if(req.headers.get('origin')!==new URL(req.url).origin) return respond({error:'다른 사이트에서는 요청할 수 없습니다.'},403);
+  const requestOrigin=req.headers.get('origin');
+  const requestHost=req.headers.get('host')||new URL(req.url).host;
+  if(!requestOrigin||new URL(requestOrigin).host!==requestHost) return respond({error:'다른 사이트에서는 요청할 수 없습니다.'},403);
   if(Number(req.headers.get('content-length')||0)>2_000_000) return respond({error:'녹음 파일이 너무 큽니다.'},413);
   const url=process.env.NEXT_PUBLIC_SUPABASE_URL,key=process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,secret=process.env.SPEAKING_GATEWAY_SECRET;
   if(!url||!key||!secret) return respond({error:'평가 저장소 설정이 아직 완료되지 않았습니다.'},503);
