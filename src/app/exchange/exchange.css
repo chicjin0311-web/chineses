@@ -57,3 +57,19 @@
 .exchange-topic { scroll-margin-top: 90px; }
 .exchange-topic ul { padding: 0; list-style: none; }
 .exchange-topic li { display: block; }
+
+.exchange-survey { margin: 28px 0; padding: clamp(20px, 4vw, 32px); background: var(--surface-raised); border: 1px solid var(--line); border-radius: 18px; }
+.exchange-survey h3 { margin: 8px 0 18px; font-size: 23px; line-height: 1.5; }
+.exchange-survey .exchange-survey-lead { display: flex; flex-direction: column; gap: 3px; margin-bottom: 24px; }
+.exchange-survey-lead strong { font-size: clamp(28px, 5vw, 38px); line-height: 1.4; letter-spacing: -.035em; }
+.exchange-survey-lead span { font-size: 14px; color: var(--muted); }
+.exchange-survey-bars { list-style: none; padding: 0; margin: 0 0 24px; }
+.exchange-survey-bars li { margin: 0 0 16px; }
+.exchange-survey-label { display: flex; justify-content: space-between; gap: 12px; font-size: 15px; line-height: 1.8; }
+.exchange-survey-label strong { white-space: nowrap; }
+.exchange-survey-track { height: 12px; overflow: hidden; background: var(--line); border-radius: 6px; margin-top: 5px; }
+.exchange-survey-fill { display: block; height: 100%; border-radius: inherit; }
+.exchange-survey-fill.positive { background: #347767; }
+.exchange-survey-fill.neutral { background: #8b7d66; }
+.exchange-survey-fill.negative { background: #a95340; }
+.exchange-survey .exchange-survey-note { font-size: 12px; line-height: 1.8; color: var(--muted); margin: 12px 0 0; }

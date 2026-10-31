@@ -5,10 +5,10 @@ import Image from 'next/image';
 import '../../exchange.css';
 export const metadata: Metadata = { title: "중국 국제교류 방중 | 화면으로 만난 친구의 학교를 찾아가다", description: '2025 중국 국제교류 · 동북육재학교 · 첫 번째 이야기 · 방중' , alternates: { canonical: "https://chineses.vercel.app/exchange/dongbei-2025/visit-china" }, openGraph: { title: "중국 국제교류 방중 | 화면으로 만난 친구의 학교를 찾아가다", description: "2025 중국 국제교류 · 동북육재학교 · 첫 번째 이야기 · 방중", url: "https://chineses.vercel.app/exchange/dongbei-2025/visit-china", type: "article", locale: "ko_KR" }};
 export default function Story() { return <div className="page exchange-page"><Link className="back-link" href="/exchange/dongbei-2025">← 2025 중국 국제교류 · 동북육재학교로 돌아가기</Link><article className="exchange-article"><header><p className="eyebrow">2025 중국 국제교류 · 동북육재학교 · 첫 번째 이야기 · 방중</p><h1>화면으로 만난 친구의 학교를 찾아가다</h1></header><div className="exchange-prose">
-<p>동북육재학교와의 인연은 국제교육원에서 추진한 한중고교생교류사업에 공모하면서 시작됐다. 선정 이후 우리 학교를 포함한 전남 4개 학교의 학생 20명과 인솔교원 3명이 중국 랴오닝성의 4개 학교와 교류했다. 우리 학교는 동북육재학교와 함께했다.</p>
+<p>동북육재학교와의 인연은 국제교육원에서 추진한 한중고교생교류사업에 공모하면서 시작됐다. 전남 4개 학교와 중국 랴오닝성 4개 학교가 함께한 사업에서, 우리 학교는 동북육재학교와 교류했다. 학교방문행사 운영결과보고서 기준으로 광양백운고 참가 인원은 학생 20명과 교육관계자 3명, 총 23명이었다.</p>
 <p>온라인으로 먼저 인사를 나눈 뒤, 우리가 중국을 방문했다. 이후 중국 학생들이 한국을 찾는 순서였다. 화면으로 만나던 친구들의 학교를 직접 찾아가는 것이 대면 교류의 시작이었다.</p>
 <p>교문에 도착했을 때의 장면이 특히 좋았다. 우리 학생들과 매칭된 중국 학생들이 한국 친구들의 이름을 한글로 써서 맞아 주고 있었다. 낯선 학교에서 만난 익숙한 한글 이름. 우리를 기다리며 준비했을 그 마음이 반갑고 고마웠다.</p><p className="exchange-key"><strong>교문에서 우리를 맞아 준 것은,<br />한글로 쓴 친구들의 이름이었다.</strong></p>
-<p>동북육재학교에서는 학교를 둘러보고 만두 만들기와 다도 수업에 참여했다. 친구들이 생활하는 공간을 보고, 함께 만들고 맛보며 중국의 학교생활과 문화를 접했다. 동북지역의 여러 학교와 명소를 방문하는 일정도 이어졌다.</p>
+<p>동북육재학교에서는 짝과 함께 만두를 만들고, 무술과 다도, 도자기 문양을 그리는 활동에도 참여했다. 학교 역사관과 항공 시뮬레이션실, 생태과학기지를 둘러보며 친구들이 어떤 공간에서 배우는지도 살펴봤다. 설명을 듣는 시간에 직접 해 보는 활동이 더해져, 자연스럽게 서로 도울 기회가 생겼다. 동북지역의 여러 학교와 명소를 방문하는 일정도 이어졌다.</p>
 <p>랴오닝성의 고궁 방문과 라오베이시(老北市) 야시장도 기억에 남는다. 야시장에서는 하늘을 나는 봉황 비행 쇼를 보았다. 학교 안에서의 만남에 지역의 역사와 생활을 접하는 시간이 더해졌다.</p>
 <figure className="exchange-figure">
 <Image src="/images/exchange/dongbei-2025/shenyang-palace.jpg" alt="사람 없이 건축물과 기와지붕이 펼쳐진 선양 고궁의 풍경" width={3824} height={1133} sizes="(max-width: 768px) 100vw, 900px" />
@@ -26,4 +26,4 @@ export default function Story() { return <div className="page exchange-page"><Li
 <li><h3>안 될 때의 대안 마련</h3><p>현금을 거의 쓰지 않았던 경험과 별개로, 위안화 소액 현금은 예비 수단으로 준비한다. 결제가 되지 않으면 인솔교사에게 도움을 요청하도록 안내한다. 결제 비밀번호·인증번호·여권 및 카드 정보는 친구나 단체 채팅방에 공유하지 않는다.</p></li>
 </ol>
 <p className="exchange-small">참고: <a href="https://www.szns.gov.cn/english/news/content/post_11241383.html">중국인민은행 선전지점 외국인 결제 안내</a> · <a href="https://english.beijing.gov.cn/specials/paymentservices/howtopaybeijing/202404/t20240429_3647378.html">베이징시 위챗페이 해외 카드 이용 안내</a><br />위 내용은 이후 방중을 위한 준비 안내이며, 2025년 참가 학생 모두가 위챗페이를 사용했다는 뜻은 아닙니다.</p>
-</section><footer className="exchange-article-footer"><Link href="/exchange/dongbei-2025/visit-korea">다음 이야기: 이번에는 우리가 친구들을 맞이할 차례 →</Link></footer><ExchangeTags tags={["중국국제교류", "동북육재학교", "방중준비"]} /></article></div>; }
+</section><footer className="exchange-article-footer"><Link href="/exchange/dongbei-2025/visit-korea">다음 이야기: 이번에는 우리가 친구들을 맞이할 차례 →</Link><br /><Link href="/exchange/dongbei-2025/student-reflections">학생들의 소감문에서 다시 만난 중국 교류 →</Link></footer><ExchangeTags tags={["중국국제교류", "동북육재학교", "방중준비"]} /></article></div>; }

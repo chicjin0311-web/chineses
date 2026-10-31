@@ -1,3 +1,4 @@
+import { ExchangeSurveyChart } from '@/components/exchange-survey-chart';
 import { ExchangeTags } from '@/components/exchange-tags';
 import type { Metadata } from 'next';
 import Link from 'next/link';
@@ -25,6 +26,13 @@ export default function Story() {
         <p>샤먼 교류 때는 새벽 공항 이동에 더해, 중국 인솔교사들을 호텔에서 픽업해 학교로 모시는 일도 맡았다. 귀국 날에는 출발 시간에 맞추려고 호텔에 일찍 도착했지만, 중국 인솔교사들이 약속한 시간보다 늦게 나오면서 학교 도착도 늦어졌다. 다행히 학생들은 모두 잘 모여 있었지만, 내가 호텔에서 기다리는 동안 학교의 학생 집결까지 직접 챙길 수는 없었다.</p>
         <p>다음에는 학생 집결 담당자와 방문 교사 이동 담당자를 나누고 싶다. 전날 픽업 시간을 다시 확인하고, 출발이 지연될 때의 연락과 대체 이동 방법도 미리 정해 두려 한다. 담당자가 학생들과의 만남에 집중할 여유도 준비의 한 부분이기 때문이다.</p>
       </div>
+      <section className="exchange-prose" aria-labelledby="survey-reflection-title">
+        <h2 id="survey-reflection-title">학생들의 응답으로 돌아본 온라인 교류</h2>
+        <p>만족도 설문을 돌아보니, 외국 친구와의 대화를 좋았던 활동으로 꼽은 응답이 눈에 띄었다. 동시에 언어 소통과 온라인 도구 사용이 어려웠다는 응답도 있었다.</p>
+        <ExchangeSurveyChart />
+        <p className="exchange-key"><strong>만족했다는 응답과 함께,<br />어려웠다는 목소리도 다음 준비에 담고 싶다.</strong></p>
+        <p>다음에는 접속 확인과 함께, 학생들이 대화를 이어 갈 짧은 질문과 표현도 준비하려 한다. 발표 뒤에는 서로에게 질문할 시간을 남겨 두고 싶다. 만족도는 활동을 돌아보는 자료로 읽고, 학생의 성장이나 외국어 실력이 향상됐다는 수치로 대신하지 않으려 한다.</p>
+      </section>
       <section className="exchange-checklist" aria-labelledby="next-preparation-title">
         <p className="eyebrow">다음 교류를 준비한다면</p><h2 id="next-preparation-title">먼저 챙길 네 가지</h2>
         <ol>

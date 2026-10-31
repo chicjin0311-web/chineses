@@ -100,6 +100,28 @@ export const exchangePosts = [
       "홈스테이",
       "방한준비"
     ]
+  },
+  {
+    "href": "/exchange/dongbei-2025/student-reflections",
+    "title": "학생들의 소감문에서 다시 만난 중국 교류",
+    "description": "2025 중국 국제교류 · 동북육재학교 · 학생들의 방중 소감문과 다음 교류 준비.",
+    "tags": [
+      "중국국제교류",
+      "동북육재학교",
+      "학생소감문",
+      "국제교류준비"
+    ]
+  },
+  {
+    "href": "/exchange/xiamen-2025/student-reflections",
+    "title": "함께 지낸 며칠, 학생들의 일기에 남은 것들",
+    "description": "2025 중국 국제교류 · 샤먼과학기술고등학교 · 5월 방한 홈스테이 소감문과 사진일기.",
+    "tags": [
+      "중국국제교류",
+      "샤먼과학기술고등학교",
+      "학생소감문",
+      "홈스테이"
+    ]
   }
 ];
 export const exchangeTopics = [...new Set(exchangePosts.flatMap(post => post.tags))];

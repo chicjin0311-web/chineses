@@ -12,6 +12,7 @@ export default function Xiamen2025() {
       <li><span className="exchange-year">01</span><div><p className="exchange-context">5월 방한·홈스테이 → 12월 방중·호텔 숙박</p><h2><Link href="/exchange/xiamen-2025/our-first-story">우리 집에서 시작해, 친구의 학교로 이어진 만남</Link></h2><p>학교와 가정이 함께 준비한 교류, 아침밥과 놀이와 수업으로 나눈 일상.</p></div><Link className="exchange-status" href="/exchange/xiamen-2025/our-first-story">읽기 →</Link></li>
       <li><span className="exchange-year">02</span><div><p className="exchange-context">5월 방한 · 환영식과 송별식</p><h2><Link href="/exchange/xiamen-2025/welcome-and-farewell">처음의 환영 인사가, 함께한 시간을 돌아보는 인사로</Link></h2><p>첫 만남의 안내에서 학생들의 소감과 활동 기록을 나누는 마지막 인사까지.</p></div><Link className="exchange-status" href="/exchange/xiamen-2025/welcome-and-farewell">읽기 →</Link></li>
       <li><span className="exchange-year">03</span><div><p className="exchange-context">12월 방중 · 현지 학교 수업과 문화 경험</p><h2><Link href="/exchange/xiamen-2025/visit-china">우리 집에 왔던 친구의 학교를 찾아가다</Link></h2><p>공동수업과 수업 참관, 서로의 일상을 이해하는 두 번째 만남.</p></div><Link className="exchange-status" href="/exchange/xiamen-2025/visit-china">읽기 →</Link></li>
-    </ol></section>
+    <li><span className="exchange-year">04</span><div><p className="exchange-context">5월 방한 · 홈스테이 소감문과 사진일기</p><h2><Link href="/exchange/xiamen-2025/student-reflections">함께 지낸 며칠, 학생들의 일기에 남은 것들</Link></h2><p>김밥 만들기와 춤, 놀이와 편지에 남은 학생들의 경험.</p></div><Link className="exchange-status" href="/exchange/xiamen-2025/student-reflections">읽기 →</Link></li>
+</ol></section>
   </div>;
 }

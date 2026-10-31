@@ -28,7 +28,7 @@ export default function Story() {
           <li><h3>짧게라도 학생 기록 남기기</h3><p>인상적인 수업, 새롭게 알게 된 문화, 실제로 사용한 중국어를 그날그날 적도록 한다.</p></li>
         </ol>
       </section>
-      <footer className="exchange-article-footer"><Link href="/exchange/xiamen-2025/welcome-and-farewell">← 두 번째 이야기: 처음의 환영 인사가, 함께한 시간을 돌아보는 인사로</Link></footer>
+      <footer className="exchange-article-footer"><Link href="/exchange/xiamen-2025/welcome-and-farewell">← 두 번째 이야기: 처음의 환영 인사가, 함께한 시간을 돌아보는 인사로</Link><br /><Link href="/exchange/xiamen-2025/student-reflections">다음 이야기: 학생들의 소감문과 기록 →</Link></footer>
     <ExchangeTags tags={["중국국제교류", "샤먼과학기술고등학교", "공동수업", "방중준비"]} /></article>
   </div>;
 }
