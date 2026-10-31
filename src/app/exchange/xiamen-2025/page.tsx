@@ -10,6 +10,7 @@ export default function Xiamen2025() {
     <header className="page-intro"><p className="eyebrow">2025 · 중국 샤먼과학기술고등학교 · 학교 자체 교류</p><h1>2025 샤먼과학기술고등학교 교류</h1><p>5월에는 중국 친구들을 한국 가정으로 맞이하고, 12월에는 우리가 샤먼을 찾았습니다.</p></header>
     <section className="exchange-series" aria-label="2025 샤먼과학기술고등학교 교류 이야기"><ol>
       <li><span className="exchange-year">01</span><div><p className="exchange-context">5월 방한·홈스테이 → 12월 방중·호텔 숙박</p><h2><Link href="/exchange/xiamen-2025/our-first-story">우리 집에서 시작해, 친구의 학교로 이어진 만남</Link></h2><p>학교와 가정이 함께 준비한 교류, 아침밥과 놀이와 수업으로 나눈 일상.</p></div><Link className="exchange-status" href="/exchange/xiamen-2025/our-first-story">읽기 →</Link></li>
+      <li><span className="exchange-year">02</span><div><p className="exchange-context">5월 방한 · 환영식과 송별식</p><h2><Link href="/exchange/xiamen-2025/welcome-and-farewell">처음의 환영 인사가, 함께한 시간을 돌아보는 인사로</Link></h2><p>첫 만남의 안내에서 학생들의 소감과 활동 기록을 나누는 마지막 인사까지.</p></div><Link className="exchange-status" href="/exchange/xiamen-2025/welcome-and-farewell">읽기 →</Link></li>
     </ol></section>
   </div>;
 }

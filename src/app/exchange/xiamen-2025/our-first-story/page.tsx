@@ -28,7 +28,7 @@ export default function Story() {
           <li><h3>함께할 활동과 기록</h3><p>공동수업과 문화 체험에 편지·포토북 같은 기록 활동을 더한다. 함께한 경험을 학생들의 말로 남기도록 한다.</p></li>
         </ol>
       </section>
-      <footer className="exchange-article-footer"><Link href="/exchange/xiamen-2025">2025 샤먼과학기술고등학교 교류 목록으로 →</Link></footer>
+      <footer className="exchange-article-footer"><Link href="/exchange/xiamen-2025/welcome-and-farewell">다음 이야기: 처음의 환영 인사가, 함께한 시간을 돌아보는 인사로 →</Link></footer>
     </article>
   </div>;
 }
