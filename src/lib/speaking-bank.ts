@@ -21,5 +21,5 @@ export const speakingBank: Question[] = [
 
 export function validateBank(value: unknown): value is Question[] {
   if(!Array.isArray(value)||value.length<1||value.length>20) return false;
-  return value.every(q=> q && typeof q.id==='string' && typeof q.text==='string' && q.text.trim().length>0 && q.text.length<=300 && typeof q.title==='string' && typeof q.instruction==='string' && Array.isArray(q.variants) && q.variants.length>0 && q.variants.length<=10 && q.variants.every((v: Variant)=>typeof v.id==='string' && typeof v.expected==='string' && typeof v.source==='string' && (!v.image || /^\/speaking\/[a-z-]+\.png$/.test(v.image)) && (!v.cue || v.cue.length<=100)));
+  return value.every(q=> q && typeof q.id==='string' && typeof q.text==='string' && q.text.trim().length>0 && q.text.length<=300 && typeof q.title==='string' && typeof q.instruction==='string' && Array.isArray(q.variants) && q.variants.length>0 && q.variants.length<=10 && q.variants.every((v: Variant)=>typeof v.id==='string' && typeof v.expected==='string' && typeof v.source==='string' && (!v.image || (typeof v.image==='string' && (/^\/speaking\/[a-z-]+\.png$/.test(v.image) || (v.image.length<=160000 && /^data:image\/jpeg;base64,[A-Za-z0-9+/]+=*$/.test(v.image))))) && (!v.cue || v.cue.length<=100)));
 }

@@ -7,6 +7,8 @@ vm.runInNewContext(ts.transpileModule(fs.readFileSync('src/app/api/speaking/rout
 const request=(body,auth,origin='http://localhost')=>new NextRequest('http://localhost/api/speaking',{method:'POST',headers:{Origin:origin,'Content-Type':'application/json',...(auth?{Authorization:`Bearer ${auth}`}:{})},body:JSON.stringify(body)});
 (async()=>{
  assert.equal((await sandbox.exports.POST(request({action:'rooms'}))).status,401);
+ assert.equal((await sandbox.exports.POST(request({action:'update',id:'room',title:'수정',questions:[q]}))).status,401);
+ assert.equal((await sandbox.exports.POST(request({action:'update',id:'room',title:'수정',questions:[q]},'valid'))).status,200);
  assert.equal((await sandbox.exports.POST(request({action:'rooms'},'bad'))).status,401);
  assert.equal((await sandbox.exports.POST(request({action:'join'},null,'https://other.invalid'))).status,403);
  const response=await sandbox.exports.POST(request({action:'attempt'}));const data=await response.json();
@@ -19,3 +21,9 @@ const request=(body,auth,origin='http://localhost')=>new NextRequest('http://loc
  assert.equal((await sandbox.exports.POST(request({action:'review',score:99,answers:[],comment:'bad'},'valid'))).status,400);
  console.log('PASS: origin/auth checks, student answer redaction, XLSX workbook/Unicode/score/formula safety, invalid score rejection');
 })().catch(e=>{console.error(e);process.exitCode=1;});
+
+const bankContext={exports:{}};vm.runInNewContext(ts.transpileModule(fs.readFileSync('src/lib/speaking-bank.ts','utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS}}).outputText,bankContext);
+const bank=JSON.parse(JSON.stringify(bankContext.exports.speakingBank)),valid=bankContext.exports.validateBank;
+assert.equal(valid(bank),true);bank[0].variants[0].image='data:image/jpeg;base64,/9j/AAAA';assert.equal(valid(bank),true);
+for(const image of ['data:image/svg+xml;base64,AAAA','https://other.invalid/image.png','data:image/jpeg;base64,'+'A'.repeat(160001)]){bank[0].variants[0].image=image;assert.equal(valid(bank),false);}
+console.log('PASS: bounded uploaded raster validation and unsafe image rejection');
