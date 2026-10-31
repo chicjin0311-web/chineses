@@ -129,3 +129,15 @@ export const keepingPromises = {
   poster: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/a4bceed6-b489-43ff-9a19-5924ee54169b.jpg',
 };
 
+export const learningThinking = {
+  href: '/lessons/classics/learning-and-thinking',
+  title: '답만 외웠는데, 왜 막힐까?',
+  chinese: '学而不思则罔，思而不学则殆。',
+  pinyin: 'Xué ér bù sī zé wǎng, sī ér bù xué zé dài.',
+  meaning: '배우기만 하고 생각하지 않으면 사리에 어둡고, 생각만 하고 배우지 않으면 위태롭다.',
+  source: '『논어』 위정편 제15장',
+  sourceUrl: 'https://zh.wikisource.org/wiki/論語/爲政第二',
+  video: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/d8b28451-de03-4ab3-a8f2-e7615e736842.mp4',
+  poster: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/4f0d0da2-b573-4ec1-ad11-75c9fd15976b.jpg',
+};
+
