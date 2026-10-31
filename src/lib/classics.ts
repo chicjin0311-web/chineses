@@ -141,3 +141,16 @@ export const learningThinking = {
   poster: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/4f0d0da2-b573-4ec1-ad11-75c9fd15976b.jpg',
 };
 
+
+export const honestKnowing = {
+  href: '/lessons/classics/honest-about-knowing',
+  title: '모르는 건, 모른다고 말하기',
+  chinese: '知之为知之，不知为不知，是知也。',
+  pinyin: 'Zhī zhī wéi zhī zhī, bù zhī wéi bù zhī, shì zhì yě.',
+  meaning: '아는 것은 안다고 하고, 모르는 것은 모른다고 하는 것, 이것이 지혜이다.',
+  source: '『논어』 위정편 제17장 중 발췌',
+  sourceUrl: 'https://zh.wikisource.org/wiki/論語/爲政第二',
+  video: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/1c8e76a4-86a8-43b2-9d4a-4a317cd8bb1b.mp4',
+  poster: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/a64d3bf0-b71c-4098-8415-b86238d40f65.jpg',
+};
+
