@@ -50,6 +50,7 @@ export const classroomSections: ClassroomSection[] = [
 ];
 
 export const homeFolders = [
+  { href: '/bilingual', title: '이중언어교육', description: '이중언어 교재 공동 개발과 배움의 기록', meta: '두 언어로 함께 배우기', icon: 'lessons' },
   { href: '/lessons', title: '중국어 수업', description: '언어 수업 · 문화 수업 · 고전 한 문장', meta: '배움의 자료실', icon: 'lessons' },
   { href: '/activities', title: '학생 활동', description: '함께한 활동과 프로젝트의 과정', meta: '함께 만드는 교실', icon: 'activities' },
   { href: '/exchange', title: '국제교류', description: '학교별로 이어지는 만남과 배움의 기록', meta: '서로의 세상을 만나요', icon: 'exchange' },

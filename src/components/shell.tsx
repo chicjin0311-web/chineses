@@ -10,6 +10,7 @@ const links = [
   { href: '/lessons', name: '중국어 수업', icon: BookOpen },
   { href: '/activities', name: '학생 활동', icon: FolderOpen },
   { href: '/exchange', name: '국제교류', icon: Globe2 },
+  { href: '/bilingual', name: '이중언어교육', icon: BookOpen },
   { href: '/reading', name: '독서록', icon: BookMarked },
   { href: '/diary', name: '일기', icon: NotebookPen },
   { href: '/research', name: '수업 연구 노트', icon: LibraryBig },

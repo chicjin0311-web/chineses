@@ -24,7 +24,7 @@ export default async function Home() {
       </header>
 
       <section className="workspace-folders" aria-labelledby="folders-heading">
-        <div className="section-heading"><h2 id="folders-heading">배움과 기록의 폴더</h2><span className="section-hint">차곡차곡 쌓아 가는 여섯 공간</span></div>
+        <div className="section-heading"><h2 id="folders-heading">배움과 기록의 폴더</h2><span className="section-hint">차곡차곡 쌓아 가는 일곱 공간</span></div>
         <div className="home-folder-grid">
           {homeFolders.map(folder => { const Icon = folderIcons[folder.icon]; return <FolderCard key={folder.href} {...folder} icon={<Icon size={25} strokeWidth={1.6} />} />; })}
         </div>

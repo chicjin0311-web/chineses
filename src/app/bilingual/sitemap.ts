@@ -1,0 +1,5 @@
+import type { MetadataRoute } from 'next';
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  return ['/bilingual', '/bilingual/textbook-development'].map(path => ({ url: `https://chineses.vercel.app${path}` }));
+}
