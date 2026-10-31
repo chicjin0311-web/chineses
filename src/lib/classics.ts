@@ -154,3 +154,16 @@ export const honestKnowing = {
   poster: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/a64d3bf0-b71c-4098-8415-b86238d40f65.jpg',
 };
 
+
+export const smallGoodDeeds = {
+  href: '/lessons/classics/small-good-deeds',
+  title: '내 자리가 아니어도',
+  chinese: '勿以善小而不为。',
+  pinyin: 'Wù yǐ shàn xiǎo ér bù wéi.',
+  meaning: '선한 일이 작다고 해서 하지 않아서는 안 된다.',
+  source: '『명심보감』 계선편 중 발췌',
+  sourceUrl: 'https://db.cyberseodang.or.kr/front/alphaList/BookMain.do?bnCode=jti_5a0501&titleId=C2',
+  video: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/32c7e72f-547c-41f0-8d81-661dfd8c71d6.mp4',
+  poster: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/386752ca-4ef9-4e89-9b37-1153ce243d02.jpg',
+};
+

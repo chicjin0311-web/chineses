@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { ArrowLeft, ArrowUpRight, Play } from 'lucide-react';
-import { caigentan, analects, learningJoy, reviewNew, kindness, fixMistake, slowAndSteady, askAndLearn, standTogether, harmony, keepingPromises, learningThinking, honestKnowing } from '@/lib/classics';
+import { caigentan, analects, learningJoy, reviewNew, kindness, fixMistake, slowAndSteady, askAndLearn, standTogether, harmony, keepingPromises, learningThinking, honestKnowing, smallGoodDeeds } from '@/lib/classics';
 import './style.css';
 
 export const metadata = { title: '고전 한 문장', description: '일상 속 이야기로 생각해 보는 중국 고전 명문장. 간화자, 한어병음, 한국어 뜻과 출전을 함께 확인하세요.' };
@@ -10,6 +10,10 @@ export default function Classics() {
     <Link className="back-link" href="/lessons"><ArrowLeft size={15} aria-hidden="true" />중국어 수업으로 돌아가기</Link>
     <header className="page-intro"><p className="eyebrow">중국어 수업 · 보고 읽고 생각하기</p><h1>고전 한 문장</h1><p>짧은 이야기로 뜻을 만나고, 중국어 한 문장을 일상으로 가져와요.</p></header>
     <nav className="section-tabs" aria-label="중국어 수업 세부 폴더"><Link href="/lessons/language">언어 수업</Link><Link href="/lessons/culture">문화 수업</Link><Link href="/lessons/classics" aria-current="page">고전 한 문장</Link></nav>
+    <Link className="classic-card" href={smallGoodDeeds.href}>
+      <div className="classic-thumbnail"><img src={smallGoodDeeds.poster} alt="도서관에서 통로를 막은 의자를 살펴보는 남색 재킷의 윤서" width={960} height={540} /><span className="classic-play"><Play size={24} aria-hidden="true" />영상 보기</span></div>
+      <div className="classic-card-copy"><p className="eyebrow">14 · 명심보감 01 · 작은 선행 · 3D</p><h2>{smallGoodDeeds.title}</h2><p className="classic-chinese" lang="zh-CN">{smallGoodDeeds.chinese}</p><p>“우리 자리도 아닌데?” 의자 하나를 정리하는 작은 선택이 다음 사람의 길을 열어요.</p><span className="classic-card-link">영상과 문장 함께 보기 <ArrowUpRight size={18} aria-hidden="true" /></span></div>
+    </Link>
     <Link className="classic-card" href={honestKnowing.href}>
       <div className="classic-thumbnail"><img src={honestKnowing.poster} alt="통계 자료의 출처를 확인하기 위해 노트북을 연 토끼와 고슴도치" width={960} height={540} /><span className="classic-play"><Play size={24} aria-hidden="true" />영상 보기</span></div>
       <div className="classic-card-copy"><p className="eyebrow">13 · 논어 · 아는 것과 모르는 것 · 3D</p><h2>{honestKnowing.title}</h2><p className="classic-chinese" lang="zh-CN">{honestKnowing.chinese}</p><p>그럴듯한 그래프, 출처는 확인했을까? 아직 모른다고 인정하는 데서 확인이 시작돼요.</p><span className="classic-card-link">영상과 문장 함께 보기 <ArrowUpRight size={18} aria-hidden="true" /></span></div>
