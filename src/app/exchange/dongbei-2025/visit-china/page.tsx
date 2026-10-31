@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import '../../exchange.css';
 export const metadata: Metadata = { title: '화면으로 만난 친구의 학교를 찾아가다', description: '2025 동북육재학교 교류 · 첫 번째 이야기 · 방중' };
 export default function Story() { return <div className="page exchange-page"><Link className="back-link" href="/exchange/dongbei-2025">← 2025 동북육재학교 교류로 돌아가기</Link><article className="exchange-article"><header><p className="eyebrow">2025 동북육재학교 교류 · 첫 번째 이야기 · 방중</p><h1>화면으로 만난 친구의 학교를 찾아가다</h1></header><div className="exchange-prose">
@@ -8,6 +9,10 @@ export default function Story() { return <div className="page exchange-page"><Li
 <p className="exchange-key"><strong>온라인에서 나눈 인사를,<br />친구들의 학교에서 이어 갔다.</strong></p>
 <p>동북육재학교에서는 학교를 둘러보고 만두 만들기와 다도 수업에 참여했다. 친구들이 생활하는 공간을 보고, 함께 만들고 맛보며 중국의 학교생활과 문화를 접했다. 동북지역의 여러 학교와 명소를 방문하는 일정도 이어졌다.</p>
 <p>랴오닝성의 고궁 방문과 라오베이시(老北市) 야시장도 기억에 남는다. 야시장에서는 하늘을 나는 봉황 비행 쇼를 보았다. 학교 안에서의 만남에 지역의 역사와 생활을 접하는 시간이 더해졌다.</p>
+<figure className="exchange-figure">
+<Image src="/images/exchange/dongbei-2025/shenyang-palace.jpg" alt="사람 없이 건축물과 기와지붕이 펼쳐진 선양 고궁의 풍경" width={3824} height={1133} sizes="(max-width: 768px) 100vw, 900px" />
+<figcaption>선양 고궁(沈阳故宫)의 겹겹이 이어진 지붕. 방문 장소를 소개하는 참고 사진으로, 2025년 교류 당시 촬영한 사진은 아닙니다.<br />사진: <a href="https://commons.wikimedia.org/wiki/File:Shenyang_Imperial_Palace%27s_rooftops.JPG" target="_blank" rel="noopener noreferrer">Krastek / Wikimedia Commons</a> · 2013년 촬영 · <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a> · 내용 변경 없이 화면에 맞춰 표시</figcaption>
+</figure>
 <p className="exchange-small"><a href="https://www.xinhuanet.com/local/20240210/386019e9de934c1c8c5e521596e94c92/c.html" target="_blank" rel="noopener noreferrer">라오베이시 봉황 비행 쇼 사진 보기 — 신화통신</a><br />2024년 보도 사진으로, 우리 학생들의 방문 당시 사진은 아닙니다.</p>
 <p className="exchange-key"><strong>방문할 장소만큼,<br />현지에서 생활하는 방법도 미리 알려 주기.</strong></p>
 <p>방중을 준비하는 선생님께 덧붙이고 싶은 것은 중국의 결제 방식에 대한 사전안내다. 모바일 결제가 널리 쓰이는 환경은 학생들에게 낯설 수 있다. 현장에서 물건을 고른 뒤 당황하지 않도록, 사용할 결제수단과 문제가 생겼을 때 도움을 요청할 방법도 미리 안내하면 좋겠다.</p>
