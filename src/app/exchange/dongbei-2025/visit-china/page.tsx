@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import '../../exchange.css';
-export const metadata: Metadata = { title: '화면으로 만난 친구의 학교를 찾아가다', description: '2025 동북육재학교 교류 · 첫 번째 이야기 · 방중' };
-export default function Story() { return <div className="page exchange-page"><Link className="back-link" href="/exchange/dongbei-2025">← 2025 동북육재학교 교류로 돌아가기</Link><article className="exchange-article"><header><p className="eyebrow">2025 동북육재학교 교류 · 첫 번째 이야기 · 방중</p><h1>화면으로 만난 친구의 학교를 찾아가다</h1></header><div className="exchange-prose">
+export const metadata: Metadata = { title: '화면으로 만난 친구의 학교를 찾아가다', description: '2025 중국 국제교류 · 동북육재학교 · 첫 번째 이야기 · 방중' };
+export default function Story() { return <div className="page exchange-page"><Link className="back-link" href="/exchange/dongbei-2025">← 2025 중국 국제교류 · 동북육재학교로 돌아가기</Link><article className="exchange-article"><header><p className="eyebrow">2025 중국 국제교류 · 동북육재학교 · 첫 번째 이야기 · 방중</p><h1>화면으로 만난 친구의 학교를 찾아가다</h1></header><div className="exchange-prose">
 <p>동북육재학교와의 인연은 국제교육원에서 추진한 한중고교생교류사업에 공모하면서 시작됐다. 선정 이후 우리 학교를 포함한 전남 4개 학교의 학생 20명과 인솔교원 3명이 중국 랴오닝성의 4개 학교와 교류했다. 우리 학교는 동북육재학교와 함께했다.</p>
 <p>온라인으로 먼저 인사를 나눈 뒤, 우리가 중국을 방문했다. 이후 중국 학생들이 한국을 찾는 순서였다. 화면으로 만나던 친구들의 학교를 직접 찾아가는 것이 대면 교류의 시작이었다.</p>
 <p>교문에 도착했을 때의 장면이 특히 좋았다. 우리 학생들과 매칭된 중국 학생들이 한국 친구들의 이름을 한글로 써서 맞아 주고 있었다. 낯선 학교에서 만난 익숙한 한글 이름. 우리를 기다리며 준비했을 그 마음이 반갑고 고마웠다.</p><p className="exchange-key"><strong>교문에서 우리를 맞아 준 것은,<br />한글로 쓴 친구들의 이름이었다.</strong></p>

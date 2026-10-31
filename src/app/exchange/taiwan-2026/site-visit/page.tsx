@@ -7,10 +7,10 @@ export const metadata: Metadata = { title: '학생들과 함께 걸을 길을 �
 
 export default function TaiwanSiteVisit() {
   return <div className="page exchange-page">
-    <Link href="/exchange/taiwan-2026" className="back-link">← 2026 대만 교류로 돌아가기</Link>
+    <Link href="/exchange/taiwan-2026" className="back-link">← 2026 대만 국제교류 · 허우쭝고등학교로 돌아가기</Link>
     <article className="exchange-article exchange-prose">
 
-<header><p className="exchange-muted">2026 대만 교류 · 두 번째 이야기<br />사전답사 2026. 9. 21.–9. 23.</p><h1>학생들과 함께 걸을 길을<br />먼저 살펴보다</h1></header>
+<header><p className="exchange-muted">2026 대만 국제교류 · 허우쭝고등학교 · 두 번째 이야기<br />사전답사 2026. 9. 21.–9. 23.</p><h1>학생들과 함께 걸을 길을<br />먼저 살펴보다</h1></header>
 <p>5월에 대만 친구들과 첫 온라인 인사를 나눈 뒤, 9월에는 직접 대만을 찾았다. 12월 대면 교류를 준비하기 위한 2박 3일의 사전답사였다. 타이중의 자매학교와 신주의 TSMC 혁신관, 타이베이와 근교의 문화탐방지를 돌아보며 학생들과 함께 움직일 길을 살폈다.</p>
 <p className="exchange-key">학생들은 어디에서 기다리고,<br />흩어졌을 때는 어디로 돌아오면 될까?</p>
 <p>장소마다 버스에서 내려 목적지까지 가는 길, 다시 모일 공간, 화장실 안내와 주의 구간을 함께 살폈다. 일정표에 적힌 이동이 학생 단체에게도 무리 없이 가능한지 확인하는 시간이기도 했다.</p>

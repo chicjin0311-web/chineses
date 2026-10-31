@@ -13,9 +13,9 @@ const steps = [
 
 export default function SecondOnlineExchange() {
   return <div className="page exchange-page">
-    <Link href="/exchange/taiwan-2026" className="back-link">← 2026 대만 교류로 돌아가기</Link>
+    <Link href="/exchange/taiwan-2026" className="back-link">← 2026 대만 국제교류 · 허우쭝고등학교로 돌아가기</Link>
     <article className="exchange-article">
-      <header><p className="eyebrow">2026 대만 교류 · 세 번째 이야기</p><h1>이번에는 우리 지역을 소개합니다</h1><p className="exchange-muted">온라인 교류 2차 · 활동일 2026년 10월 29일</p></header>
+      <header><p className="eyebrow">2026 대만 국제교류 · 허우쭝고등학교 · 세 번째 이야기</p><h1>이번에는 우리 지역을 소개합니다</h1><p className="exchange-muted">온라인 교류 2차 · 활동일 2026년 10월 29일</p></header>
       <div className="exchange-prose">
         <p>5월에 처음 인사를 나눴던 대만 허우쭝고등학교 친구들과 다시 만났다. 9월 사전답사를 다녀온 뒤 이어진 두 번째 온라인 교류였다. 이번에는 서로가 살고 있는 지역을 소개하며, 12월에 만날 친구들의 일상에 조금 더 가까이 다가가 보기로 했다.</p>
         <p>학생들은 광양·순천·여수의 명소를 조사하고 발표 자료를 준비했다. 구봉산과 이순신대교, 여수 해상케이블카처럼 익숙한 장소도 다른 지역의 친구에게 소개하려니 새롭게 살펴볼 것이 많았다. 짧은 중국어 대본과 사진을 준비하면서, 무엇을 보여 주고 어떻게 설명하면 좋을지 생각하도록 했다.</p>

@@ -14,9 +14,9 @@ const steps = [
 
 export default function FirstOnlineExchange() {
   return <div className="page exchange-page">
-    <Link href="/exchange/taiwan-2026" className="back-link">← 2026 대만 교류로 돌아가기</Link>
+    <Link href="/exchange/taiwan-2026" className="back-link">← 2026 대만 국제교류 · 허우쭝고등학교로 돌아가기</Link>
     <article className="exchange-article">
-      <header><p className="eyebrow">2026 대만 교류 · 첫 번째 이야기</p><h1>대만 친구들과 처음 인사한 날</h1><p className="exchange-muted">온라인 교류 1차 · 활동일 2026년 5월 29일</p></header>
+      <header><p className="eyebrow">2026 대만 국제교류 · 허우쭝고등학교 · 첫 번째 이야기</p><h1>대만 친구들과 처음 인사한 날</h1><p className="exchange-muted">온라인 교류 1차 · 활동일 2026년 5월 29일</p></header>
       <div className="exchange-prose">
         <p>2026년 5월 29일, 대만 허우쭝고등학교와 첫 온라인 교류를 진행했다. 우리 학교 학생 25명과 대만 학생 35명이 화면으로 만났다. 12월 대면 교류를 앞두고, 서로를 알아 가는 첫 시간이었다.</p>
         <p>첫 만남을 준비하는 일은 접속 링크를 만드는 것보다 훨씬 앞에서 시작됐다. 온라인 교류에 앞서 5월 12일 사전교육을 실시했다. 대만 문화와 온라인 교류 예절, 화상회의 접속 방법을 안내했다. 학생별 발표 주제를 정하고 자기소개 대본도 함께 점검했다.</p>

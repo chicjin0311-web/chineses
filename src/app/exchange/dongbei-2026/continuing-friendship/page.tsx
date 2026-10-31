@@ -6,9 +6,9 @@ export const metadata: Metadata = { title: '작년에 만난 친구에게, 올�
 
 export default function ContinuingFriendship() {
   return <div className="page exchange-page">
-    <Link href="/exchange/dongbei-2026" className="back-link">← 2026 동북육재학교 교류로 돌아가기</Link>
+    <Link href="/exchange/dongbei-2026" className="back-link">← 2026 중국 국제교류 · 동북육재학교로 돌아가기</Link>
     <article className="exchange-article">
-      <header><p className="eyebrow">2026 동북육재학교 교류 · 첫 번째 이야기</p><h1>작년에 만난 친구에게, 올해의 응원을</h1><p className="exchange-muted">2026년 하반기 · 헬로우이프렌즈</p></header>
+      <header><p className="eyebrow">2026 중국 국제교류 · 동북육재학교 · 첫 번째 이야기</p><h1>작년에 만난 친구에게, 올해의 응원을</h1><p className="exchange-muted">2026년 하반기 · 헬로우이프렌즈</p></header>
       <div className="exchange-prose">
         <p>작년 한중고교생교류사업으로 만났던 동북육재학교와 올해도 인연을 이어 가고 있다. 서로의 학교를 오가며 시작한 만남이, 올해 하반기에는 헬로우이프렌즈 온라인 교류로 이어졌다.</p>
         <p>참여한 학생들은 작년 교류에 함께했던 학생 중 희망자들이다. 이제 고3이고, 교류가 하반기에 시작된 만큼 학업과 입시 준비를 고려해야 했다. 다시 교류하고 싶은 학생들이 참여하도록 했다.</p>

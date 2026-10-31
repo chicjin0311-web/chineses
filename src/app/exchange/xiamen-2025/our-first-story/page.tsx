@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import '../../exchange.css';
 
-export const metadata: Metadata = { title: '우리 집에서 시작해, 친구의 학교로 이어진 만남', description: '2025 샤먼과학기술고등학교 교류 첫 번째 이야기. 5월 방한 홈스테이와 12월 방중의 기록.' };
+export const metadata: Metadata = { title: '우리 집에서 시작해, 친구의 학교로 이어진 만남', description: '2025 중국 국제교류 · 샤먼과학기술고등학교 첫 번째 이야기. 5월 방한 홈스테이와 12월 방중의 기록.' };
 
 export default function Story() {
   return <div className="page exchange-page">
-    <Link className="back-link" href="/exchange/xiamen-2025">← 2025 샤먼과학기술고등학교 교류로 돌아가기</Link>
+    <Link className="back-link" href="/exchange/xiamen-2025">← 2025 중국 국제교류 · 샤먼과학기술고등학교로 돌아가기</Link>
     <article className="exchange-article">
-      <header><p className="eyebrow">2025 샤먼과학기술고등학교 교류 · 첫 번째 이야기</p><h1>우리 집에서 시작해, 친구의 학교로 이어진 만남</h1></header>
+      <header><p className="eyebrow">2025 중국 국제교류 · 샤먼과학기술고등학교 · 첫 번째 이야기</p><h1>우리 집에서 시작해, 친구의 학교로 이어진 만남</h1></header>
       <div className="exchange-prose">
         <p>2025년에는 학교 자체로 추진한 샤먼과학기술고등학교와의 교류도 있었다. 국제교육원 사업으로 참여했던 동북육재학교 교류와는 별개의 만남이었다.</p>
         <p className="exchange-key"><strong>5월에는 중국 친구들을 맞이하고,<br />12월에는 우리가 샤먼을 찾아갔다.</strong></p>
