@@ -4,12 +4,13 @@ import './exchange.css';
 
 export const metadata: Metadata = {
   title: '국제교류 기록',
-  description: '2026년 동북육재학교 온라인 교류와 2025년 방중·방한, 대만 교류까지. 온라인과 대면으로 이어지는 만남과 배움의 기록입니다.',
+  description: '동북육재학교, 샤먼과학기술고등학교, 대만 교류를 학교와 연도별로 나눈 만남과 배움의 기록입니다.',
 };
 
 const series = [
   { year: '2026', school: '동북육재학교', context: '하반기 헬로우이프렌즈', description: '작년의 인연을 온라인 만남과 응원으로 이어 갑니다.', href: '/exchange/dongbei-2026' },
   { year: '2025', school: '동북육재학교', context: '국제교육원 공모 선정 · 한중고교생교류사업', description: '온라인 만남 이후 방중 → 방한으로 이어진 기록.', href: '/exchange/dongbei-2025' },
+  { year: '2025', school: '샤먼과학기술고등학교', context: '학교 자체 교류 · 가정과 학교가 함께한 만남', description: '5월 방한·홈스테이 → 12월 방중·호텔 숙박으로 이어진 기록.', href: '/exchange/xiamen-2025' },
   { year: '2026', school: '대만 교류', context: '온라인에서 다음 만남으로', description: '1차 온라인 교류 → 사전답사 → 2차 온라인 교류', href: '/exchange/taiwan-2026' },
 ];
 
