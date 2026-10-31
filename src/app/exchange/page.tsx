@@ -31,5 +31,9 @@ export default function ExchangePage() {
         <span className="exchange-status">{item.href ? <Link href={item.href}>이야기 목록 →</Link> : '준비 중'}</span>
       </li>)}</ol>
     </section>)}
+    <section className="exchange-series" aria-labelledby="exchange-notes-title">
+      <h2 id="exchange-notes-title">국제교류 준비와 운영</h2>
+      <ol><li><span className="exchange-year">기록</span><div><p className="exchange-context">중국·대만 교류를 돌아보며</p><h3><Link href="/exchange/preparing-next-exchange">국제교류를 준비하며, 다음에는 이렇게 하고 싶다</Link></h3><p>접속 확인부터 교과 협력, 홈스테이와 새벽 이동 역할 분담까지.</p></div><Link className="exchange-status" href="/exchange/preparing-next-exchange">읽기 →</Link></li></ol>
+    </section>
   </div>;
 }
