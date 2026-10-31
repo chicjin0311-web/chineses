@@ -117,3 +117,15 @@ export const analects = {
   video: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/d24ecf56-7b97-45f6-8231-aec7dc44ca91.mp4',
   poster: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/004b277a-ea40-4f36-af27-f0e51d2339a9.jpg',
 };
+export const keepingPromises = {
+  href: '/lessons/classics/keeping-promises',
+  title: '약속은 말보다 행동으로',
+  chinese: '人而无信，不知其可也。',
+  pinyin: 'Rén ér wú xìn, bù zhī qí kě yě.',
+  meaning: '사람이 신의가 없으면, 그가 어떻게 제대로 해 나갈 수 있을지 알 수 없다.',
+  source: '『논어』 위정편 제22장 중 발췌',
+  sourceUrl: 'https://zh.wikisource.org/wiki/論語/爲政第二',
+  video: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/00e9445c-c400-4b02-b79e-054fde42e1d3.mp4',
+  poster: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/a4bceed6-b489-43ff-9a19-5924ee54169b.jpg',
+};
+
