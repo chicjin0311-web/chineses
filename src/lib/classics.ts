@@ -176,7 +176,9 @@ export const sameStandard = {
   "meaning": "남을 꾸짖는 마음으로 자신을 꾸짖고, 자신을 용서하는 마음으로 남을 용서하라.",
   "source": "『명심보감』 존심편 중 발췌",
   "sourceUrl": "https://db.cyberseodang.or.kr/front/sabuList/BookMain.do?bnCode=jti_5a0501&titleId=C8",
-  "video": "https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/658bb4fb-968c-4850-887e-1f0ede7e8b57.mp4",
+  "video": "https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/81532e4a-252b-4141-995e-abe11fe032ad.mp4",
+  "browserVideo": "https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/1a3ec0aa-5852-4ecf-a03f-ddc1f5f4c692.mp4",
   "poster": "https://d2ol7oe51mr4n9.cloudfront.net/user_3L2Zfg6bZoYgCOAm9pFDNGULPtv/8686d55f-5631-470c-b293-0328c445813e.jpg"
 };
+
 
