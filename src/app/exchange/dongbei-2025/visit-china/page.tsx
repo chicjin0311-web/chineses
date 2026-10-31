@@ -1,8 +1,9 @@
+import { ExchangeTags } from '@/components/exchange-tags';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import '../../exchange.css';
-export const metadata: Metadata = { title: '화면으로 만난 친구의 학교를 찾아가다', description: '2025 중국 국제교류 · 동북육재학교 · 첫 번째 이야기 · 방중' };
+export const metadata: Metadata = { title: "중국 국제교류 방중 | 화면으로 만난 친구의 학교를 찾아가다", description: '2025 중국 국제교류 · 동북육재학교 · 첫 번째 이야기 · 방중' , alternates: { canonical: "https://chineses.vercel.app/exchange/dongbei-2025/visit-china" }, openGraph: { title: "중국 국제교류 방중 | 화면으로 만난 친구의 학교를 찾아가다", description: "2025 중국 국제교류 · 동북육재학교 · 첫 번째 이야기 · 방중", url: "https://chineses.vercel.app/exchange/dongbei-2025/visit-china", type: "article", locale: "ko_KR" }};
 export default function Story() { return <div className="page exchange-page"><Link className="back-link" href="/exchange/dongbei-2025">← 2025 중국 국제교류 · 동북육재학교로 돌아가기</Link><article className="exchange-article"><header><p className="eyebrow">2025 중국 국제교류 · 동북육재학교 · 첫 번째 이야기 · 방중</p><h1>화면으로 만난 친구의 학교를 찾아가다</h1></header><div className="exchange-prose">
 <p>동북육재학교와의 인연은 국제교육원에서 추진한 한중고교생교류사업에 공모하면서 시작됐다. 선정 이후 우리 학교를 포함한 전남 4개 학교의 학생 20명과 인솔교원 3명이 중국 랴오닝성의 4개 학교와 교류했다. 우리 학교는 동북육재학교와 함께했다.</p>
 <p>온라인으로 먼저 인사를 나눈 뒤, 우리가 중국을 방문했다. 이후 중국 학생들이 한국을 찾는 순서였다. 화면으로 만나던 친구들의 학교를 직접 찾아가는 것이 대면 교류의 시작이었다.</p>
@@ -25,4 +26,4 @@ export default function Story() { return <div className="page exchange-page"><Li
 <li><h3>안 될 때의 대안 마련</h3><p>현금을 거의 쓰지 않았던 경험과 별개로, 위안화 소액 현금은 예비 수단으로 준비한다. 결제가 되지 않으면 인솔교사에게 도움을 요청하도록 안내한다. 결제 비밀번호·인증번호·여권 및 카드 정보는 친구나 단체 채팅방에 공유하지 않는다.</p></li>
 </ol>
 <p className="exchange-small">참고: <a href="https://www.szns.gov.cn/english/news/content/post_11241383.html">중국인민은행 선전지점 외국인 결제 안내</a> · <a href="https://english.beijing.gov.cn/specials/paymentservices/howtopaybeijing/202404/t20240429_3647378.html">베이징시 위챗페이 해외 카드 이용 안내</a><br />위 내용은 이후 방중을 위한 준비 안내이며, 2025년 참가 학생 모두가 위챗페이를 사용했다는 뜻은 아닙니다.</p>
-</section><footer className="exchange-article-footer"><Link href="/exchange/dongbei-2025/visit-korea">다음 이야기: 이번에는 우리가 친구들을 맞이할 차례 →</Link></footer></article></div>; }
+</section><footer className="exchange-article-footer"><Link href="/exchange/dongbei-2025/visit-korea">다음 이야기: 이번에는 우리가 친구들을 맞이할 차례 →</Link></footer><ExchangeTags tags={["중국국제교류", "동북육재학교", "방중준비"]} /></article></div>; }

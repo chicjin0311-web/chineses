@@ -1,8 +1,9 @@
+import { ExchangeTags } from '@/components/exchange-tags';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import '../../exchange.css';
 
-export const metadata: Metadata = { title: '작년에 만난 친구에게, 올해의 응원을', description: '2026년 하반기 동북육재학교와의 헬로우이프렌즈 교류. 고3 희망 학생들의 온라인 만남과 수능 응원, 앞으로 준비할 영상과 소포·엽서.' };
+export const metadata: Metadata = { title: "헬로우이프렌즈 온라인 교류 | 작년에 만난 친구에게, 올해의 응원을", description: '2026년 하반기 동북육재학교와의 헬로우이프렌즈 교류. 고3 희망 학생들의 온라인 만남과 수능 응원, 앞으로 준비할 영상과 소포·엽서.' , alternates: { canonical: "https://chineses.vercel.app/exchange/dongbei-2026/continuing-friendship" }, openGraph: { title: "헬로우이프렌즈 온라인 교류 | 작년에 만난 친구에게, 올해의 응원을", description: "2026년 하반기 동북육재학교와의 헬로우이프렌즈 교류. 고3 희망 학생들의 온라인 만남과 수능 응원, 앞으로 준비할 영상과 소포·엽서.", url: "https://chineses.vercel.app/exchange/dongbei-2026/continuing-friendship", type: "article", locale: "ko_KR" }};
 
 export default function ContinuingFriendship() {
   return <div className="page exchange-page">
@@ -30,6 +31,6 @@ export default function ContinuingFriendship() {
         </ol>
       </section>
       <footer className="exchange-article-footer"><Link href="/exchange/dongbei-2026" className="text-button">동북육재학교 교류 연재 목록 →</Link></footer>
-    </article>
+    <ExchangeTags tags={["중국국제교류", "동북육재학교", "온라인국제교류"]} /></article>
   </div>;
 }

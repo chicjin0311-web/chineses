@@ -1,9 +1,10 @@
+import { ExchangeTags } from '@/components/exchange-tags';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import '../../exchange.css';
 
-export const metadata: Metadata = { title: '대만 친구들과 처음 인사한 날 — 1차 온라인 교류', description: '2026년 5월 29일 대만 허우쭝고등학교와의 첫 온라인 교류. 패들렛 학교소개와 활동지, 학생 소그룹 매칭과 구글미트 접속 준비를 돌아봅니다.' };
+export const metadata: Metadata = { title: "대만 온라인 국제교류 1차 | 대만 친구들과 처음 인사한 날 — 1차 온라인 교류", description: '2026년 5월 29일 대만 허우쭝고등학교와의 첫 온라인 교류. 패들렛 학교소개와 활동지, 학생 소그룹 매칭과 구글미트 접속 준비를 돌아봅니다.' , alternates: { canonical: "https://chineses.vercel.app/exchange/taiwan-2026/online-1" }, openGraph: { title: "대만 온라인 국제교류 1차 | 대만 친구들과 처음 인사한 날 — 1차 온라인 교류", description: "2026년 5월 29일 대만 허우쭝고등학교와의 첫 온라인 교류. 패들렛 학교소개와 활동지, 학생 소그룹 매칭과 구글미트 접속 준비를 돌아봅니다.", url: "https://chineses.vercel.app/exchange/taiwan-2026/online-1", type: "article", locale: "ko_KR" }};
 
 const steps = [
   { title: '일정·큰 주제·회의 접속 확인', text: '양교 실무자가 일정과 큰 주제, 사용할 플랫폼을 정한다. 실무자끼리 회의를 열어 서로 접속되는지, 소리와 화면 공유가 되는지 확인한다.' },
@@ -39,6 +40,6 @@ export default function FirstOnlineExchange() {
         <ol>{steps.map((step, index) => <li key={step.title} className={index === 0 ? 'exchange-critical-step' : undefined}><h3>{step.title}</h3><p>{step.text}</p></li>)}</ol>
       </section>
       <footer className="exchange-article-footer"><p><Link href="/exchange/taiwan-2026/site-visit">다음 이야기: 학생들과 함께 걸을 길을 먼저 살펴보다 →</Link></p><Link href="/exchange/taiwan-2026" className="text-button">대만 교류 연재 목록 →</Link></footer>
-    </article>
+    <ExchangeTags tags={["대만국제교류", "허우쭝고등학교", "온라인국제교류"]} /></article>
   </div>;
 }

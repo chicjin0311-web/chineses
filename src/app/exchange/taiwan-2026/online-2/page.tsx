@@ -1,8 +1,9 @@
+import { ExchangeTags } from '@/components/exchange-tags';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import '../../exchange.css';
 
-export const metadata: Metadata = { title: '이번에는 우리 지역을 소개합니다 — 2차 온라인 교류', description: '2026년 10월 29일 대만과의 두 번째 온라인 교류. 지역 소개와 학생 후기, 학교 방문 때 함께할 지역 탐방으로 이어지는 이야기.' };
+export const metadata: Metadata = { title: "대만 온라인 국제교류 2차 | 이번에는 우리 지역을 소개합니다 — 2차 온라인 교류", description: '2026년 10월 29일 대만과의 두 번째 온라인 교류. 지역 소개와 학생 후기, 학교 방문 때 함께할 지역 탐방으로 이어지는 이야기.' , alternates: { canonical: "https://chineses.vercel.app/exchange/taiwan-2026/online-2" }, openGraph: { title: "대만 온라인 국제교류 2차 | 이번에는 우리 지역을 소개합니다 — 2차 온라인 교류", description: "2026년 10월 29일 대만과의 두 번째 온라인 교류. 지역 소개와 학생 후기, 학교 방문 때 함께할 지역 탐방으로 이어지는 이야기.", url: "https://chineses.vercel.app/exchange/taiwan-2026/online-2", type: "article", locale: "ko_KR" }};
 
 const steps = [
   { title: '회의 접속 먼저 확인하기', text: '양교 실무자가 미리 회의를 열어 소리와 화면 공유를 확인한다. 이번 후기에서 나온 끊김과 주변 소음도 점검할 부분이다.' },
@@ -36,6 +37,6 @@ export default function SecondOnlineExchange() {
         <ol>{steps.map(step => <li key={step.title}><h3>{step.title}</h3><p>{step.text}</p></li>)}</ol>
       </section>
       <footer className="exchange-article-footer"><p><Link href="/exchange/taiwan-2026/site-visit">← 이전 이야기: 학생들과 함께 걸을 길을 먼저 살펴보다</Link></p><Link href="/exchange/taiwan-2026" className="text-button">대만 교류 연재 목록 →</Link></footer>
-    </article>
+    <ExchangeTags tags={["대만국제교류", "허우쭝고등학교", "온라인국제교류"]} /></article>
   </div>;
 }

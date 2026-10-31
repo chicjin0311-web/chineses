@@ -1,9 +1,10 @@
+import { ExchangeTags } from '@/components/exchange-tags';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import '../../exchange.css';
 
-export const metadata: Metadata = { title: '학생들과 함께 걸을 길을 먼저 살펴보다 — 대만 사전답사', description: '2026년 9월 대만 사전답사. 자매학교와 문화탐방지에서 확인한 집결지, 화장실 안내, 안전 주의 구간과 마지막 점검 절차.' };
+export const metadata: Metadata = { title: "대만 국제교류 사전답사 | 학생들과 함께 걸을 길을 먼저 살펴보다 — 대만 사전답사", description: '2026년 9월 대만 사전답사. 자매학교와 문화탐방지에서 확인한 집결지, 화장실 안내, 안전 주의 구간과 마지막 점검 절차.' , alternates: { canonical: "https://chineses.vercel.app/exchange/taiwan-2026/site-visit" }, openGraph: { title: "대만 국제교류 사전답사 | 학생들과 함께 걸을 길을 먼저 살펴보다 — 대만 사전답사", description: "2026년 9월 대만 사전답사. 자매학교와 문화탐방지에서 확인한 집결지, 화장실 안내, 안전 주의 구간과 마지막 점검 절차.", url: "https://chineses.vercel.app/exchange/taiwan-2026/site-visit", type: "article", locale: "ko_KR" }};
 
 export default function TaiwanSiteVisit() {
   return <div className="page exchange-page">
@@ -51,6 +52,6 @@ export default function TaiwanSiteVisit() {
 <footer className="exchange-article-footer"><p><Link href="/exchange/taiwan-2026/online-2">다음 이야기: 이번에는 우리 지역을 소개합니다 →</Link></p><p className="exchange-small exchange-muted">사진 3장은 대만 교통부 관광청 공식 멀티미디어 자료실에서 선별한 공개 허용 자료입니다. 원본 내용 변경 없이 표시했습니다. 각 사진의 제작·촬영자와 출처를 기재했으며, <a href="https://data.gov.tw/license">정부자료 개방 이용허락 제1판(OGDL 1.0)</a>에 따라 이용합니다. 현장 안전 점검 내용은 답사보고서를 바탕으로 했으며 홍보 사진으로 안전 상태나 집결 위치를 판정하지 않았습니다.</p></footer>
 
     <Link href="/exchange/taiwan-2026" className="text-button">대만 교류 연재 목록 →</Link>
-    </article>
+    <ExchangeTags tags={["대만국제교류", "허우쭝고등학교", "사전답사"]} /></article>
   </div>;
 }

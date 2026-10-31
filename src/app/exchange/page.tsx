@@ -22,6 +22,7 @@ export default function ExchangePage() {
       <Link href="/write?category=exchange" className="button soft">초안 쓰기</Link>
     </header>
     <section aria-labelledby="exchange-start-title" className="exchange-feature"><p className="eyebrow">지금 이어 가는 이야기 · 2026</p><h2 id="exchange-start-title"><Link href="/exchange/dongbei-2026/continuing-friendship">작년에 만난 친구에게, 올해의 응원을</Link></h2><p>올해 동북육재학교와 이어 가는 온라인 교류를 먼저 소개합니다.<br />지난해 기록은 방중, 방한 순서로 읽을 수 있습니다.</p><Link className="text-button" href="/exchange/dongbei-2026/continuing-friendship">올해 이야기 읽기 →</Link></section>
+    <p><Link className="text-button" href="/exchange/topics">온라인 교류·홈스테이·방중 준비, 궁금한 주제로 글 찾기 →</Link></p>
     {['중국', '대만'].map(region => <section key={region} className="exchange-series" aria-labelledby={`exchange-${region}-title`}>
       <h2 id={`exchange-${region}-title`}>{region} 국제교류</h2>
       <p className="exchange-muted">학교별 이야기는 준비되는 대로 한 편씩 이어 갑니다.</p>

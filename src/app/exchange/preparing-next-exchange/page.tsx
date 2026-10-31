@@ -1,11 +1,12 @@
+import { ExchangeTags } from '@/components/exchange-tags';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import '../exchange.css';
 
 export const metadata: Metadata = {
-  title: '국제교류를 준비하며, 다음에는 이렇게 하고 싶다',
+  title: "국제교류 준비와 운영 | 국제교류를 준비하며, 다음에는 이렇게 하고 싶다",
   description: '중국·대만 국제교류를 준비하며 배운 접속 확인, 학교와 가정의 협력, 새벽 이동 역할 분담과 다음 교류를 위한 준비 사항.',
-};
+ alternates: { canonical: "https://chineses.vercel.app/exchange/preparing-next-exchange" }, openGraph: { title: "국제교류 준비와 운영 | 국제교류를 준비하며, 다음에는 이렇게 하고 싶다", description: "중국·대만 국제교류를 준비하며 배운 접속 확인, 학교와 가정의 협력, 새벽 이동 역할 분담과 다음 교류를 위한 준비 사항.", url: "https://chineses.vercel.app/exchange/preparing-next-exchange", type: "article", locale: "ko_KR" }};
 
 export default function Story() {
   return <div className="page exchange-page">
@@ -34,6 +35,6 @@ export default function Story() {
         </ol>
       </section>
       <footer className="exchange-article-footer"><Link href="/exchange">중국·대만 국제교류 이야기 목록으로 →</Link></footer>
-    </article>
+    <ExchangeTags tags={["국제교류준비", "온라인국제교류", "홈스테이", "방한준비"]} /></article>
   </div>;
 }

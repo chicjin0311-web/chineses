@@ -1,11 +1,12 @@
+import { ExchangeTags } from '@/components/exchange-tags';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import '../../exchange.css';
 
 export const metadata: Metadata = {
-  title: '처음의 환영 인사가, 함께한 시간을 돌아보는 인사로',
+  title: "샤먼 국제교류 환영식과 송별식 | 처음의 환영 인사가, 함께한 시간을 돌아보는 인사로",
   description: '2025 중국 국제교류 · 샤먼과학기술고등학교 두 번째 이야기. 5월 방한의 환영식과 송별식, 학생들의 활동 기록과 교사 준비 사항.',
-};
+ alternates: { canonical: "https://chineses.vercel.app/exchange/xiamen-2025/welcome-and-farewell" }, openGraph: { title: "샤먼 국제교류 환영식과 송별식 | 처음의 환영 인사가, 함께한 시간을 돌아보는 인사로", description: "2025 중국 국제교류 · 샤먼과학기술고등학교 두 번째 이야기. 5월 방한의 환영식과 송별식, 학생들의 활동 기록과 교사 준비 사항.", url: "https://chineses.vercel.app/exchange/xiamen-2025/welcome-and-farewell", type: "article", locale: "ko_KR" }};
 
 export default function Story() {
   return <div className="page exchange-page">
@@ -36,6 +37,6 @@ export default function Story() {
         </ol>
       </section>
       <footer className="exchange-article-footer"><p><Link href="/exchange/xiamen-2025/our-first-story">← 첫 번째 이야기: 우리 집에서 시작해, 친구의 학교로 이어진 만남</Link></p><Link href="/exchange/xiamen-2025/visit-china">다음 이야기: 우리 집에 왔던 친구의 학교를 찾아가다 →</Link></footer>
-    </article>
+    <ExchangeTags tags={["중국국제교류", "샤먼과학기술고등학교", "방한준비"]} /></article>
   </div>;
 }
