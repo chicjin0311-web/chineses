@@ -48,6 +48,20 @@ export default function Guidelines() {
           </figure>
           <p className="exchange-small">표에서 ‘학교자율’로 표시한 항목과 필수 확인 항목을 구분하고, 예외 조건은 하단 주석과 매뉴얼 본문을 함께 확인한다.</p>
         </section>
+        <section id="overseas-flow" aria-labelledby="overseas-flow-title">
+          <h2 id="overseas-flow-title">국외 교류 준비 순서, 한눈에 보기</h2>
+          <p>공식 매뉴얼의 ‘국외 수학여행 흐름도’다. 국외 체험학습을 준비할 때 계획부터 사후관리까지 어떤 일이 이어지는지 먼저 살펴보면 좋다.</p>
+          <p className="exchange-key"><strong>계획·컨설팅 → 사전답사·운영위 심의 → 출국 준비 → 운영 → 평가·보고</strong></p>
+          <figure className="exchange-figure">
+            <a href="/exchange/forms/2026-jeonnam-overseas-flow.png" target="_blank" rel="noopener noreferrer" aria-label="국외 수학여행 흐름도 원본 크게 보기 (새 창)">
+              <Image src="/exchange/forms/2026-jeonnam-overseas-flow.png" width={1225} height={1718} sizes="(max-width: 760px) 92vw, 720px" style={{ width: '100%', height: 'auto' }} alt="국외 수학여행 흐름도. 기본계획 수립 및 현장체험학습위원회 구성, 컨설팅, 사전답사, 학교운영위원회 심의, 계약 및 여행자보험, 감염병 예방접종, 공무국외여행 허가 신청, 사전교육활동, 출국준비, 프로그램 운영, 평가 및 결과 활용 순서." />
+            </a>
+            <figcaption>출처: 전라남도교육청 「2026. 현장체험학습 매뉴얼」 PDF 6쪽. 원본 페이지를 그대로 수록했다. 흐름도를 누르면 크게 볼 수 있다.</figcaption>
+          </figure>
+          <p><strong>사전답사는 학교운영위원회 안건 제출 전에 준비</strong>하도록 안내되어 있다. 출장 허가와 제출 기한도 계획 단계부터 확인해 두면 준비가 뒤로 밀리지 않는다.</p>
+          <p className="exchange-small">국외 체험학습의 절차를 확인하는 자료다. 온라인·초청 교류에는 활동에 맞는 항목을 적용하고, 사업별 별도 지침과 허가권자 안내를 함께 확인한다.</p>
+          <p><a href="#workflow-title">아래에서 담당자별 준비 사항 체크하기 ↓</a></p>
+        </section>
         <section id="forms" aria-labelledby="forms-title">
           <h2 id="forms-title">준비할 때 꺼내 쓰는 공식 양식</h2>
           <p>공개 매뉴얼에서 필요한 서식을 골라 15쪽으로 묶었다. 원문 내용과 쪽수는 그대로이며, PDF는 확인·인쇄용이다. 내용을 편집하려면 아래 한글 원문에서 해당 서식을 찾아 사용하면 된다.</p>
