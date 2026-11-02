@@ -34,6 +34,7 @@ export default function ExchangePage() {
     </section>)}
     <section className="exchange-series" aria-labelledby="exchange-notes-title">
       <h2 id="exchange-notes-title">국제교류 준비와 운영</h2>
+      <p><Link className="text-button" href="/exchange/guidelines-2026">2026 현장체험학습·공무국외출장 지침과 담당자 체크리스트 →</Link></p>
       <ol><li><span className="exchange-year">기록</span><div><p className="exchange-context">중국·대만 교류를 돌아보며</p><h3><Link href="/exchange/preparing-next-exchange">국제교류를 준비하며, 다음에는 이렇게 하고 싶다</Link></h3><p>접속 확인부터 교과 협력, 홈스테이와 새벽 이동 역할 분담까지.</p></div><Link className="exchange-status" href="/exchange/preparing-next-exchange">읽기 →</Link></li></ol>
     </section>
   </div>;

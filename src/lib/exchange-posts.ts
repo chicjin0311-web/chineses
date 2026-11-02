@@ -1,5 +1,11 @@
 export const exchangePosts = [
   {
+    href: '/exchange/guidelines-2026',
+    title: '2026 국제교류 준비, 지침과 담당자 체크리스트',
+    description: '전남 현장체험학습 매뉴얼·공무국외출장 공식 자료와 국제교류 운영 흐름, 담당자별 준비 사항.',
+    tags: ['국제교류준비', '현장체험학습', '공무국외출장', '사전답사', '안전교육'],
+  },
+  {
     "href": "/exchange/dongbei-2025/visit-china",
     "title": "화면으로 만난 친구의 학교를 찾아가다",
     "description": "2025 중국 국제교류 · 동북육재학교 · 첫 번째 이야기 · 방중",

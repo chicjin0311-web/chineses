@@ -43,6 +43,7 @@ export default function Story() {
         </ol>
       </section>
       <footer className="exchange-article-footer"><Link href="/exchange">중국·대만 국제교류 이야기 목록으로 →</Link></footer>
+      <p><Link href="/exchange/guidelines-2026">2026 공식 지침과 담당자 체크리스트 함께 보기 →</Link></p>
     <ExchangeTags tags={["국제교류준비", "온라인국제교류", "홈스테이", "방한준비"]} /></article>
   </div>;
 }
