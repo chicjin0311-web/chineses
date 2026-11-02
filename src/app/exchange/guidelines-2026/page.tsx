@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ExchangeTags } from '@/components/exchange-tags';
 import '../exchange.css';
 
@@ -36,6 +37,17 @@ export default function Guidelines() {
           <li><a href="https://www.law.go.kr/ordinInfoP.do?ordinId=217642">전라남도교육청 공무국외출장 규정 — 국가법령정보센터</a><br />확인한 본문은 2025. 9. 1. 시행본이다. 계획을 세울 때 현행 조문과 서식을 다시 확인한다.</li>
         </ul>
         <p className="exchange-small">자료 확인: 2026. 11. 2. 학교에 수신된 매뉴얼 탑재 안내 공문 대신 공개된 공식 원문으로 연결했다. 별도로 받은 「글로컬 전남 국제교육교류 길라잡이」는 파일명이 ‘최종안’이므로 확정 지침으로 재게시하지 않았다. 이후 개정 공문과 해당 사업의 별도 안내도 함께 확인한다.</p>
+        <section id="types-table" aria-labelledby="types-table-title">
+          <h2 id="types-table-title">숙박형·1일형, 한눈에 보는 준비 절차</h2>
+          <p>공식 매뉴얼의 ‘유형별 실천사항’ 표다. <strong>학교운영위원회 심의는 숙박형과 1일형 모두 체크되어 있다.</strong> ‘현장체험학습위원회 구성·운영’의 학교자율 표시와 구분해서 보면 된다.</p>
+          <figure className="exchange-figure">
+            <a href="/exchange/forms/2026-jeonnam-types-table.png" target="_blank" rel="noopener noreferrer" aria-label="유형별 실천사항 표 원본 크게 보기 (새 창)">
+              <Image src="/exchange/forms/2026-jeonnam-types-table.png" width={1225} height={1718} sizes="(max-width: 760px) 92vw, 720px" style={{ width: '100%', height: 'auto' }} alt="2026 현장체험학습 유형별 실천사항. 숙박형의 수학여행·수련활동·기타와 비숙박형 1일형을 비교한 표. 학교운영위원회 심의, 학부모 동의, 사전 안전교육, 불참학생 지도 계획은 모든 유형에 체크되어 있다. 하단에는 사전답사 생략 조건, 안전요원 대체 조건, 국외 체험학습의 국외 수학여행 절차 준용 주석이 있다." />
+            </a>
+            <figcaption>출처: 전라남도교육청 「2026. 현장체험학습 매뉴얼」 PDF 7쪽. 원본 페이지와 하단 주석을 그대로 수록했다. 표를 누르면 크게 볼 수 있다.</figcaption>
+          </figure>
+          <p className="exchange-small">표에서 ‘학교자율’로 표시한 항목과 필수 확인 항목을 구분하고, 예외 조건은 하단 주석과 매뉴얼 본문을 함께 확인한다.</p>
+        </section>
         <section id="forms" aria-labelledby="forms-title">
           <h2 id="forms-title">준비할 때 꺼내 쓰는 공식 양식</h2>
           <p>공개 매뉴얼에서 필요한 서식을 골라 15쪽으로 묶었다. 원문 내용과 쪽수는 그대로이며, PDF는 확인·인쇄용이다. 내용을 편집하려면 아래 한글 원문에서 해당 서식을 찾아 사용하면 된다.</p>
