@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { randomBytes, createHash } from 'node:crypto';
 import ExcelJS from 'exceljs';
+import {sortByStudentNo,koreaTime} from '@/lib/speaking-results';
 import { speakingBank, validateBank, type AssignedQuestion } from '@/lib/speaking-bank';
 
 export const runtime='nodejs';
@@ -68,17 +69,24 @@ export async function POST(req:NextRequest){
    return respond(data);
   }
   if(action==='audio')return new NextResponse(Buffer.from(data.audio,'base64'),{headers:{...cache,'Content-Type':data.mime,'Content-Disposition':'inline'}});
+  if(action==='room'||action==='export')data.attempts=sortByStudentNo(data.attempts);
   if(action==='export'){
+   if(body.attempt_id!==undefined){
+    data.attempts=data.attempts.filter((a:any)=>a.id===body.attempt_id);
+    if(!data.attempts.length)return respond({error:'이 평가에서 해당 학생의 응시를 찾을 수 없습니다.'},404);
+   }
    const book=new ExcelJS.Workbook();book.creator='차곡차곡 중국어 교실';book.created=new Date();
    const summary=book.addWorksheet('성적'),detail=book.addWorksheet('문항별 기록'),guide=book.addWorksheet('평가 안내');
-   summary.columns=[{header:'학번',key:'no',width:24},{header:'이름',key:'name',width:16},{header:'저장 문항',key:'saved',width:13},{header:'제출 상태',key:'state',width:15},{header:'최종 점수(50)',key:'score',width:17},{header:'종합 판단·감점 근거',key:'comment',width:60},{header:'제출 시각(한국)',key:'submitted',width:25},{header:'채점 시각(한국)',key:'reviewed',width:25}];
-   detail.columns=[{header:'학번',key:'no',width:24},{header:'이름',key:'name',width:16},{header:'문항',key:'question',width:8},{header:'중국어 질문',key:'text',width:40},{header:'제시 자료',key:'cue',width:35},{header:'인정 답변 예시',key:'expected',width:50},{header:'출처',key:'source',width:32},{header:'판단',key:'rating',width:15},{header:'교사 메모',key:'note',width:45},{header:'녹음 초',key:'duration',width:12},{header:'녹음 확인',key:'link',width:60}];
-   const date=(v:string|null)=>v?new Date(v).toLocaleString('ko-KR',{timeZone:'Asia/Seoul'}):'';
+   summary.columns=[{header:'학번',key:'no',width:24},{header:'이름',key:'name',width:16},{header:'저장 문항',key:'saved',width:13},{header:'제출 상태',key:'state',width:15},{header:'최종 점수(50)',key:'score',width:17},{header:'종합 판단·감점 근거',key:'comment',width:60},{header:'제출 시각(한국)',key:'submitted',width:25},{header:'채점 시각(한국)',key:'reviewed',width:25},{header:'학생 답변 모아보기',key:'student_link',width:30}];
+   detail.columns=[{header:'학번',key:'no',width:24},{header:'이름',key:'name',width:16},{header:'문항',key:'question',width:8},{header:'중국어 질문',key:'text',width:40},{header:'제시 자료',key:'cue',width:35},{header:'인정 답변 예시',key:'expected',width:50},{header:'출처',key:'source',width:32},{header:'판단',key:'rating',width:15},{header:'교사 메모',key:'note',width:45},{header:'녹음 초',key:'duration',width:12},{header:'학생 답변(음원 링크)',key:'link',width:30},{header:'답변 저장 상태',key:'answer_state',width:20},{header:'최종 제출 시각(한국)',key:'submitted',width:25}];
+   const date=koreaTime;
    for(const a of data.attempts){
-    summary.addRow({no:a.student_no,name:a.student_name,saved:`${a.answers.length}/${a.questions.length}`,state:a.reviewed_at?'채점 완료':a.submitted_at?'채점 대기':'응시 중',score:a.score??null,comment:a.comment,submitted:date(a.submitted_at),reviewed:date(a.reviewed_at)});
-    a.questions.forEach((q:AssignedQuestion,i:number)=>{const b=a.answers.find((x:any)=>x.question_no===i);detail.addRow({no:a.student_no,name:a.student_name,question:i+1,text:q.text,cue:q.cue||(q.image?.startsWith('data:')?'교사 업로드 사진':q.image)||'자유 응답',expected:q.expected,source:q.source,rating:b?.rating||'미채점',note:b?.note||'',duration:b?.duration??null,link:`${new URL(req.url).origin}/tools/speaking/teacher?room=${data.room.id}&attempt=${a.id}`});});
+    const studentUrl=new URL('/tools/speaking/teacher',req.url);studentUrl.searchParams.set('room',data.room.id);studentUrl.searchParams.set('attempt',a.id);
+    const studentLink={text:'학생 답변 모아보기 (교사 로그인)',hyperlink:studentUrl.href};
+    summary.addRow({no:a.student_no,name:a.student_name,saved:`${a.answers.length}/${a.questions.length}`,state:a.reviewed_at?'채점 완료':a.submitted_at?'채점 대기':'응시 중',score:a.score??null,comment:a.comment,submitted:date(a.submitted_at),reviewed:date(a.reviewed_at),student_link:studentLink});
+    a.questions.forEach((q:AssignedQuestion,i:number)=>{const b=a.answers.find((x:any)=>x.question_no===i);detail.addRow({no:a.student_no,name:a.student_name,question:i+1,text:q.text,cue:q.cue||(q.image?.startsWith('data:')?'교사 업로드 사진':q.image)||'자유 응답',expected:q.expected,source:q.source,rating:b?.rating||'미채점',note:b?.note||'',duration:b?.duration??null,link:b?{text:`${i+1}번 답변 듣기 (학생 모아보기)`,hyperlink:studentUrl.href}:'녹음 없음',answer_state:b?'음원 저장됨':'녹음 없음',submitted:date(a.submitted_at)});});
    }
-   guide.addRows([['평가',data.room.title],['채점','음원을 듣고 교사가 확정한 점수입니다. 자동 음성 채점은 하지 않습니다.'],['점수','50·40·30·20·10점을 기본으로, 별도 미흡함은 근거를 적고 5점 감점할 수 있습니다.'],['중복 감점','등급 하향에 사용한 동일한 오류를 다시 감점하지 않습니다.'],['음원','문항별 기록의 교사 페이지에서 로그인 후 듣거나 내려받습니다.'],['사진·그림','고등 중국어 회화(김대오) 지도서의 해당 교과서 그림을 발췌했습니다.']]);
+   guide.addRows([['평가',data.room.title],['채점','음원을 듣고 교사가 확정한 점수입니다. 자동 음성 채점은 하지 않습니다.'],['점수','50·40·30·20·10점을 기본으로, 별도 미흡함은 근거를 적고 5점 감점할 수 있습니다.'],['중복 감점','등급 하향에 사용한 동일한 오류를 다시 감점하지 않습니다.'],['학생 답변','학생의 실제 답변은 음원입니다. 자동 받아쓰기는 제공하지 않으며, 인정 답변 예시는 학생이 말한 내용이 아닙니다.'],['음원','학생 답변(음원 링크)을 누르면 교사 로그인 후 해당 학생의 모든 답변을 듣습니다. 음원 파일은 엑셀에 포함되지 않습니다.'],['제출 시각','모든 문항 녹음을 마친 후 최종 제출한 시각이며 Asia/Seoul(한국 시간)로 표시합니다. 미제출은 빈칸입니다.'],['사진·그림','고등 중국어 회화(김대오) 지도서의 해당 교과서 그림을 발췌했습니다.']]);
    guide.getColumn(1).width=20;guide.getColumn(2).width=100;
    for(const s of [summary,detail]){s.views=[{state:'frozen',ySplit:1}];s.autoFilter={from:{row:1,column:1},to:{row:1,column:s.columnCount}};s.getRow(1).font={bold:true,color:{argb:'FFFFFFFF'}};s.getRow(1).fill={type:'pattern',pattern:'solid',fgColor:{argb:'FF28584B'}};s.eachRow(r=>{r.alignment={vertical:'top',wrapText:true};});}
    const buffer=await book.xlsx.writeBuffer();return new NextResponse(new Uint8Array(buffer),{headers:{...cache,'Content-Type':'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet','Content-Disposition':`attachment; filename="speaking-results.xlsx"`}});

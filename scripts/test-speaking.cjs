@@ -1,8 +1,10 @@
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),ts=require('typescript'),ExcelJS=require('exceljs');
 const {NextRequest}=require('next/server');
+const resultsModule={exports:{}};vm.runInNewContext(ts.transpileModule(fs.readFileSync('src/lib/speaking-results.ts','utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText,resultsModule);
+let exportAttempts;
 const q={id:'price',text:'多少钱？',instruction:'합계',title:'가격',cue:'¥27',expected:'二十七块',source:'70쪽'};
 const attempt={id:'fixture',student_no:'=1+1',student_name:'테스트',questions:[q],answers:[{question_no:0,duration:1,mime:'audio/webm',rating:'충분',note:'명확한 응답'}],score:50,comment:'모든 반응 적절',submitted_at:'2026-10-31T14:00:00Z',reviewed_at:'2026-10-31T14:01:00Z'};
-const sandbox={exports:{},require:id=>id==='@supabase/supabase-js'?{createClient:()=>({auth:{getUser:async t=>t==='valid'?{data:{user:{id:'teacher'}}}:{data:{},error:{}}},rpc:async(_n,{p_action})=>({data:p_action==='room'?{room:{id:'room',title:'검증'},attempts:[attempt]}:p_action==='attempt'?structuredClone(attempt):{ok:true},error:null})})}:id==='@/lib/speaking-bank'?{speakingBank:[],validateBank:()=>true}:require(id),process:{env:{NEXT_PUBLIC_SUPABASE_URL:'https://example.invalid',NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY:'test',SPEAKING_GATEWAY_SECRET:'fixture-only'}},Buffer,Uint8Array,File,JSON,Number,Date,URL,Error};
+const sandbox={exports:{},require:id=>id==='@supabase/supabase-js'?{createClient:()=>({auth:{getUser:async t=>t==='valid'?{data:{user:{id:'teacher'}}}:{data:{},error:{}}},rpc:async(_n,{p_action})=>({data:p_action==='room'?{room:{id:'room',title:'검증'},attempts:exportAttempts||[attempt]}:p_action==='attempt'?structuredClone(attempt):{ok:true},error:null})})}:id==='@/lib/speaking-results'?resultsModule.exports:id==='@/lib/speaking-bank'?{speakingBank:[],validateBank:()=>true}:require(id),process:{env:{NEXT_PUBLIC_SUPABASE_URL:'https://example.invalid',NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY:'test',SPEAKING_GATEWAY_SECRET:'fixture-only'}},Buffer,Uint8Array,File,JSON,Number,Date,URL,Error};
 vm.runInNewContext(ts.transpileModule(fs.readFileSync('src/app/api/speaking/route.ts','utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022,esModuleInterop:true}}).outputText,sandbox);
 const request=(body,auth,origin='http://localhost')=>new NextRequest('http://localhost/api/speaking',{method:'POST',headers:{Origin:origin,'Content-Type':'application/json',...(auth?{Authorization:`Bearer ${auth}`}:{})},body:JSON.stringify(body)});
 (async()=>{
@@ -18,8 +20,21 @@ const request=(body,auth,origin='http://localhost')=>new NextRequest('http://loc
  assert.deepEqual(book.worksheets.map(s=>s.name),['성적','문항별 기록','평가 안내']);
  assert.equal(book.getWorksheet('성적').getCell('A2').value,'=1+1');assert.equal(book.getWorksheet('성적').getCell('A2').type,ExcelJS.ValueType.String);
  assert.equal(book.getWorksheet('성적').getCell('E2').value,50);assert.equal(book.getWorksheet('문항별 기록').getCell('F2').value,'二十七块');
+ assert.equal(book.getWorksheet('문항별 기록').getCell('M2').value,'2026-10-31 23:00:00');
+ assert.equal(book.getWorksheet('문항별 기록').getCell('K2').value.hyperlink,'http://localhost/tools/speaking/teacher?room=room&attempt=fixture');
+ assert.equal(book.getWorksheet('문항별 기록').getCell('L2').value,'음원 저장됨');
+ assert.equal(resultsModule.exports.koreaTime('2026-11-01T15:00:00Z'),'2026-11-02 00:00:00');
+ assert.equal(resultsModule.exports.koreaTime(null),'');
+ exportAttempts=[{...attempt,id:'ten',student_no:'10'},{...attempt,id:'two',student_no:'2'},{...attempt,id:'one',student_no:'01',answers:[],submitted_at:null}];
+ const list=await (await sandbox.exports.POST(request({action:'room',id:'room'},'valid'))).json();assert.deepEqual(list.attempts.map(a=>a.student_no),['01','2','10']);
+ const sortedResult=await sandbox.exports.POST(request({action:'export',id:'room'},'valid'));const sortedBook=new ExcelJS.Workbook();await sortedBook.xlsx.load(Buffer.from(await sortedResult.arrayBuffer()));
+ assert.deepEqual([2,3,4].map(i=>sortedBook.getWorksheet('성적').getCell(`A${i}`).value),['01','2','10']);
+ assert.equal(sortedBook.getWorksheet('문항별 기록').getCell('K2').value,'녹음 없음');assert.equal(sortedBook.getWorksheet('문항별 기록').getCell('M2').value,'');
+ const single=await sandbox.exports.POST(request({action:'export',id:'room',attempt_id:'two'},'valid'));const singleBook=new ExcelJS.Workbook();await singleBook.xlsx.load(Buffer.from(await single.arrayBuffer()));
+ assert.equal(singleBook.getWorksheet('성적').rowCount,2);assert.equal(singleBook.getWorksheet('성적').getCell('A2').value,'2');
+ assert.equal((await sandbox.exports.POST(request({action:'export',id:'room',attempt_id:'outside-room'},'valid'))).status,404);
  assert.equal((await sandbox.exports.POST(request({action:'review',score:99,answers:[],comment:'bad'},'valid'))).status,400);
- console.log('PASS: origin/auth checks, student answer redaction, XLSX workbook/Unicode/score/formula safety, invalid score rejection');
+ console.log('PASS: origin/auth checks, student answer redaction, XLSX workbook/Unicode/score/formula safety, invalid score rejection, natural student sorting, Korean submission time, protected audio links, selected-student export');
 })().catch(e=>{console.error(e);process.exitCode=1;});
 
 const bankContext={exports:{}};vm.runInNewContext(ts.transpileModule(fs.readFileSync('src/lib/speaking-bank.ts','utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS}}).outputText,bankContext);
