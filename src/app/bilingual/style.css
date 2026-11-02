@@ -8,5 +8,5 @@
 .bilingual-padlet-copy p{font-size:15px;margin:0 0 20px}
 .bilingual-padlet-action{margin-top:auto;color:#344b32;font-weight:650;font-size:15px}
 .bilingual-padlet-action small{font-size:12px;font-weight:400;color:var(--muted)}
-.bilingual-padlet-card:hover .bilingual-padlet-action{text-decoration:underline;text-underline-offset:4px}
+.bilingual-padlet-action:hover{text-decoration:underline;text-underline-offset:4px}
 @media(max-width:700px){.bilingual-padlet-grid{grid-template-columns:1fr}.bilingual-padlet-copy{padding:22px}}

@@ -22,11 +22,9 @@ const padlets = [
   {
     title: '학생이 직접 녹음한 회화 음원',
     label: '내 목소리로 전하는 여행 중국어',
-    description: '각자 여행 상황을 설정하고 회화문을 구성한 뒤, 자신의 목소리로 녹음했습니다. 학번을 찾아 학생이 준비한 표현을 들어 보세요.',
-    href: 'https://padlet.com/gybk/padlet-s024iou27p6kmz3bs35o',
+    description: '각자 여행 상황을 설정하고 회화문을 구성한 뒤, 자신의 목소리로 녹음했습니다. 이곳에서는 음원 패들렛의 활동 사진만 소개합니다.',
     image: '/media/bilingual/classlab-audio-padlet.jpg',
     alt: '반별로 학생 학번과 오디오 재생 카드가 정리된 대만 여행 실용서 음원 패들렛',
-    action: '회화 음원 듣기',
   },
   {
     title: '회화문으로 만든 여행 상황 영상',
@@ -52,17 +50,17 @@ export default function ClasslabTaiwanGuidePage() {
     <section className="bilingual-prose"><h2>종이책에서 소리와 영상으로</h2><p>학생들은 각자 대만 여행에서 마주칠 상황을 설정하고, 그 상황에 맞는 회화문을 직접 구성했습니다. 이어 자신의 목소리로 회화문을 녹음해 패들렛에 공유했습니다. 내가 만든 문장을 소리 내어 표현하며 글로 쓴 회화를 말하기로 연결했습니다.</p><p>학생들이 구성한 회화문을 바탕으로 힉스필드(Higgsfield)를 활용한 상황 영상도 제작하고, 별도의 패들렛에 모았습니다. 영상은 여행 상황과 표현을 학습하기 위해 제작한 자료이며, 실제 대만 현장 촬영 영상과는 구분됩니다.</p><p><strong>QR코드는 아직 학생들에게 배부하기 전입니다.</strong> 음원과 영상을 실용서에 연결하는 작업은 앞으로 이어 갈 단계입니다.</p></section>
     <section className="bilingual-prose" aria-labelledby="classlab-padlets">
       <h2 id="classlab-padlets">우리의 회화, 목소리와 영상으로</h2>
-      <p>학생들이 직접 만든 여행 회화를 두 개의 패들렛에서 만나 보세요. 반과 학번으로 자료를 찾아 음원을 듣고, 같은 회화가 영상 속에서 어떻게 표현되는지 살펴볼 수 있습니다.</p>
+      <p>학생들이 직접 만든 여행 회화의 녹음 활동을 사진으로 소개합니다. 회화문을 바탕으로 제작한 상황 영상은 아래 버튼을 눌러 영상 패들렛에서 볼 수 있습니다.</p>
       <div className="bilingual-padlet-grid">
-        {padlets.map((padlet) => <a className="bilingual-padlet-card" href={padlet.href} key={padlet.href} target="_blank" rel="noopener noreferrer">
+        {padlets.map((padlet) => <article className="bilingual-padlet-card" key={padlet.title}>
           <Image src={padlet.image} alt={padlet.alt} width={603} height={764} sizes="(max-width: 700px) calc(100vw - 48px), 400px" />
           <div className="bilingual-padlet-copy">
             <span className="bilingual-label">{padlet.label}</span>
             <h3>{padlet.title}</h3>
             <p>{padlet.description}</p>
-            <span className="bilingual-padlet-action">{padlet.action} ↗ <small>(새 탭)</small></span>
+            {padlet.href ? <a className="bilingual-padlet-action" href={padlet.href} target="_blank" rel="noopener noreferrer">{padlet.action} ↗ <small>(새 탭)</small></a> : <span className="bilingual-label">활동 사진 · 음원 재생 및 외부 연결 없음</span>}
           </div>
-        </a>)}
+        </article>)}
       </div>
     </section>
     <section className="bilingual-prose"><h2>지금까지와 앞으로를 구분해서 기록합니다</h2><ol className="bilingual-steps"><li><span className="bilingual-step-number" aria-hidden="true">01</span><div><span className="bilingual-label">진행한 수업</span><h3>소책자 제작과 대만 이해</h3><p>오침안정법으로 소책자를 만들고, 대만의 기본정보·먹거리·볼거리·살거리를 배우며 학생별 정보 선별과 책 꾸미기로 이어 갔습니다.</p></div></li><li><span className="bilingual-step-number" aria-hidden="true">02</span><div><span className="bilingual-label">진행한 수업</span><h3>부스 회화 활동과 학생 강사 미니 수업</h3><p>想을 활용한 여행 회화를 부스에서 사용하고, 각자 설계한 미니 수업에서 친구에게 회화문의 중요한 구문을 설명했습니다.</p></div></li><li><span className="bilingual-step-number" aria-hidden="true">03</span><div><span className="bilingual-label">현재 진행 상황</span><h3>테마별 회화문 구성·녹음과 영상 제작</h3><p>각자의 테마에 맞는 정보와 회화 세 문장을 담는 실용서를 제작하고 있습니다. 학생이 직접 회화문을 구성하고 녹음했으며, 음원과 제작 영상을 패들렛에 공유했습니다. QR코드는 아직 배부하지 않았습니다.</p></div></li><li><span className="bilingual-step-number" aria-hidden="true">04</span><div><span className="bilingual-label">앞으로의 계획</span><h3>실용서와 음원·영상 연결</h3><p>완성한 회화 음원과 상황 영상을 QR코드로 연결해, 종이책을 읽으며 표현을 듣고 상황을 볼 수 있도록 할 계획입니다.</p></div></li></ol></section>
