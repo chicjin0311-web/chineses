@@ -36,6 +36,21 @@ export default function Guidelines() {
           <li><a href="https://www.law.go.kr/ordinInfoP.do?ordinId=217642">전라남도교육청 공무국외출장 규정 — 국가법령정보센터</a><br />확인한 본문은 2025. 9. 1. 시행본이다. 계획을 세울 때 현행 조문과 서식을 다시 확인한다.</li>
         </ul>
         <p className="exchange-small">자료 확인: 2026. 11. 2. 학교에 수신된 매뉴얼 탑재 안내 공문 대신 공개된 공식 원문으로 연결했다. 별도로 받은 「글로컬 전남 국제교육교류 길라잡이」는 파일명이 ‘최종안’이므로 확정 지침으로 재게시하지 않았다. 이후 개정 공문과 해당 사업의 별도 안내도 함께 확인한다.</p>
+        <section id="forms" aria-labelledby="forms-title">
+          <h2 id="forms-title">준비할 때 꺼내 쓰는 공식 양식</h2>
+          <p>공개 매뉴얼에서 필요한 서식을 골라 15쪽으로 묶었다. 원문 내용과 쪽수는 그대로이며, PDF는 확인·인쇄용이다. 내용을 편집하려면 아래 한글 원문에서 해당 서식을 찾아 사용하면 된다.</p>
+          <p><a className="text-button" href="/exchange/forms/2026-jeonnam-exchange-forms.pdf" download>공식 서식 모음 PDF 내려받기 (약 3.5MB) ↓</a></p>
+          <p><a href="https://www.jne.go.kr/upload/jinro/na/bbs_394/ntt_5170417/doc_5c89e85a-0fc7-4895-9d97-d0f7d3cefb1f1773a1208b55642.hwp">편집 가능한 공식 매뉴얼 전체 한글(HWP) 원문 ↓</a></p>
+          <ul>
+            <li><a href="/exchange/forms/2026-jeonnam-exchange-forms.pdf#page=1">참가 준비 — 학부모 동의·희망 조사 예시</a><br />서식 2 · 원문 76–77쪽 · 모음 1–2쪽</li>
+            <li><a href="/exchange/forms/2026-jeonnam-exchange-forms.pdf#page=3">답사 현장 — 사전답사 점검 항목</a><br />서식 6-2 · 원문 85–86쪽 · 모음 3–4쪽</li>
+            <li><a href="/exchange/forms/2026-jeonnam-exchange-forms.pdf#page=5">답사 후 — 사전답사 결과 보고</a><br />서식 6-3 · 원문 87–89쪽 · 모음 5–7쪽</li>
+            <li><a href="/exchange/forms/2026-jeonnam-exchange-forms.pdf#page=8">인솔자 출장 — 승인 신청·계획서 예시</a><br />서식 14·14-1 · 원문 107–110쪽 · 모음 8–11쪽</li>
+            <li><a href="/exchange/forms/2026-jeonnam-exchange-forms.pdf#page=12">사전교육 — 안전교육·연수 실시확인서</a><br />서식 15 · 원문 111–112쪽 · 모음 12–13쪽</li>
+            <li><a href="/exchange/forms/2026-jeonnam-exchange-forms.pdf#page=14">활동 후 — 학생·인솔교원 설문지</a><br />서식 20·21 · 원문 119–120쪽 · 모음 14–15쪽</li>
+          </ul>
+          <p className="exchange-small">출처: 전라남도교육청 「2026. 현장체험학습 매뉴얼」(2026. 3. 10. 공개). 예시의 국가·일정·인원·금액·수신처는 우리 학교의 교류 기록이나 확정 기준이 아니다. 해당 사업과 최신 지침에 맞게 수정한다. 작성한 동의서·명단·서명은 홈페이지에 공개하지 않는다. PDF 페이지 이동이 지원되지 않는 환경에서는 ‘모음 쪽수’로 찾아보면 된다.</p>
+        </section>
         <h2>현장체험학습 매뉴얼에서 먼저 확인할 것</h2>
         <p>2026 매뉴얼은 숙박형 기타 활동 중 <strong>국외 체험학습에도 국외 수학여행 절차를 준용</strong>하도록 안내한다. 국제교류라는 이름만으로 절차를 생략하지 않고, 우리 활동의 유형과 사업별 안내를 먼저 확인해야 한다.</p>
         <p>국외 수학여행은 학부모 동의율 90% 이상과 컨설팅을 조건으로 한다. 숙박형 활동의 사전답사, 안전요원 배치, 여행자보험 기준도 계획 단계에서 살펴본다. 학교운영위원회에는 답사 결과와 안전대책을 함께 설명할 수 있도록 준비한다.</p>
