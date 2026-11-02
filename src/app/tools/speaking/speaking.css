@@ -8,3 +8,5 @@
 .sp-response-table{white-space:normal;min-width:650px}.sp-response-table td{vertical-align:top}.sp-response-table td:nth-child(2){min-width:170px}.sp-response-table td:nth-child(3){min-width:100px}.sp-response-table img{max-width:100px;max-height:90px;object-fit:contain}.sp-response-table audio{display:block;width:260px;max-width:100%;margin-bottom:8px}.sp-response-table a{font-size:12px;text-decoration:underline;margin-left:12px}.sp-grading{margin:24px 0}.sp-grading summary{cursor:pointer;font-weight:700;padding:16px 0}
 
 .sp-playlist{border:1px solid #d8e4d5;background:#f3f7ef;border-radius:12px;padding:4px 18px 10px;margin:20px 0}.sp-playlist .sp-actions{margin:14px 0}.sp-playlist p{font-size:13px;margin:8px 0}
+
+.sp button.sp-sort{background:transparent;border:0;padding:4px 0;font-weight:700;color:inherit}.sp button.sp-sort:hover{text-decoration:underline}.sp-table th[aria-sort="ascending"],.sp-table th[aria-sort="descending"]{color:#28584b}

@@ -4,6 +4,19 @@ export function sortByStudentNo<T extends {student_no:string;id:string}>(attempt
  return [...attempts].sort((a,b)=>studentNumbers.compare(a.student_no,b.student_no)||a.student_no.localeCompare(b.student_no)||a.id.localeCompare(b.id));
 }
 
+export type AttemptSort={key:'student_no'|'submitted_at';direction:'asc'|'desc'};
+export function sortAttempts<T extends {student_no:string;id:string;submitted_at:string|null}>(attempts:T[],sort:AttemptSort):T[]{
+ const ordered=sortByStudentNo(attempts);
+ if(sort.key==='student_no')return sort.direction==='asc'?ordered:ordered.reverse();
+ const time=(value:string|null)=>value?Date.parse(value):NaN;
+ return ordered.sort((a,b)=>{
+  const left=time(a.submitted_at),right=time(b.submitted_at);
+  if(!Number.isFinite(left))return Number.isFinite(right)?1:0;
+  if(!Number.isFinite(right))return -1;
+  return (left-right)*(sort.direction==='asc'?1:-1);
+ });
+}
+
 export function koreaTime(value:string|null|undefined){
  if(!value)return '';
  const date=new Date(value);
