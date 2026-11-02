@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { ExchangeGuideShortcut } from '@/components/exchange-guide-shortcut';
 import { ArrowRight, ArrowUpRight, AudioLines, BookOpen, BookMarked, FileText, FolderOpen, Globe2, Layers, LibraryBig, NotebookPen, Shuffle, Timer, Mic } from 'lucide-react';
 import { FolderCard } from '@/components/folder-card';
 import { getResources } from '@/lib/catalog';
@@ -23,6 +24,7 @@ export default async function Home() {
         <Link href="/write" className="button primary">새 초안 쓰기 <ArrowUpRight size={17} aria-hidden="true" /></Link>
       </header>
 
+      <ExchangeGuideShortcut />
       <section className="workspace-folders" aria-labelledby="folders-heading">
         <div className="section-heading"><h2 id="folders-heading">배움과 기록의 폴더</h2><span className="section-hint">차곡차곡 쌓아 가는 일곱 공간</span></div>
         <div className="home-folder-grid">

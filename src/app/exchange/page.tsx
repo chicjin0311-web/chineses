@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { ExchangeGuideShortcut } from '@/components/exchange-guide-shortcut';
 import './exchange.css';
 
 export const metadata: Metadata = {
@@ -21,6 +22,7 @@ export default function ExchangePage() {
       <div className="page-intro"><p className="eyebrow">만남이 이어지는 교실</p><h1>국제교류 기록</h1><p>화면으로 만나고, 서로의 학교를 찾고, 다시 안부를 나눕니다.<br />함께한 학교와 연도를 따라 교류의 이야기를 모읍니다.</p></div>
       <Link href="/write?category=exchange" className="button soft">초안 쓰기</Link>
     </header>
+    <ExchangeGuideShortcut />
     <section aria-labelledby="exchange-start-title" className="exchange-feature"><p className="eyebrow">지금 이어 가는 이야기 · 2026</p><h2 id="exchange-start-title"><Link href="/exchange/dongbei-2026/continuing-friendship">작년에 만난 친구에게, 올해의 응원을</Link></h2><p>올해 동북육재학교와 이어 가는 온라인 교류를 먼저 소개합니다.<br />지난해 기록은 방중, 방한 순서로 읽을 수 있습니다.</p><Link className="text-button" href="/exchange/dongbei-2026/continuing-friendship">올해 이야기 읽기 →</Link></section>
     <p><Link className="text-button" href="/exchange/topics">온라인 교류·홈스테이·방중 준비, 궁금한 주제로 글 찾기 →</Link></p>
     {['중국', '대만'].map(region => <section key={region} className="exchange-series" aria-labelledby={`exchange-${region}-title`}>

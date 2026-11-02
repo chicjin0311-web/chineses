@@ -34,6 +34,8 @@ export default function Guidelines() {
           <h2 id="print-checklist-title">출력해서 쓰는 A4 한 장 체크리스트</h2>
           <p>준비 순서와 담당자, 확인할 서류를 한 장에 모았다. 교류명·일정과 실제 담당자를 적고, 준비를 마친 단계에 체크하며 사용하면 된다. 온라인 교류는 해당 회차에 맞게 준비한다.</p>
           <p><a className="text-button" href="/exchange/forms/2026-exchange-one-page-checklist.pdf" download>국제교류 담당자 체크리스트 PDF 내려받기 ↓</a></p>
+          <p><a className="text-button" href="/exchange/forms/2026-exchange-one-page-checklist.docx" download>학교 상황에 맞게 수정하는 워드(DOCX) 내려받기 ↓</a></p>
+          <p className="exchange-small">워드 파일의 표·문구·담당자 칸은 직접 편집할 수 있다. 내용을 늘린 뒤에는 인쇄 미리보기에서 쪽수를 확인한다.</p>
           <p><a href="/exchange/forms/2026-exchange-one-page-checklist.pdf" target="_blank" rel="noopener noreferrer">체크리스트 열기·인쇄 (새 창) →</a></p>
           <p className="exchange-small">A4 세로 1쪽 · 흑백 출력 가능 · 인쇄 설정은 ‘A4 / 용지에 맞춤’. 공식 지침을 참고해 만든 실무용 요약이며 공식 서식은 아니다. 학교의 업무분장과 교류 유형에 맞게 사용한다.</p>
         </section>
