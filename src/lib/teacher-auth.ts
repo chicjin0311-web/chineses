@@ -12,6 +12,39 @@ export function teacherAuth(){
  return client;
 }
 
+// Read the persisted session at request time, rather than reusing a token from
+// an earlier render. Supabase refreshes expired sessions under its browser lock.
+export async function teacherRequest(action:string,data:Record<string,unknown>={},binary=false){
+ const c=teacherAuth();
+ const current=await c.auth.getSession();
+ if(current.error)throw current.error;
+ if(!current.data.session)throw new Error('저장된 로그인이 없습니다. 이 브라우저에서 한 번 인증해 주세요.');
+ const send=(accessToken:string)=>fetch('/api/speaking',{
+  method:'POST',headers:{'Content-Type':'application/json',Authorization:`Bearer ${accessToken}`},
+  body:JSON.stringify({action,...data}),
+ });
+ let response=await send(current.data.session.access_token);
+ // Only 401 is safe to retry: the API rejects it before performing any action.
+ if(response.status===401){
+  const latest=await c.auth.getSession();
+  if(latest.error)throw latest.error;
+  if(!latest.data.session)throw new Error('로그인이 종료되었습니다. 다시 인증해 주세요.');
+  const refreshed=latest.data.session.access_token!==current.data.session.access_token
+   ?latest:await c.auth.refreshSession();
+  if(refreshed.error)throw refreshed.error;
+  if(!refreshed.data.session)throw new Error('로그인이 종료되었습니다. 다시 인증해 주세요.');
+  response=await send(refreshed.data.session.access_token);
+ }
+ if(!response.ok){const result=await response.json();throw new Error(result.error||'요청에 실패했습니다.');}
+ return binary?response.blob():response.json();
+}
+
+export async function signOutTeacher(){
+ // A shared classroom computer must not sign out the teacher's other devices.
+ const {error}=await teacherAuth().auth.signOut({scope:'local'});
+ if(error)throw error;
+}
+
 export function authErrorMessage(error:unknown){
  const text=error instanceof Error?error.message:String(error);
  if(/rate.limit|too many|over_email_send_rate_limit/i.test(text))return '인증 메일 발송 한도에 도달했습니다. 재발송을 반복하지 마세요. 아직 사용하지 않은 메일이 있으면 아래에 입력할 수 있습니다. 이미 인증 링크를 눌렀다면 인증 후 열린 페이지의 전체 주소로 로그인을 복구할 수 있습니다.';
