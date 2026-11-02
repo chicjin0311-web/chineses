@@ -30,6 +30,13 @@ export default function Guidelines() {
       <div className="exchange-prose">
         <p>교류를 준비하다 보면 수업과 체험활동만큼 챙겨야 할 절차도 많다. 함께 수업할 선생님, 학생을 인솔할 선생님, 행정 업무를 맡을 분들과 일찍 이야기해야 하는 이유다. 다음 교류를 준비할 때 다시 펼쳐 볼 수 있도록 공식 자료와 확인할 일을 모았다.</p>
         <p className="exchange-key"><strong>좋은 활동을 준비하는 일과<br />안전하게 운영할 준비는 함께 간다.</strong></p>
+        <section id="print-checklist" aria-labelledby="print-checklist-title">
+          <h2 id="print-checklist-title">출력해서 쓰는 A4 한 장 체크리스트</h2>
+          <p>준비 순서와 담당자, 확인할 서류를 한 장에 모았다. 교류명·일정과 실제 담당자를 적고, 준비를 마친 단계에 체크하며 사용하면 된다. 온라인 교류는 해당 회차에 맞게 준비한다.</p>
+          <p><a className="text-button" href="/exchange/forms/2026-exchange-one-page-checklist.pdf" download>국제교류 담당자 체크리스트 PDF 내려받기 ↓</a></p>
+          <p><a href="/exchange/forms/2026-exchange-one-page-checklist.pdf" target="_blank" rel="noopener noreferrer">체크리스트 열기·인쇄 (새 창) →</a></p>
+          <p className="exchange-small">A4 세로 1쪽 · 흑백 출력 가능 · 인쇄 설정은 ‘A4 / 용지에 맞춤’. 공식 지침을 참고해 만든 실무용 요약이며 공식 서식은 아니다. 학교의 업무분장과 교류 유형에 맞게 사용한다.</p>
+        </section>
         <h2>먼저 열어 볼 공식 자료</h2>
         <ul>
           <li><a href="https://www.jne.go.kr/jinro/na/ntt/selectNttInfo.do?mi=817&nttSn=5170417">2026 현장체험학습 운영 매뉴얼 — 전남교육청 공식 게시글</a><br />2026. 3. 10. 등록 · PDF와 한글 원문 제공. 교육정보모두 → 진로진학지원센터 → 진로정보 → 창체자료실에서 찾을 수 있다.</li>
