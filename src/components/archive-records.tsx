@@ -1,0 +1,26 @@
+import Link from 'next/link';
+import records from '@/data/archive-records.json';
+import './archive-records.css';
+
+const semesters = ['2024년 1학기', '2024년 2학기', '2025년 1학기', '2025년 2학기', '2026년 1학기', '2026년 2학기'];
+
+export function ArchiveRecords() {
+  return <section className="archive-records" aria-labelledby="archive-records-title">
+    <div className="section-heading"><h2 id="archive-records-title">학기별 수업 기록</h2><span className="section-hint">학습 활동 5편 · PDF 5개</span></div>
+    <p className="archive-intro">기존 수업자료에서 다시 활용할 수 있는 활동을 골랐습니다. 첨부파일은 원본 전체가 아닌, 개인정보와 외부 저작물을 제외한 공개용 발췌본입니다.</p>
+    <nav className="archive-semesters" aria-label="학기 바로가기">{semesters.map((semester, index) => <a key={semester} href={`#semester-${index}`}>{semester}</a>)}</nav>
+    {semesters.map((semester, index) => {
+      const items = records.filter(record => record.semester === semester);
+      return <section key={semester} id={`semester-${index}`} className="archive-semester" aria-labelledby={`semester-title-${index}`}>
+        <h3 id={`semester-title-${index}`}>{semester}</h3>
+        {items.length ? items.map(record => <article key={record.id} className="archive-card">
+          <span className="archive-label">학습지 · 익명화 발췌본</span>
+          <h4><Link href={`/research/archive/${record.id}`}>{record.title}</Link></h4>
+          <p>{record.summary}</p>
+          <div className="archive-actions"><Link className="button soft" href={`/research/archive/${record.id}`}>수업 내용 보기</Link><a className="button soft" href={record.file} download>학습 활동 PDF 내려받기</a></div>
+        </article>) : <p className="archive-pending">학기를 확정할 근거와 공개 가능한 자료를 함께 확인하지 못해 이번 정리에는 첨부하지 않았습니다.</p>}
+      </section>;
+    })}
+    <p className="archive-scope">평가계획은 이번 공개 대상에서 제외했습니다. PPT와 나머지 원본도 공개 적합성이 확인되지 않아 첨부하지 않았습니다. 정리일: 2026.11.02.</p>
+  </section>;
+}

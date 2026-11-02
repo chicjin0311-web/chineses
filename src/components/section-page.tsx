@@ -5,6 +5,7 @@ import { ResourceLibrary } from './resource-library';
 import { getProjects, getResources } from '@/lib/catalog';
 import { writingCategories, type ClassroomSection } from '@/lib/site';
 import { PublishedPostList } from './published-post-list';
+import { ArchiveRecords } from './archive-records';
 
 function EmptyRecords({ category, title }: { category: string; title: string }) {
   return <section className="record-empty" aria-label={`${title} 기록`}>
@@ -52,7 +53,7 @@ export async function SectionPage({ section }: { section: ClassroomSection }) {
     </>}
 
     {section.kind === 'record' && category && <>
-      <EmptyRecords category={category.id} title={category.title} />
+      {category.id === 'archive' ? <ArchiveRecords /> : <EmptyRecords category={category.id} title={category.title} />}
       <section className="writing-guide" aria-labelledby="guide-title"><div><p className="eyebrow">기록의 시작</p><h2 id="guide-title">이런 내용을 담아 보세요.</h2></div><ol>{category.prompts.map(prompt => <li key={prompt}>{prompt}</li>)}</ol></section>
       {section.parent === '/research' && <Link className="text-button research-back" href="/research">수업 연구의 전체 흐름 보기 <ArrowRight size={15} aria-hidden="true" /></Link>}
     </>}

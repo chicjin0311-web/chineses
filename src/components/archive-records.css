@@ -1,0 +1,20 @@
+.archive-records { margin: 34px 0; max-width: 950px; }
+.archive-intro,.archive-scope,.archive-pending { color: var(--muted); line-height: 1.85; }
+.archive-semesters { display:flex; flex-wrap:wrap; gap:8px; margin:24px 0 38px; }
+.archive-semesters a { padding:8px 13px; border:1px solid var(--line); border-radius:24px; }
+.archive-semesters a:hover { background:var(--surface-raised); }
+.archive-semester { margin:32px 0; scroll-margin-top:90px; }
+.archive-semester > h3 { font-size:20px; margin-bottom:15px; }
+.archive-card { border:1px solid var(--line); padding:26px; border-radius:16px; }
+.archive-label { font-size:12px; color:var(--muted); }
+.archive-card h4 { font-size:22px; margin:9px 0 12px; line-height:1.5; }
+.archive-card p { line-height:1.9; max-width:780px; }
+.archive-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:20px; }
+.archive-scope { border-top:1px solid var(--line); padding-top:22px; font-size:13px; }
+.archive-detail { max-width:850px; }
+.archive-detail section { margin:35px 0; }
+.archive-detail h2 { font-size:21px; margin-bottom:15px; }
+.archive-detail p,.archive-detail li { line-height:1.9; }
+.archive-detail li { margin-bottom:9px; }
+.archive-provenance { font-size:13px; color:var(--muted); border-top:1px solid var(--line); padding-top:24px; }
+@media(max-width:600px) { .archive-card{padding:20px} .archive-card h4{font-size:19px} .archive-actions{flex-direction:column;align-items:flex-start} }
