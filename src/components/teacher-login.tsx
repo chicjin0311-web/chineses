@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Mail, ArrowRight } from 'lucide-react';
 import { getBrowserSupabase } from '@/lib/supabase-browser';
-export function TeacherLogin({ expired = false }: { expired?: boolean }) {
+export function TeacherLogin({ expired = false,nextPath='/studio' }: { expired?: boolean;nextPath?:string }) {
   const [email, setEmail] = useState('');
   const [busy, setBusy] = useState(false);
   const [sent, setSent] = useState(false);
@@ -12,7 +12,8 @@ export function TeacherLogin({ expired = false }: { expired?: boolean }) {
     setBusy(true); setMessage('');
     try {
       const db = getBrowserSupabase();
-      const { error } = await db.auth.signInWithOtp({ email: email.trim(), options: { shouldCreateUser: false, emailRedirectTo: `${window.location.origin}/auth/callback` } });
+      const callback=new URL('/auth/callback',window.location.origin);callback.searchParams.set('next',nextPath);
+      const { error } = await db.auth.signInWithOtp({ email: email.trim(), options: { shouldCreateUser: false, emailRedirectTo: callback.toString() } });
       if (error) {
         setMessage(error.status === 429 ? '메일 발송 간격 또는 발송 한도에 도달했어요. 잠시 후 다시 시도해 주세요.' : '로그인 메일을 보내지 못했어요. 등록된 선생님 이메일인지 확인해 주세요. 반복되면 인증 메일 설정 확인이 필요합니다.');
       } else { setSent(true); setMessage('로그인 메일을 보냈어요. 이 브라우저에서 메일의 로그인 링크를 열어 주세요.'); }
