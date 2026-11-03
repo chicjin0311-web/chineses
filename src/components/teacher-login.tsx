@@ -12,7 +12,8 @@ export function TeacherLogin({ expired = false,nextPath='/studio' }: { expired?:
     setBusy(true); setMessage('');
     try {
       const db = getBrowserSupabase();
-      const callback=new URL('/auth/callback',window.location.origin);callback.searchParams.set('next',nextPath);
+      document.cookie=`archive-next=${encodeURIComponent(nextPath)}; Path=/; Max-Age=900; SameSite=Lax${window.location.protocol==='https:'?'; Secure':''}`;
+      const callback=new URL('/auth/callback',window.location.origin);
       const { error } = await db.auth.signInWithOtp({ email: email.trim(), options: { shouldCreateUser: false, emailRedirectTo: callback.toString() } });
       if (error) {
         setMessage(error.status === 429 ? '메일 발송 간격 또는 발송 한도에 도달했어요. 잠시 후 다시 시도해 주세요.' : '로그인 메일을 보내지 못했어요. 등록된 선생님 이메일인지 확인해 주세요. 반복되면 인증 메일 설정 확인이 필요합니다.');
