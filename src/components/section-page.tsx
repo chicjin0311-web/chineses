@@ -26,7 +26,7 @@ export async function SectionPage({ section }: { section: ClassroomSection }) {
     <Link href={section.parent ?? '/'} className="back-link"><ArrowLeft size={15} aria-hidden="true" />{section.parent ? `${section.eyebrow}으로 돌아가기` : '전체 폴더로 돌아가기'}</Link>
     <header className="collection-heading">
       <div className="page-intro"><p className="eyebrow">{section.eyebrow}</p><h1>{section.title}</h1><p>{section.description}</p></div>
-      {category && <Link className="button primary" href={`/write?category=${category.id}`}><FilePenLine size={17} aria-hidden="true" />초안 쓰기</Link>}
+      {category && <Link className="button primary" href={category.id==='archive'?'/studio':`/write?category=${category.id}`}><FilePenLine size={17} aria-hidden="true" />{category.id==='archive'?'글 작성·수정':'초안 쓰기'}</Link>}
     </header>
     {siblings.length > 0 && <nav className="section-tabs" aria-label={`${section.eyebrow} 세부 폴더`}>{siblings.map(item => <Link key={item.id} href={item.href} aria-current={item.id === category?.id ? 'page' : undefined}>{item.title}</Link>)}</nav>}
 

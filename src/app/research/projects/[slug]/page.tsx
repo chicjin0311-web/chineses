@@ -4,16 +4,23 @@ import projects from '@/data/project-records.json';
 import rubrics from '@/data/china-speed-rubrics.json';
 import learningDetails from '@/data/learning-details.json';
 import { LearningDetails } from '@/components/learning-details';
+import {publishedArchiveDocument} from '@/lib/archive-persistence';
+import {ArchiveDocumentView,ArchiveBody} from '@/components/archive-document';
+import {careerReadingBody} from '@/lib/career-reading';
 import '@/components/archive-records.css';
 
-export function generateStaticParams() { return projects.map(project => ({ slug: project.id })); }
+export const dynamic='force-dynamic';
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const project = projects.find(item => item.id === slug);
+  const override=await publishedArchiveDocument(slug);
+  if(override)return {title:override.title,description:override.summary};
   return { title: project?.title ?? '수업 기록', description: project?.summary };
 }
 export default async function ProjectRecord({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  const override=await publishedArchiveDocument(slug);
+  if(override)return <ArchiveDocumentView document={override}/>;
   const project = projects.find(item => item.id === slug);
   if (!project) notFound();
   const learning = learningDetails[project.id as keyof typeof learningDetails];
@@ -21,10 +28,12 @@ export default async function ProjectRecord({ params }: { params: Promise<{ slug
     <Link className="back-link" href="/research/archive">← 기존 자료 정리</Link>
     <header className="page-intro"><p className="eyebrow">프로젝트 수업 기록</p><h1>{project.title}</h1><p>{project.summary}</p></header>
     <dl className="project-facts"><div><dt>교과</dt><dd>{project.subject}</dd></div><div><dt>대상</dt><dd>{project.target}</dd></div><div><dt>시기·차시</dt><dd>{project.period}</dd></div></dl>
+    <Link className="button soft" href={`/studio?slug=${project.id}`}>이 글 수정</Link>
     <section><h2>수업 목표</h2><p>{project.goal}</p></section>
     <LearningDetails learning={learning} />
     <section><h2>수업의 흐름</h2><ol>{project.steps.map(step => <li key={step}>{step}</li>)}</ol></section>
     <section><h2>결과물</h2><p>{project.outcomes}</p></section>
+    {project.id==='china-career'&&<section><ArchiveBody body={careerReadingBody}/></section>}
     {project.id === 'china-speed' && <section id="rubrics" aria-labelledby="rubrics-title">
       <h2 id="rubrics-title">서·논술형 채점기준표</h2>
       <p>2026년 2학기 중국문화 자료에서 해당 두 영역의 수준별 설명과 점수를 그대로 옮겼습니다. 평가계획 전체는 공개하지 않았습니다.</p>

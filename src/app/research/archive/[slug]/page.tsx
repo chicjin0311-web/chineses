@@ -4,22 +4,29 @@ import { notFound } from 'next/navigation';
 import records from '@/data/archive-records.json';
 import archiveLearning from '@/data/archive-learning-details.json';
 import { LearningDetails } from '@/components/learning-details';
+import {publishedArchiveDocument} from '@/lib/archive-persistence';
+import {ArchiveDocumentView} from '@/components/archive-document';
 import '@/components/archive-records.css';
 
-export function generateStaticParams() { return records.map(record => ({ slug: record.id })); }
+export const dynamic='force-dynamic';
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const record = records.find(item => item.id === slug);
+  const override=await publishedArchiveDocument(slug);
+  if(override)return {title:override.title,description:override.summary};
   return { title: record ? `${record.semester} ${record.title}` : '자료를 찾을 수 없어요', description: record?.summary };
 }
 export default async function ArchiveRecord({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  const override=await publishedArchiveDocument(slug);
+  if(override)return <ArchiveDocumentView document={override}/>;
   const record = records.find(item => item.id === slug);
   if (!record) notFound();
   const learning = archiveLearning[record.id as keyof typeof archiveLearning];
   return <article className="page archive-detail">
     <Link className="back-link" href="/research/archive">← 기존 자료 정리</Link>
     <header className="page-intro"><p className="eyebrow">{record.semester} · 학습 활동 기록</p><h1>{record.title}</h1><p>{record.summary}</p></header>
+    <Link className="button soft" href={`/studio?slug=${record.id}`}>이 글 수정</Link>
     <LearningDetails learning={learning} />
     <section aria-labelledby="worksheet-preview-title">
       <h2 id="worksheet-preview-title">공유용 학습지</h2>
