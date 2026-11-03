@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import records from '@/data/archive-records.json';
 import '@/components/archive-records.css';
@@ -16,6 +17,15 @@ export default async function ArchiveRecord({ params }: { params: Promise<{ slug
   return <article className="page archive-detail">
     <Link className="back-link" href="/research/archive">← 기존 자료 정리</Link>
     <header className="page-intro"><p className="eyebrow">{record.semester} · 학습 활동 기록</p><h1>{record.title}</h1><p>{record.summary}</p></header>
+    <section aria-labelledby="worksheet-preview-title">
+      <h2 id="worksheet-preview-title">학습지 미리보기</h2>
+      <figure className="archive-preview">
+        <a href={record.file.replace('.pdf', '.webp')} target="_blank" rel="noopener noreferrer" aria-label={`${record.title} 학습지 이미지 확대 보기 (새 창)`}>
+          <Image src={record.file.replace('.pdf', '.webp')} alt={`${record.title} 공개용 학습지 1쪽. 주요 활동과 기록 공간을 담은 익명화 발췌본.`} width={1191} height={1684} sizes="(max-width: 850px) 100vw, 780px" unoptimized />
+        </a>
+        <figcaption>이미지를 누르면 크게 볼 수 있습니다. 인쇄할 때는 아래 PDF를 이용하세요.</figcaption>
+      </figure>
+    </section>
     <section><h2>주요 활동</h2><ol>{record.activities.map(activity => <li key={activity}>{activity}</li>)}</ol></section>
     <section><h2>자료 활용</h2><p>학습 활동 PDF에는 위 활동에 맞는 질문과 기록 공간을 담았습니다. 수업 중 배부하거나 필요한 활동만 골라 활용할 수 있습니다.</p><a className="button primary" href={record.file} download>학습 활동 PDF 내려받기 · 1쪽</a></section>
     <section><h2>공개본에 담은 범위</h2><p>{record.note}</p><p>원본 일부를 발췌·재구성한 자료이며, 당시의 배부본 전체와 동일하지 않습니다.</p></section>

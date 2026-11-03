@@ -12,6 +12,10 @@
 .archive-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:20px; }
 .archive-scope { border-top:1px solid var(--line); padding-top:22px; font-size:13px; }
 .archive-detail { max-width:850px; }
+.archive-preview { margin:0; }
+.archive-preview a { display:block; border:1px solid var(--line); background:white; box-shadow:var(--shadow-soft); }
+.archive-preview img { display:block; width:100%; height:auto; }
+.archive-preview figcaption { margin-top:12px; color:var(--muted); font-size:13px; line-height:1.7; }
 .archive-detail section { margin:35px 0; }
 .archive-detail h2 { font-size:21px; margin-bottom:15px; }
 .archive-detail p,.archive-detail li { line-height:1.9; }
