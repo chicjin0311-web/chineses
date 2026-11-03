@@ -6,7 +6,15 @@ export function apiError(error: unknown) {
   return privateJson({ error: error instanceof ApiError ? error.message : '요청을 처리하지 못했어요. 잠시 후 다시 시도해 주세요.' }, error instanceof ApiError ? error.status : 500);
 }
 export function checkOrigin(request: Request) {
-  if (request.headers.get('origin') !== new URL(request.url).origin) throw new ApiError('이 홈페이지에서 다시 시도해 주세요.', 403);
+  const origin=request.headers.get('origin');
+  let sameOrigin=false;
+  try {
+    const source=new URL(origin??'');
+    const host=request.headers.get('host')??new URL(request.url).host;
+    const local=['localhost','127.0.0.1','[::1]'].includes(source.hostname);
+    sameOrigin=source.origin===origin&&source.host===host&&(source.protocol==='https:'||(local&&source.protocol==='http:'));
+  } catch { /* Missing or invalid Origin is rejected. */ }
+  if (!sameOrigin) throw new ApiError('이 홈페이지에서 다시 시도해 주세요.', 403);
 }
 export async function requireEditor(request?: Request) {
   if (request) checkOrigin(request);
