@@ -1,0 +1,207 @@
+[
+  {
+    "title": "중국 미래산업 탐구",
+    "rows": [
+      {
+        "criterion": "핵심어 이해",
+        "description": "영상 속 미래산업·교육·인재 양성 관련 핵심 용어와 사례를 정확하게 확인함",
+        "score": 25
+      },
+      {
+        "criterion": "핵심어 이해",
+        "description": "영상 속 핵심 용어와 사례 대부분을 정확하게 확인함",
+        "score": 20
+      },
+      {
+        "criterion": "핵심어 이해",
+        "description": "영상 속 핵심 용어와 사례 중 기본 내용을 정확하게 확인함",
+        "score": 15
+      },
+      {
+        "criterion": "핵심어 이해",
+        "description": "영상 속 핵심 용어와 사례 일부를 확인함",
+        "score": 10
+      },
+      {
+        "criterion": "핵심어 이해",
+        "description": "영상 속 핵심 용어 또는 사례를 확인함",
+        "score": 5
+      },
+      {
+        "criterion": "핵심어 이해",
+        "description": "답안이 없거나 전혀 다른 개념을 작성한 경우",
+        "score": 0
+      },
+      {
+        "criterion": "개념 이해",
+        "description": "영상 속 미래산업·정책·인재 양성 관련 개념의 의미를 핵심 요소와 함께 정확하게 설명함",
+        "score": 40
+      },
+      {
+        "criterion": "개념 이해",
+        "description": "영상 속 관련 개념의 의미를 대부분 정확하게 설명함",
+        "score": 30
+      },
+      {
+        "criterion": "개념 이해",
+        "description": "영상 속 관련 개념의 기본 의미를 설명함",
+        "score": 20
+      },
+      {
+        "criterion": "개념 이해",
+        "description": "영상 속 개념의 일부 의미를 설명함",
+        "score": 10
+      },
+      {
+        "criterion": "개념 이해",
+        "description": "관련 개념 또는 핵심어를 제시함",
+        "score": 5
+      },
+      {
+        "criterion": "개념 이해",
+        "description": "관련 답안을 작성하지 않음",
+        "score": 0
+      },
+      {
+        "criterion": "주장 타당성",
+        "description": "선택한 미래산업 분야의 중요성을 자신의 관점에서 논리적으로 설명함",
+        "score": 15
+      },
+      {
+        "criterion": "주장 타당성",
+        "description": "선택한 분야와 그 중요성을 연결하여 설명함",
+        "score": 10
+      },
+      {
+        "criterion": "주장 타당성",
+        "description": "선택한 분야와 관련된 자신의 생각을 제시함",
+        "score": 5
+      },
+      {
+        "criterion": "근거 활용",
+        "description": "선택한 분야와 직접 관련된 영상 속 구체적인 사례를 활용하여 주장을 뒷받침함",
+        "score": 10
+      },
+      {
+        "criterion": "근거 활용",
+        "description": "영상 속 관련 내용이나 개념을 자신의 생각과 연결함",
+        "score": 5
+      },
+      {
+        "criterion": "글의 완결성",
+        "description": "원고지 기준 200자 내외로 작성하고, 자신의 주장과 근거가 연결된 글을 완성함",
+        "score": 10
+      },
+      {
+        "criterion": "글의 완결성",
+        "description": "자신의 주장과 근거를 문장으로 작성함",
+        "score": 5
+      }
+    ]
+  },
+  {
+    "title": "한중 교육 성찰 논술",
+    "rows": [
+      {
+        "criterion": "교육 경험 성찰",
+        "description": "긍정적 역량과 한계점을 구체적인 경험 또는 이유와 함께 균형 있게 성찰함",
+        "score": 25
+      },
+      {
+        "criterion": "교육 경험 성찰",
+        "description": "긍정적 역량과 한계점을 모두 제시했으나, 구체적 경험/이유 서술이 다소 부족함",
+        "score": 20
+      },
+      {
+        "criterion": "교육 경험 성찰",
+        "description": "긍정적 역량 또는 한계점 중 하나를 자신의 경험과 연결하여 설명함",
+        "score": 15
+      },
+      {
+        "criterion": "교육 경험 성찰",
+        "description": "긍정적 역량 또는 더 발전시키고 싶은 점 중 하나를 제시함",
+        "score": 10
+      },
+      {
+        "criterion": "교육 경험 성찰",
+        "description": "교육 경험과 관련된 자신의 생각을 간단히 제시함",
+        "score": 5
+      },
+      {
+        "criterion": "중국 사례와 미래사회 연결",
+        "description": "읽기 자료의 중국 인재 양성 특징(AI교육, 산교융합 등) 1가지 이상을 정확히 인용하고, 한계점이 미래(AI) 사회에서 문제가 되는 이유를 논리적 인과관계로 명확히 규명함",
+        "score": 30
+      },
+      {
+        "criterion": "중국 사례와 미래사회 연결",
+        "description": "중국 사례를 인용하고 미래사회 문제점을 서술했으나, 인과적 연결이 다소 미흡함",
+        "score": 25
+      },
+      {
+        "criterion": "중국 사례와 미래사회 연결",
+        "description": "중국 사례 인용 또는 미래사회 문제점 진단 중 한쪽 측면만 서술함",
+        "score": 20
+      },
+      {
+        "criterion": "중국 사례와 미래사회 연결",
+        "description": "중국 사례나 미래사회를 단순 언급하는 데 그침",
+        "score": 15
+      },
+      {
+        "criterion": "중국 사례와 미래사회 연결",
+        "description": "관련 내용을 작성하지 않음",
+        "score": 10
+      },
+      {
+        "criterion": "중국 사례와 미래사회 연결",
+        "description": "논제와 무관하거나 단편적인 단어만 나열함",
+        "score": 5
+      },
+      {
+        "criterion": "미래 인재상 제시",
+        "description": "공동체에 기여할 인재상 또는 핵심 역량을 앞선 문제의식과 연결하여 명확하게 제시함",
+        "score": 20
+      },
+      {
+        "criterion": "미래 인재상 제시",
+        "description": "기여 방향과 핵심 역량을 제시했으나, 앞선 논증과의 연계성이 다소 부족함",
+        "score": 15
+      },
+      {
+        "criterion": "미래 인재상 제시",
+        "description": "자신이 추구하는 인재상 또는 핵심 역량을 제시함",
+        "score": 10
+      },
+      {
+        "criterion": "미래 인재상 제시",
+        "description": "내용이 매우 추상적이거나 불분명함",
+        "score": 5
+      },
+      {
+        "criterion": "학교생활 실천 계획",
+        "description": "설정한 인재상과 연결하여 학교생활에서 실천할 구체적인 행동과 방법을 제시함",
+        "score": 15
+      },
+      {
+        "criterion": "학교생활 실천 계획",
+        "description": "설정한 인재상과 연결하여 실천할 행동을 제시함",
+        "score": 10
+      },
+      {
+        "criterion": "학교생활 실천 계획",
+        "description": "자신의 성장을 위한 실천 의지 또는 다짐을 표현함",
+        "score": 5
+      },
+      {
+        "criterion": "글의 완결성",
+        "description": "400자 이상 작성하고, 교육 성찰·중국 사례와 미래사회 연결·인재상·실천 계획을 하나의 글로 자연스럽게 연결함",
+        "score": 10
+      },
+      {
+        "criterion": "글의 완결성",
+        "description": "300자 이상 작성하고, 자신의 생각을 문장으로 연결하여 작성함",
+        "score": 5
+      }
+    ]
+  }
+]

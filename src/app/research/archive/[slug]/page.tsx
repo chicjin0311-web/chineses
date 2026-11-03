@@ -18,7 +18,8 @@ export default async function ArchiveRecord({ params }: { params: Promise<{ slug
     <Link className="back-link" href="/research/archive">← 기존 자료 정리</Link>
     <header className="page-intro"><p className="eyebrow">{record.semester} · 학습 활동 기록</p><h1>{record.title}</h1><p>{record.summary}</p></header>
     <section aria-labelledby="worksheet-preview-title">
-      <h2 id="worksheet-preview-title">학습지 미리보기</h2>
+      <h2 id="worksheet-preview-title">AI 재구성 참고 활동지</h2>
+      <p>이 이미지와 PDF는 AI가 일부 수업 내용을 새 양식으로 재구성한 자료입니다. 선생님이 제작한 원본 학습지의 사진이 아닙니다. 원본은 별도 첨부 후 확인하여 반영합니다.</p>
       <figure className="archive-preview">
         <a href={record.file.replace('.pdf', '.webp')} target="_blank" rel="noopener noreferrer" aria-label={`${record.title} 학습지 이미지 확대 보기 (새 창)`}>
           <Image src={record.file.replace('.pdf', '.webp')} alt={`${record.title} 공개용 학습지 1쪽. 주요 활동과 기록 공간을 담은 익명화 발췌본.`} width={1191} height={1684} sizes="(max-width: 850px) 100vw, 780px" unoptimized />
