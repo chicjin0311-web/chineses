@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { archiveTimeLabel,type ArchiveDocument } from '@/lib/archive-catalog';
 import './archive-records.css';
+import {ArchiveAttachments} from './archive-attachments';
 export function ArchiveBody({body}:{body:string}){
  const blocks=body.split(/\n\s*\n/).filter(Boolean);
  return <div className="archive-body">{blocks.map((block,index)=>{
@@ -11,4 +12,4 @@ export function ArchiveBody({body}:{body:string}){
   return <p key={index} style={{whiteSpace:'pre-wrap'}}>{block}</p>;
  })}</div>;
 }
-export function ArchiveDocumentView({document:d}:{document:ArchiveDocument}){return <article className="page archive-detail"><Link className="back-link" href="/research/archive">← 기존 자료 정리</Link><header className="page-intro"><p className="eyebrow">{d.kind} · {archiveTimeLabel(d)}</p><h1>{d.title}</h1><p>{d.summary}</p><p className="archive-label">{d.subject} · {d.target}</p></header><Link className="button soft" href={`/studio?slug=${encodeURIComponent(d.slug)}`}>이 글 수정</Link><ArchiveBody body={d.body}/>{d.attachment&&<section><h2>연결된 자료</h2><a className="button soft" href={d.attachment} download>PDF 내려받기</a></section>}</article>;}
+export function ArchiveDocumentView({document:d}:{document:ArchiveDocument}){return <article className="page archive-detail"><Link className="back-link" href="/research/archive">← 기존 자료 정리</Link><header className="page-intro"><p className="eyebrow">{d.kind} · {archiveTimeLabel(d)}</p><h1>{d.title}</h1><p>{d.summary}</p><p className="archive-label">{d.subject} · {d.target}</p></header><Link className="button soft" href={`/studio?slug=${encodeURIComponent(d.slug)}`}>이 글 수정</Link><ArchiveBody body={d.body}/><ArchiveAttachments ids={d.assetIds??[]}/>{d.attachment&&<section><h2>연결된 참고 자료</h2><p>아래 PDF는 기존 AI 재구성 참고 자료입니다.</p><a className="button soft" href={d.attachment} download>참고 자료 PDF 내려받기</a></section>}</article>;}

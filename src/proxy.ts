@@ -20,4 +20,4 @@ export async function proxy(request: NextRequest) {
   return response;
 }
 
-export const config = { matcher: ['/studio/:path*', '/login', '/auth/:path*', '/api/archive-editor/:path*', '/api/session'] };
+export const config = { matcher: ['/studio/:path*', '/login', '/auth/:path*', '/api/archive-editor/:path*', '/api/archive-assets/:path*', '/api/session'] };

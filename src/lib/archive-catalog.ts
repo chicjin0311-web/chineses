@@ -2,7 +2,7 @@ import projects from '@/data/project-records.json';
 import records from '@/data/archive-records.json';
 export const archiveKinds=['프로젝트 수업','차시·주제 수업','공유용 참고자료'] as const;
 export type ArchiveKind=typeof archiveKinds[number];
-export type ArchiveDocument={slug:string;title:string;summary:string;subject:string;target:string;year:string;semester:string;lessonDate:string;kind:ArchiveKind;tags:string[];body:string;href:string;attachment:string;updatedAt?:string};
+export type ArchiveDocument={slug:string;title:string;summary:string;subject:string;target:string;year:string;semester:string;lessonDate:string;kind:ArchiveKind;tags:string[];body:string;href:string;attachment:string;assetIds?:string[];updatedAt?:string};
 const topics:Record<string,string[]>={
  'china-career':['언어','문화','기업·경제','진로'],'namdo-food':['언어','문화','음식','홍보·제작'],'taiwan-guide':['언어','문화','여행','홍보·제작'],'china-business-trip':['언어','문화','여행','진로'],
  'favorite-food-poster':['언어','음식','홍보·제작'],'introduce-my-photo':['언어','자기표현'],'introduce-my-favorite':['언어','자기표현'],'china-speed':['문화','기업·경제','진로','읽기·논술'],

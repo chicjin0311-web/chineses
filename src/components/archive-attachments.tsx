@@ -1,0 +1,10 @@
+'use client';
+import {useEffect,useState} from 'react';
+import {fileUrl,type ArchiveAsset} from '@/lib/archive-assets';
+export function ArchiveAttachments({ids,onRemove,disabled=false}:{ids:string[];onRemove?:(id:string)=>void;disabled?:boolean}){
+ const [assets,setAssets]=useState<ArchiveAsset[]>([]),[error,setError]=useState(''),[retry,setRetry]=useState(0);
+ const key=ids.join(',');
+ useEffect(()=>{const abort=new AbortController();setAssets([]);setError('');if(!key)return()=>abort.abort();fetch(`/api/archive-assets?ids=${encodeURIComponent(key)}`,{signal:abort.signal,cache:'no-store'}).then(async r=>{if(!r.ok)throw new Error();const data=await r.json();if(data.assets.length!==key.split(',').length)throw new Error();setAssets(data.assets);}).catch(()=>{if(!abort.signal.aborted)setError('첨부자료를 불러오지 못했거나 공개되지 않은 자료입니다.');});return()=>abort.abort();},[key,retry]);
+ if(!key)return null;
+ return <section className="archive-attachments" aria-label="첨부한 학습지와 PPT"><h2>직접 첨부한 학습지와 PPT</h2>{error?<p role="alert">{error} <button className="button soft" onClick={()=>setRetry(n=>n+1)}>다시 불러오기</button></p>:!assets.length?<p role="status">첨부자료 불러오는 중…</p>:assets.map(a=><article className="attachment-item" key={a.id}><h3>{a.label}</h3><p className="expression-origin">{a.kind==='worksheet'?`공유용 학습지 · ${a.pages}쪽`:'공유용 PPTX'} · {(a.size/1024/1024).toFixed(1)}MB</p><div className="studio-actions"><a className="button soft" href={fileUrl(a.id)}>{a.kind==='worksheet'?'PDF 내려받기':'PPTX 내려받기'}</a>{onRemove&&<button className="button soft" disabled={disabled} onClick={()=>onRemove(a.id)}>이 글에서 첨부 빼기</button>}</div>{a.kind==='worksheet'&&<div className="worksheet-pages">{Array.from({length:a.pages},(_,i)=><figure key={i}><a href={fileUrl(a.id,i+1)} target="_blank" rel="noopener noreferrer" aria-label={`${a.label} ${i+1}쪽 크게 보기`}><img src={fileUrl(a.id,i+1)} alt={`${a.label} ${i+1}쪽`} loading="lazy" /></a><figcaption>{i+1} / {a.pages}쪽 · 누르면 크게 볼 수 있어요.</figcaption></figure>)}</div>}</article>)}</section>;
+}
