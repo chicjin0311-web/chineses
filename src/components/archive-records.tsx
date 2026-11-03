@@ -15,7 +15,7 @@ export function ArchiveRecords() {
       return <section key={semester} id={`semester-${index}`} className="archive-semester" aria-labelledby={`semester-title-${index}`}>
         <h3 id={`semester-title-${index}`}>{semester}</h3>
         {items.length ? items.map(record => <article key={record.id} className="archive-card">
-          <span className="archive-label">AI 재구성 참고 활동지 · 원본 학습지 아님</span>
+          <span className="archive-label">공유용 학습지 · AI 재구성 참고 자료</span>
           <h4><Link href={`/research/archive/${record.id}`}>{record.title}</Link></h4>
           <p>{record.summary}</p>
           <div className="archive-actions"><Link className="button soft" href={`/research/archive/${record.id}`}>수업 내용 보기</Link><a className="button soft" href={record.file} download>학습 활동 PDF 내려받기</a></div>
