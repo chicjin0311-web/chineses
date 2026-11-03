@@ -2,6 +2,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import records from '@/data/archive-records.json';
+import archiveLearning from '@/data/archive-learning-details.json';
+import { LearningDetails } from '@/components/learning-details';
 import '@/components/archive-records.css';
 
 export function generateStaticParams() { return records.map(record => ({ slug: record.id })); }
@@ -14,9 +16,11 @@ export default async function ArchiveRecord({ params }: { params: Promise<{ slug
   const { slug } = await params;
   const record = records.find(item => item.id === slug);
   if (!record) notFound();
+  const learning = archiveLearning[record.id as keyof typeof archiveLearning];
   return <article className="page archive-detail">
     <Link className="back-link" href="/research/archive">← 기존 자료 정리</Link>
     <header className="page-intro"><p className="eyebrow">{record.semester} · 학습 활동 기록</p><h1>{record.title}</h1><p>{record.summary}</p></header>
+    <LearningDetails learning={learning} />
     <section aria-labelledby="worksheet-preview-title">
       <h2 id="worksheet-preview-title">공유용 학습지</h2>
       <p>이 이미지와 PDF는 AI가 일부 수업 내용을 새 양식으로 재구성한 자료입니다. 선생님이 제작한 원본 학습지의 사진이 아닙니다. 원본은 별도 첨부 후 확인하여 반영합니다.</p>

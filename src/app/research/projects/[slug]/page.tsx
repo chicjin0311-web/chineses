@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import projects from '@/data/project-records.json';
 import rubrics from '@/data/china-speed-rubrics.json';
+import learningDetails from '@/data/learning-details.json';
+import { LearningDetails } from '@/components/learning-details';
 import '@/components/archive-records.css';
 
 export function generateStaticParams() { return projects.map(project => ({ slug: project.id })); }
@@ -14,11 +16,13 @@ export default async function ProjectRecord({ params }: { params: Promise<{ slug
   const { slug } = await params;
   const project = projects.find(item => item.id === slug);
   if (!project) notFound();
+  const learning = learningDetails[project.id as keyof typeof learningDetails];
   return <article className="page archive-detail">
     <Link className="back-link" href="/research/archive">← 기존 자료 정리</Link>
     <header className="page-intro"><p className="eyebrow">프로젝트 수업 기록</p><h1>{project.title}</h1><p>{project.summary}</p></header>
     <dl className="project-facts"><div><dt>교과</dt><dd>{project.subject}</dd></div><div><dt>대상</dt><dd>{project.target}</dd></div><div><dt>시기·차시</dt><dd>{project.period}</dd></div></dl>
     <section><h2>수업 목표</h2><p>{project.goal}</p></section>
+    <LearningDetails learning={learning} />
     <section><h2>수업의 흐름</h2><ol>{project.steps.map(step => <li key={step}>{step}</li>)}</ol></section>
     <section><h2>결과물</h2><p>{project.outcomes}</p></section>
     {project.id === 'china-speed' && <section id="rubrics" aria-labelledby="rubrics-title">
