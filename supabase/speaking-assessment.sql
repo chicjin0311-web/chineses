@@ -64,7 +64,7 @@ begin
    if r.id is null then return jsonb_build_object('error','참여코드를 확인하세요. 평가가 닫혀 있을 수도 있습니다.'); end if;
    perform 1 from speaking_private.rooms where id=r.id for update;
    if exists(select 1 from speaking_private.attempts where room_id=r.id and student_no=p->>'student_no') then return jsonb_build_object('error','이미 시작한 학번입니다. 원래 기기에서 이어 하거나 선생님께 재응시를 요청하세요.'); end if;
-   if (select count(*) from speaking_private.attempts where room_id=r.id)>=100 then return jsonb_build_object('error','평가 참여 인원이 가득 찼습니다.'); end if;
+   if (select count(*) from speaking_private.attempts where room_id=r.id)>=200 then return jsonb_build_object('error','평가 참여 인원이 가득 찼습니다.'); end if;
    selected='[]'::jsonb;
    for q in select value from jsonb_array_elements(r.questions) loop
      v=(q->'variants')->floor(random()*jsonb_array_length(q->'variants'))::integer;
