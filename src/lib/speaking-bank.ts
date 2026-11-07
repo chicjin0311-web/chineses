@@ -2,34 +2,227 @@ export type Variant = { id: string; image?: string; cue?: string; expected: stri
 export type Question = { id: string; text: string; title: string; instruction: string; variants: Variant[] };
 export type AssignedQuestion = Omit<Question, 'variants'> & Variant;
 export const speakingBank: Question[] = [
-  {id:'buy', title:'구매 품목',text:'你要买什么？',instruction:'화면에 제시된 물건을 사려고 합니다. 질문에 맞게 중국어로 답하세요. 수량은 말하지 않아도 됩니다.',variants:[
-    {id:'tablet',cue:'平板电脑',expected:'平板电脑 / 我要买一台平板电脑。',source:'교과서 69쪽 · 지도서 193쪽'},
-    {id:'skirts',cue:'裙子',expected:'裙子 / 我要买两条裙子。',source:'교과서 69쪽 · 지도서 193쪽'},
-    {id:'apples',cue:'苹果',expected:'苹果 / 我要买三斤苹果。',source:'교과서 69쪽 · 지도서 193쪽'}]},
-  {id:'bag',title:'봉투 필요 여부',text:'需要塑料袋吗？',instruction:'화면에 제시된 표현의 뜻에 맞게 봉투가 필요한지 중국어로 답하세요.',variants:[
-    {id:'need',cue:'需要',expected:'需要 / 我需要塑料袋。 등 봉투가 필요하다는 반응. 짧은 답변도 인정합니다.',source:'교과서 66·67쪽 · 需要는 본문 질문의 표현'},
-    {id:'no-need',cue:'不用',expected:'不用 / 不用，我们带了环保袋。 등 봉투가 필요 없다는 반응. 짧은 답변도 인정합니다.',source:'교과서 67쪽 · 본문 답변'}]},
-  {id:'price',title:'가격',text:'多少钱？',instruction:'당신은 계산원입니다. 표시된 합계 금액을 말하세요.',variants:[
-    {id:'180',cue:'¥180',expected:'一百八十块 / 一共一百八十块。',source:'교과서 67쪽'},
-    {id:'27',cue:'¥27',expected:'二十七块 / 一共二十七块。',source:'교과서 70쪽'}]},
-  {id:'pay',title:'결제 방법',text:'您怎么付？',instruction:'화면의 힌트에 맞게 QR 코드로 결제하겠다고 중국어로 답하세요.',variants:[
-    {id:'qr-word',cue:'二维码',expected:'我扫一下二维码 / 扫一下二维码 / 扫码。 등 QR 결제 의사가 전달되는 반응. 두 힌트의 인정 기준은 같습니다.',source:'교과서 66·67쪽 · QR 결제 힌트(단어)'},
-    {id:'qr-action',cue:'扫一下二维码',expected:'我扫一下二维码 / 扫一下二维码 / 扫码。 등 QR 결제 의사가 전달되는 반응. 두 힌트의 인정 기준은 같습니다.',source:'교과서 67쪽 · QR 결제 힌트(본문 구절)'}]},
-  {id:'choice',title:'식사 방식',text:'咱们出去吃还是叫外卖？',instruction:'화면에 제시된 식사 방식을 선택하여 중국어로 답하세요.',variants:[
-    {id:'eat-out',cue:'出去吃',expected:'出去吃 / 出去吃面 / 咱们出去吃吧。 등 나가서 먹겠다는 반응.',source:'교과서 95·100쪽 · 본문 질문·답변의 표현'},
-    {id:'delivery',cue:'叫外卖',expected:'叫外卖 / 咱们叫外卖吧。 등 배달 음식을 시키겠다는 반응.',source:'교과서 94·95·100쪽 · 본문 질문의 표현'}]},
-  {id:'suggest',title:'제안에 반응',text:'出去吃面，怎么样？',instruction:'화면에 제시된 동의 표현을 활용하여 제안에 중국어로 답하세요.',variants:[
-    {id:'hao-a',cue:'好啊',expected:'好啊 / 好的 / 行。 등 제안에 동의하는 반응. 제시된 단어와 달라도 같은 동의 의미이면 인정합니다.',source:'교과서 65·95쪽 · 본문 동의 표현'},
-    {id:'hao-de',cue:'好的',expected:'好啊 / 好的 / 行。 등 제안에 동의하는 반응. 제시된 단어와 달라도 같은 동의 의미이면 인정합니다.',source:'교과서 97쪽 · 본문 동의 표현'},
-    {id:'xing',cue:'行',expected:'好啊 / 好的 / 行。 등 제안에 동의하는 반응. 제시된 단어와 달라도 같은 동의 의미이면 인정합니다.',source:'교과서 67쪽 · 본문 동의 표현'}]},
-  {id:'food',title:'음식 선택',text:'你想吃什么？',instruction:'화면에 제시된 음식을 먹고 싶습니다. 질문에 맞게 중국어로 답하세요.',variants:[
-    {id:'noodles',cue:'炸酱面',expected:'炸酱面 / 我想吃炸酱面。',source:'교과서 101쪽 · 지도서 267쪽'},
-    {id:'fried-noodles',cue:'炒面',expected:'炒面 / 我想吃炒面。',source:'교과서 101쪽 · 지도서 267쪽'}]},
-  {id:'drink',title:'음료 선택',text:'你想喝什么？',instruction:'화면에 제시된 음료를 마시고 싶습니다. 질문에 맞게 중국어로 답하세요.',variants:[
-    {id:'water',cue:'矿泉水',expected:'矿泉水 / 我想喝矿泉水。',source:'교과서 101쪽 · 지도서 267쪽'},
-    {id:'tea',cue:'红茶',expected:'红茶 / 我想喝红茶。',source:'교과서 101쪽 · 지도서 267쪽'},
-    {id:'juice',cue:'果汁',expected:'果汁 / 我想喝果汁。',source:'교과서 101쪽 · 지도서 267쪽'},
-    {id:'cola',cue:'可乐',expected:'可乐 / 我想喝可乐。',source:'교과서 101쪽 · 지도서 267쪽'}]},
+  {
+    "id": "buy-daily",
+    "title": "구매 품목 1",
+    "text": "你要买什么？",
+    "instruction": "제시된 키워드를 활용하여 질문에 맞게 중국어로 답하세요.",
+    "variants": [
+      {
+        "id": "milk",
+        "source": "교과서 65쪽",
+        "cue": "牛奶 · 1",
+        "expected": "我要买一瓶牛奶。 질문에 맞는 구매 의사가 전달되는지도 함께 판단합니다. 양사·수량 오류는 전달 정도와 함께 관찰합니다."
+      },
+      {
+        "id": "fruit",
+        "source": "교과서 65쪽",
+        "cue": "水果 · 一些",
+        "expected": "我要买一些水果。 질문에 맞는 구매 의사가 전달되는지도 함께 판단합니다. 양사·수량 오류는 전달 정도와 함께 관찰합니다."
+      },
+      {
+        "id": "red-clothes",
+        "source": "교과서 68쪽",
+        "cue": "红色 · 衣服 · 1",
+        "expected": "我要买一件红色的衣服。 질문에 맞는 구매 의사가 전달되는지도 함께 판단합니다. 양사·수량 오류는 전달 정도와 함께 관찰합니다."
+      }
+    ]
+  },
+  {
+    "id": "buy-items",
+    "title": "구매 품목 2",
+    "text": "你要买什么？",
+    "instruction": "제시된 키워드를 활용하여 질문에 맞게 중국어로 답하세요.",
+    "variants": [
+      {
+        "id": "tablet",
+        "source": "교과서 69쪽",
+        "cue": "平板电脑 · 1",
+        "expected": "我要买一台平板电脑。 질문에 맞는 구매 의사가 전달되는지도 함께 판단합니다. 양사·수량 오류는 전달 정도와 함께 관찰합니다."
+      },
+      {
+        "id": "skirts",
+        "source": "교과서 69쪽",
+        "cue": "裙子 · 2",
+        "expected": "我要买两条裙子。 질문에 맞는 구매 의사가 전달되는지도 함께 판단합니다. 양사·수량 오류는 전달 정도와 함께 관찰합니다."
+      },
+      {
+        "id": "apples",
+        "source": "교과서 69쪽",
+        "cue": "苹果 · 3斤",
+        "expected": "我要买三斤苹果。 질문에 맞는 구매 의사가 전달되는지도 함께 판단합니다. 양사·수량 오류는 전달 정도와 함께 관찰합니다."
+      }
+    ]
+  },
+  {
+    "id": "price",
+    "title": "가격",
+    "text": "多少钱？",
+    "instruction": "제시된 키워드를 활용하여 질문에 맞게 중국어로 답하세요. 당신은 계산원입니다. 표시된 합계 금액을 말하세요.",
+    "variants": [
+      {
+        "id": "180",
+        "source": "교과서 67쪽",
+        "cue": "¥180",
+        "expected": "一共一百八十块。 / 一百八十块。"
+      },
+      {
+        "id": "27",
+        "source": "교과서 70쪽",
+        "cue": "¥27",
+        "expected": "一共二十七块。 / 二十七块。"
+      }
+    ]
+  },
+  {
+    "id": "pay",
+    "title": "결제 방법",
+    "text": "您怎么付？",
+    "instruction": "제시된 키워드를 활용하여 질문에 맞게 중국어로 답하세요.",
+    "variants": [
+      {
+        "id": "qr",
+        "source": "교과서 67쪽",
+        "cue": "二维码",
+        "expected": "我扫一下二维码。 / 扫一下二维码。 / 扫码。"
+      }
+    ]
+  },
+  {
+    "id": "plan",
+    "title": "토요일 계획",
+    "text": "这个星期六你打算做什么？",
+    "instruction": "제시된 키워드를 활용하여 질문에 맞게 중국어로 답하세요.",
+    "variants": [
+      {
+        "id": "park",
+        "source": "교과서 81쪽 · 회화 1",
+        "cue": "颐和园",
+        "expected": "我打算去颐和园。"
+      },
+      {
+        "id": "video",
+        "source": "교과서 83쪽 · 바꿔 말하기",
+        "cue": "视频",
+        "expected": "我打算拍视频。"
+      },
+      {
+        "id": "language",
+        "source": "교과서 83쪽 · 바꿔 말하기",
+        "cue": "外语",
+        "expected": "我打算学外语。"
+      },
+      {
+        "id": "hsk",
+        "source": "교과서 83쪽 · 바꿔 말하기",
+        "cue": "HSK",
+        "expected": "我打算考HSK。"
+      }
+    ]
+  },
+  {
+    "id": "choice",
+    "title": "식사 방식",
+    "text": "咱们出去吃还是叫外卖？",
+    "instruction": "질문을 듣고, 질문에 맞게 중국어로 답하세요.",
+    "variants": [
+      {
+        "id": "free",
+        "source": "교과서 95쪽",
+        "expected": "出去吃。 / 咱们出去吃吧。 / 叫外卖。 / 咱们叫外卖吧。 질문에 맞는 선택 의사가 전달되면 짧은 답변도 인정합니다."
+      }
+    ]
+  },
+  {
+    "id": "drink-choice",
+    "title": "음료 선택 반응",
+    "text": "你想喝可乐还是咖啡？",
+    "instruction": "질문을 듣고, 질문에 맞게 중국어로 답하세요.",
+    "variants": [
+      {
+        "id": "free",
+        "source": "교과서 98쪽 · 还是 선택 질문",
+        "expected": "可乐。 / 我想喝可乐。 / 咖啡。 / 我想喝咖啡。 질문에 맞는 선택 의사가 전달되면 짧은 답변도 인정합니다."
+      }
+    ]
+  },
+  {
+    "id": "meat-choice",
+    "title": "고기 선택 반응",
+    "text": "您要吃鸡肉还是牛肉？",
+    "instruction": "질문을 듣고, 질문에 맞게 중국어로 답하세요.",
+    "variants": [
+      {
+        "id": "free",
+        "source": "교과서 98쪽 · 还是 선택 질문",
+        "expected": "鸡肉。 / 我要吃鸡肉。 / 牛肉。 / 我要吃牛肉。 질문에 맞는 선택 의사가 전달되면 짧은 답변도 인정합니다."
+      }
+    ]
+  },
+  {
+    "id": "food",
+    "title": "먹고 싶은 음식",
+    "text": "你想吃什么？",
+    "instruction": "제시된 키워드를 활용하여 질문에 맞게 중국어로 답하세요.",
+    "variants": [
+      {
+        "id": "knife",
+        "source": "교과서 101쪽",
+        "cue": "刀削面",
+        "expected": "我想吃刀削面。 짧게 해당 음식·음료 이름으로 답해도 의미가 분명하면 인정합니다."
+      },
+      {
+        "id": "noodles",
+        "source": "교과서 101쪽",
+        "cue": "炸酱面",
+        "expected": "我想吃炸酱面。 짧게 해당 음식·음료 이름으로 답해도 의미가 분명하면 인정합니다."
+      },
+      {
+        "id": "beef",
+        "source": "교과서 97·101쪽",
+        "cue": "牛肉面",
+        "expected": "我想吃牛肉面。 짧게 해당 음식·음료 이름으로 답해도 의미가 분명하면 인정합니다."
+      },
+      {
+        "id": "fried",
+        "source": "교과서 101쪽",
+        "cue": "炒面",
+        "expected": "我想吃炒面。 짧게 해당 음식·음료 이름으로 답해도 의미가 분명하면 인정합니다."
+      }
+    ]
+  },
+  {
+    "id": "drink",
+    "title": "마시고 싶은 음료",
+    "text": "你想喝什么？",
+    "instruction": "제시된 키워드를 활용하여 질문에 맞게 중국어로 답하세요.",
+    "variants": [
+      {
+        "id": "water",
+        "source": "교과서 101쪽",
+        "cue": "矿泉水",
+        "expected": "我想喝矿泉水。 짧게 해당 음식·음료 이름으로 답해도 의미가 분명하면 인정합니다."
+      },
+      {
+        "id": "tea",
+        "source": "교과서 101쪽",
+        "cue": "红茶",
+        "expected": "我想喝红茶。 짧게 해당 음식·음료 이름으로 답해도 의미가 분명하면 인정합니다."
+      },
+      {
+        "id": "juice",
+        "source": "교과서 101쪽",
+        "cue": "果汁",
+        "expected": "我想喝果汁。 짧게 해당 음식·음료 이름으로 답해도 의미가 분명하면 인정합니다."
+      },
+      {
+        "id": "cola",
+        "source": "교과서 101쪽",
+        "cue": "可乐",
+        "expected": "我想喝可乐。 짧게 해당 음식·음료 이름으로 답해도 의미가 분명하면 인정합니다."
+      }
+    ]
+  }
 ];
 
 export function validateBank(value: unknown): value is Question[] {
