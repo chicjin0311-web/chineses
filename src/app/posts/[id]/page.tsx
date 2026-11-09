@@ -22,12 +22,18 @@ export default async function PublishedLesson({ params }: { params: Promise<{ id
     <header><p className="eyebrow">중국어 수업 · 언어트랙</p><h1>{post.title}</h1><p className="published-meta">{post.target} · {post.duration} · {post.record_date}</p><p className="post-intro">{post.summary}</p></header>
     <div className="post-body">{paragraphs.filter(text => text !== post.summary).map((text, i) => {
       const [heading, ...lines] = text.split('\n');
-      const video = lines.at(-1);
-      if (video && /^\/media\/speaking-practice\/[a-z-]+\.mp4$/.test(video)) {
+      const videoIndex = lines.findIndex(line => /^\/media\/speaking-practice\/[a-z-]+\.mp4$/.test(line));
+      const video = lines[videoIndex];
+      const archive = lines.at(-1);
+      if (archive && /^\/media\/speaking-practice\/[a-z-]+\.zip$/.test(archive)) {
+        return <p key={i}><a href={archive} download><Download size={18} aria-hidden="true" /> {heading}</a></p>;
+      }
+      if (video) {
         return <section key={i}>
           <h2>{heading}</h2>
-          <p>{lines.slice(0, -1).join('\n')}</p>
+          {videoIndex > 0 && <p>{lines.slice(0, videoIndex).join('\n')}</p>}
           <video controls playsInline preload="metadata" poster={video.replace(/\.mp4$/, ".jpg")} aria-label={heading} width="1280" height="720" style={{ width: '100%', height: 'auto' }} src={video} />
+          {lines.slice(videoIndex + 1).map((line, j) => <p key={j}>{line}</p>)}
           <a href={video} download={heading + ".mp4"}>{heading} 영상 다운로드</a>
         </section>;
       }
