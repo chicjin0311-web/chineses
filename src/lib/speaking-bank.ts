@@ -90,8 +90,8 @@ export const speakingBank: Question[] = [
   },
   {
     "id": "plan",
-    "title": "토요일 계획",
-    "text": "这个星期六你打算做什么？",
+    "title": "계획",
+    "text": "你打算做什么？",
     "instruction": "제시된 키워드를 활용하여 질문에 맞게 중국어로 답하세요.",
     "variants": [
       {
@@ -136,13 +136,13 @@ export const speakingBank: Question[] = [
   {
     "id": "drink-choice",
     "title": "음료 선택 반응",
-    "text": "你想喝可乐还是咖啡？",
+    "text": "你想喝咖啡还是红茶？",
     "instruction": "질문을 듣고, 질문에 맞게 중국어로 답하세요.",
     "variants": [
       {
         "id": "free",
-        "source": "교과서 98쪽 · 还是 선택 질문",
-        "expected": "可乐。 / 我想喝可乐。 / 咖啡。 / 我想喝咖啡。 질문에 맞는 선택 의사가 전달되면 짧은 답변도 인정합니다."
+        "source": "교과서 98쪽 · 还是 선택 질문, 101쪽 · 红茶",
+        "expected": "咖啡。 / 我想喝咖啡。 / 红茶。 / 我想喝红茶。 질문에 맞는 선택 의사가 전달되면 짧은 답변도 인정합니다."
       }
     ]
   },
@@ -216,10 +216,10 @@ export const speakingBank: Question[] = [
         "expected": "我想喝果汁。 짧게 해당 음식·음료 이름으로 답해도 의미가 분명하면 인정합니다."
       },
       {
-        "id": "cola",
-        "source": "교과서 101쪽",
-        "cue": "可乐",
-        "expected": "我想喝可乐。 짧게 해당 음식·음료 이름으로 답해도 의미가 분명하면 인정합니다."
+        "id": "coffee",
+        "source": "교과서 98쪽 · 咖啡",
+        "cue": "咖啡",
+        "expected": "我想喝咖啡。 짧게 해당 음식·음료 이름으로 답해도 의미가 분명하면 인정합니다."
       }
     ]
   }

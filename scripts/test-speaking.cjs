@@ -13,6 +13,7 @@ const request=(body,auth,origin='http://localhost')=>new NextRequest('http://loc
  assert.equal((await sandbox.exports.POST(request({action:'update',id:'room',title:'수정',questions:[q]},'valid'))).status,200);
  assert.equal((await sandbox.exports.POST(request({action:'rooms'},'bad'))).status,401);
  assert.equal((await sandbox.exports.POST(request({action:'join'},null,'https://other.invalid'))).status,403);
+ assert.equal((await sandbox.exports.POST(request({action:'answer',question_no:0,duration:1,mime:'audio/wav',audio:'AAAA'}))).status,409,'old browser without attempt context must refresh before uploading');
  const response=await sandbox.exports.POST(request({action:'attempt'}));const data=await response.json();
  assert.equal(data.questions[0].expected,undefined);assert.equal(data.questions[0].source,undefined);assert.equal(data.questions[0].cue,'¥27');
  const result=await sandbox.exports.POST(request({action:'export',id:'room'},'valid'));assert.equal(result.status,200);

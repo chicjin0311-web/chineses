@@ -53,6 +53,7 @@ begin
    if a.submitted_at is not null then return jsonb_build_object('ok',true,'submitted',true); end if;
    if not r.is_open then raise exception '선생님이 평가를 닫았습니다.'; end if;
    if p_action='answer' then
+     if coalesce(p->>'attempt_id','')<>a.id::text then raise exception '응시 정보가 변경되었습니다. 새로고침한 뒤 새 문항을 확인해 주세요.'; end if;
      n=(p->>'question_no')::integer;
      if n<0 or n>=jsonb_array_length(a.questions) then raise exception '문항 번호 오류'; end if;
      if exists(select 1 from speaking_private.answers where attempt_id=a.id and question_no=n) then return jsonb_build_object('ok',true); end if;

@@ -11,6 +11,7 @@ QUESTIONS = {
     'drink': '你想喝什么？', 'food-short': '想吃什么？',
     'plan': '这个星期六你打算做什么？', 'plan-short': '你打算做什么？',
     'drink-choice': '你想喝可乐还是咖啡？', 'meat-choice': '您要吃鸡肉还是牛肉？',
+    'coffee-tea-choice': '你想喝咖啡还是红茶？',
     'experience': '你吃过牛肉面吗？',
 }
 
