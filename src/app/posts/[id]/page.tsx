@@ -27,7 +27,7 @@ export default async function PublishedLesson({ params }: { params: Promise<{ id
         return <section key={i}>
           <h2>{heading}</h2>
           <p>{lines.slice(0, -1).join('\n')}</p>
-          <video controls playsInline preload="metadata" aria-label={heading} width="1280" height="720" style={{ width: '100%', height: 'auto' }} src={video} />
+          <video controls playsInline preload="metadata" poster={video.replace(/\.mp4$/, ".jpg")} aria-label={heading} width="1280" height="720" style={{ width: '100%', height: 'auto' }} src={video} />
           <a href={video} download={heading + ".mp4"}>{heading} 영상 다운로드</a>
         </section>;
       }
