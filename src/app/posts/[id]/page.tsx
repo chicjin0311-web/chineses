@@ -22,10 +22,19 @@ export default async function PublishedLesson({ params }: { params: Promise<{ id
     <header><p className="eyebrow">중국어 수업 · 언어트랙</p><h1>{post.title}</h1><p className="published-meta">{post.target} · {post.duration} · {post.record_date}</p><p className="post-intro">{post.summary}</p></header>
     <div className="post-body">{paragraphs.filter(text => text !== post.summary).map((text, i) => {
       const [heading, ...lines] = text.split('\n');
+      const video = lines.at(-1);
+      if (video && /^\/media\/speaking-practice\/[a-z-]+\.mp4$/.test(video)) {
+        return <section key={i}>
+          <h2>{heading}</h2>
+          <p>{lines.slice(0, -1).join('\n')}</p>
+          <video controls playsInline preload="metadata" aria-label={heading} width="1280" height="720" style={{ width: '100%', height: 'auto' }} src={video} />
+          <a href={video} download={heading + ".mp4"}>{heading} 영상 다운로드</a>
+        </section>;
+      }
       if (lines.length && ['주요 활동', '자료 활용'].includes(heading)) return <section key={i}><h2>{heading}</h2>{lines.every(line => line.startsWith('• ')) ? <ul>{lines.map((line, j) => <li key={j}>{line.slice(2)}</li>)}</ul> : <p>{lines.join('\n')}</p>}</section>;
       return <p key={i}>{text}</p>;
     })}</div>
-    <section className="post-files" aria-labelledby="files-title"><h2 id="files-title">첨부파일</h2><p>수업안내서와 학생 활동지를 각각 내려받으세요. Word에서 수업에 맞게 편집할 수 있습니다.</p>{files.map(file => <a className="post-download" key={file.id} href={`/api/materials/${file.id}`}><span><strong>{file.kind === 'guide' ? '수업안내서' : file.kind === 'worksheet' ? '학생 활동지' : '참고 자료'}</strong><small>{file.file_name} · {(file.size_bytes / 1024 / 1024).toFixed(1)} MB</small></span><Download size={20} aria-hidden="true" /></a>)}</section>
+    {files.length > 0 && <section className="post-files" aria-labelledby="files-title"><h2 id="files-title">첨부파일</h2><p>수업안내서와 학생 활동지를 각각 내려받으세요. Word에서 수업에 맞게 편집할 수 있습니다.</p>{files.map(file => <a className="post-download" key={file.id} href={`/api/materials/${file.id}`}><span><strong>{file.kind === 'guide' ? '수업안내서' : file.kind === 'worksheet' ? '학생 활동지' : '참고 자료'}</strong><small>{file.file_name} · {(file.size_bytes / 1024 / 1024).toFixed(1)} MB</small></span><Download size={20} aria-hidden="true" /></a>)}</section>}
     <nav className="post-neighbours" aria-label="다른 차시">{previous && <Link href={`/posts/${previous.id}`}>← {previous.title}</Link>}{next && <Link href={`/posts/${next.id}`}>{next.title} →</Link>}</nav>
   </article></div>;
 }
