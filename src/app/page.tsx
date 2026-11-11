@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ExchangeGuideShortcut } from '@/components/exchange-guide-shortcut';
 import { ArrowRight, ArrowUpRight, AudioLines, BookOpen, BookMarked, FileText, FolderOpen, Globe2, Layers, LibraryBig, NotebookPen, Shuffle, Timer, Mic } from 'lucide-react';
@@ -6,6 +7,12 @@ import { getResources } from '@/lib/catalog';
 import { classroomTools } from '@/lib/tools';
 import { homeFolders, site } from '@/lib/site';
 import './lessons/classics/style.css';
+
+export const metadata: Metadata = {
+  title: { absolute: '차곡차곡 중국어 교실 | 중국어 수업 자료와 학교 국제교류' },
+  description: '중국어 회화·문화 수업 자료와 학생 활동, 중국·대만 학교와 함께한 온라인 교류와 상호 방문 기록을 만나 보세요.',
+  alternates: { canonical: 'https://chineses.vercel.app/' },
+};
 
 export const revalidate = 60;
 const toolIcons = [Mic, Layers, AudioLines, Timer, Shuffle];
@@ -19,7 +26,7 @@ export default async function Home() {
         <div>
           <p className="workspace-caption">{site.name}</p>
           <h1>수업도, 기록도. 차곡차곡.</h1>
-          <p>함께 배운 시간과 일상의 생각을 모아, 다음 수업으로 이어 갑니다.</p>
+          <p>중국어 회화와 문화 수업 자료, 중국·대만 학교와 함께한 국제교류 기록을 나눕니다.</p>
         </div>
         <Link href="/write" className="button primary">새 초안 쓰기 <ArrowUpRight size={17} aria-hidden="true" /></Link>
       </header>
