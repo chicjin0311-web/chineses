@@ -10,7 +10,7 @@ export const dynamic='force-dynamic';
 export const maxDuration=30;
 const cache={'Cache-Control':'private, no-store'};
 const cookie='speaking_attempt';
-const allowed=['rooms','create','update','room','toggle','review','reset','audio','export','join','attempt','answer','submit'];
+const allowed=['rooms','create','update','room','toggle','review','reset','audio','history','history_audio','export','join','attempt','answer','submit'];
 const studentActions=['join','attempt','answer','submit'];
 function respond(data:unknown,status=200){return NextResponse.json(data,{status,headers:cache});}
 
@@ -27,7 +27,7 @@ export async function POST(req:NextRequest){
   if(contentType.includes('multipart/form-data')){
    const f=await req.formData(),file=f.get('audio');
    if(!(file instanceof File)||file.size<100||file.size>1_800_000||!/^audio\/(webm|mp4|ogg|wav|mpeg)(;.*)?$/.test(file.type))return respond({error:'지원되는 녹음 파일이 아닙니다.'},400);
-   body={action:'answer',attempt_id:f.get('attempt_id'),question_no:Number(f.get('question_no')),duration:Number(f.get('duration')),mime:file.type,audio:Buffer.from(await file.arrayBuffer()).toString('base64')};
+   body={action:'answer',attempt_id:f.get('attempt_id'),revision:Number(f.get('revision')||0),question_no:Number(f.get('question_no')),duration:Number(f.get('duration')),mime:file.type,audio:Buffer.from(await file.arrayBuffer()).toString('base64')};
   }else {const text=await req.text();if(text.length>3_300_000)return respond({error:'요청이 너무 큽니다.'},413);body=JSON.parse(text);}
   const action=body.action;
   if(!allowed.includes(action))return respond({error:'지원하지 않는 요청입니다.'},400);
@@ -57,8 +57,15 @@ export async function POST(req:NextRequest){
   } else if(action==='answer'){
    if(typeof body.attempt_id!=='string'||!body.attempt_id.trim()||body.attempt_id.length>64)return respond({error:'평가 문항이 갱신되었습니다. 새로고침한 뒤 현재 문항을 다시 확인해 주세요.'},409);
    if(!Number.isInteger(body.question_no)||!Number.isFinite(body.duration)||body.duration<0.1||body.duration>65)return respond({error:'녹음 정보를 확인하세요.'},400);
-   p={token,attempt_id:body.attempt_id,question_no:body.question_no,duration:body.duration,mime:body.mime,audio:body.audio};
-  } else if(action==='attempt'||action==='submit'){p={token};}
+   if(!Number.isInteger(body.revision??0)||(body.revision??0)<0)return respond({error:'응시 정보를 다시 확인해 주세요.'},400);
+   p={token,attempt_id:body.attempt_id,revision:body.revision??0,question_no:body.question_no,duration:body.duration,mime:body.mime,audio:body.audio};
+  } else if(action==='attempt'||action==='submit'){p={token,attempt_id:body.attempt_id,revision:body.revision??0};}
+  else if(action==='reset'){
+   if(!Number.isInteger(body.restart_from)||body.restart_from<0||body.restart_from>=20)return respond({error:'재응시 시작 문항을 선택하세요.'},400);
+   // Refuse a partial rollout before calling the legacy destructive reset branch.
+   await invoke('history',{id:body.id});
+   p={id:body.id,restart_from:body.restart_from};
+  }
   else if(action==='review'){
    if(!Array.isArray(body.answers)||body.answers.length>20||!Number.isInteger(body.score)||![10,15,20,25,30,35,40,45,50].includes(body.score)||typeof body.comment!=='string'||body.comment.length>2000)return respond({error:'채점 내용을 확인하세요.'},400);
    p={id:body.id,score:body.score,comment:body.comment,answers:body.answers};
@@ -69,7 +76,7 @@ export async function POST(req:NextRequest){
    data.questions=data.questions.map(({expected,source,title,...q}:AssignedQuestion)=>q);
    return respond(data);
   }
-  if(action==='audio')return new NextResponse(Buffer.from(data.audio,'base64'),{headers:{...cache,'Content-Type':data.mime,'Content-Disposition':'inline'}});
+  if(action==='audio'||action==='history_audio')return new NextResponse(Buffer.from(data.audio,'base64'),{headers:{...cache,'Content-Type':data.mime,'Content-Disposition':'inline'}});
   if(action==='room'||action==='export')data.attempts=sortByStudentNo(data.attempts);
   if(action==='export'){
    if(body.attempt_id!==undefined){

@@ -35,6 +35,11 @@ const request=(body,auth,origin='http://localhost')=>new NextRequest('http://loc
  assert.equal(singleBook.getWorksheet('성적').rowCount,2);assert.equal(singleBook.getWorksheet('성적').getCell('A2').value,'2');
  assert.equal((await sandbox.exports.POST(request({action:'export',id:'room',attempt_id:'outside-room'},'valid'))).status,404);
  assert.equal((await sandbox.exports.POST(request({action:'review',score:99,answers:[],comment:'bad'},'valid'))).status,400);
+ assert.equal((await sandbox.exports.POST(request({action:'reset',id:'fixture'},'valid'))).status,400,'retry requires an explicit start question');
+ assert.equal((await sandbox.exports.POST(request({action:'reset',id:'fixture',restart_from:20},'valid'))).status,400);
+ assert.equal((await sandbox.exports.POST(request({action:'reset',id:'fixture',restart_from:4}))).status,401);
+ assert.equal((await sandbox.exports.POST(request({action:'history',id:'fixture'}))).status,401);
+ assert.equal((await sandbox.exports.POST(request({action:'history_audio',id:'fixture',question_no:0}))).status,401);
  console.log('PASS: origin/auth checks, student answer redaction, XLSX workbook/Unicode/score/formula safety, invalid score rejection, natural student sorting, Korean submission time, protected audio links, selected-student export');
 })().catch(e=>{console.error(e);process.exitCode=1;});
 
