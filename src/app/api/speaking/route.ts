@@ -4,6 +4,7 @@ import { randomBytes, createHash } from 'node:crypto';
 import ExcelJS from 'exceljs';
 import {sortByStudentNo,koreaTime} from '@/lib/speaking-results';
 import { speakingBank, validateBank, type AssignedQuestion } from '@/lib/speaking-bank';
+import { speakingGateway } from '@/lib/speaking-gateway';
 
 export const runtime='nodejs';
 export const dynamic='force-dynamic';
@@ -39,10 +40,9 @@ export async function POST(req:NextRequest){
    if(error||!data.user)return respond({error:'로그인이 만료되었습니다. 다시 로그인해 주세요.'},401);
   }
   const invoke=async(method:string,p:Record<string,unknown>)=>{
-   const {data,error}=await db.rpc('speaking_gateway',{p_secret:secret,p_action:method,p});
-   if(error)throw new Error(error.message);
-   if(data?.error)throw new Error(data.error);
-   return data;
+   return speakingGateway(method,signal=>db.rpc('speaking_gateway',{p_secret:secret,p_action:method,p}).abortSignal(signal),{
+    onRetry:event=>console.warn('speaking_gateway_retry',event),
+   });
   };
   let token=req.cookies.get(cookie)?.value||'';
   let p:Record<string,unknown>={};
