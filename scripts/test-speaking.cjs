@@ -40,6 +40,9 @@ const request=(body,auth,origin='http://localhost')=>new NextRequest('http://loc
  assert.equal((await sandbox.exports.POST(request({action:'reset',id:'fixture',restart_from:4}))).status,401);
  assert.equal((await sandbox.exports.POST(request({action:'history',id:'fixture'}))).status,401);
  assert.equal((await sandbox.exports.POST(request({action:'history_audio',id:'fixture',question_no:0}))).status,401);
+ assert.equal((await sandbox.exports.POST(request({action:'trash',id:'room',attempt_ids:['11111111-1111-4111-8111-111111111111']}))).status,401);
+ assert.equal((await sandbox.exports.POST(request({action:'trash',id:'room',attempt_ids:[]},'valid'))).status,400);
+ assert.equal((await sandbox.exports.POST(request({action:'restore',id:'room',attempt_ids:['invalid']},'valid'))).status,400);
  console.log('PASS: origin/auth checks, student answer redaction, XLSX workbook/Unicode/score/formula safety, invalid score rejection, natural student sorting, Korean submission time, protected audio links, selected-student export');
 })().catch(e=>{console.error(e);process.exitCode=1;});
 

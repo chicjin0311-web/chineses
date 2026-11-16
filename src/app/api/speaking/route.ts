@@ -10,7 +10,7 @@ export const dynamic='force-dynamic';
 export const maxDuration=30;
 const cache={'Cache-Control':'private, no-store'};
 const cookie='speaking_attempt';
-const allowed=['rooms','create','update','room','toggle','review','reset','audio','history','history_audio','export','join','attempt','answer','submit'];
+const allowed=['rooms','create','update','room','toggle','review','reset','audio','history','history_audio','trash_list','trash','restore','export','join','attempt','answer','submit'];
 const studentActions=['join','attempt','answer','submit'];
 function respond(data:unknown,status=200){return NextResponse.json(data,{status,headers:cache});}
 
@@ -65,6 +65,10 @@ export async function POST(req:NextRequest){
    // Refuse a partial rollout before calling the legacy destructive reset branch.
    await invoke('history',{id:body.id});
    p={id:body.id,restart_from:body.restart_from};
+  }
+  else if(action==='trash'||action==='restore'){
+   if(!Array.isArray(body.attempt_ids)||body.attempt_ids.length<1||body.attempt_ids.length>200||body.attempt_ids.some((id:unknown)=>typeof id!=='string'||!/^[-a-f0-9]{36}$/i.test(id)))return respond({error:'삭제·복원할 학생을 선택하세요.'},400);
+   p={id:body.id,attempt_ids:body.attempt_ids};
   }
   else if(action==='review'){
    if(!Array.isArray(body.answers)||body.answers.length>20||!Number.isInteger(body.score)||![10,15,20,25,30,35,40,45,50].includes(body.score)||typeof body.comment!=='string'||body.comment.length>2000)return respond({error:'채점 내용을 확인하세요.'},400);
