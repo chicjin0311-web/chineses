@@ -61,10 +61,11 @@ export async function POST(req:NextRequest){
    p={token,attempt_id:body.attempt_id,revision:body.revision??0,question_no:body.question_no,duration:body.duration,mime:body.mime,audio:body.audio};
   } else if(action==='attempt'||action==='submit'){p={token,attempt_id:body.attempt_id,revision:body.revision??0};}
   else if(action==='reset'){
-   if(!Number.isInteger(body.restart_from)||body.restart_from<0||body.restart_from>=20)return respond({error:'재응시 시작 문항을 선택하세요.'},400);
-   // Refuse a partial rollout before calling the legacy destructive reset branch.
-   await invoke('history',{id:body.id});
-   p={id:body.id,restart_from:body.restart_from};
+   if(body.retry_mode!=='full_random'||(body.restart_from!==undefined&&body.restart_from!==0))return respond({error:'재응시는 새 랜덤 자료로 1번부터 시작합니다. 교사 화면을 새로고침하세요.'},400);
+   // Never call the legacy reset while only part of the DB update is deployed.
+   const capability=await invoke('retry_info',{id:body.id});
+   if(capability?.full_retry_supported!==true)return respond({error:'재응시 저장소 업데이트가 필요합니다.'},503);
+   p={id:body.id,restart_from:0,retry_mode:'full_random'};
   }
   else if(action==='trash'||action==='restore'){
    if(!Array.isArray(body.attempt_ids)||body.attempt_ids.length<1||body.attempt_ids.length>200||body.attempt_ids.some((id:unknown)=>typeof id!=='string'||!/^[-a-f0-9]{36}$/i.test(id)))return respond({error:'삭제·복원할 학생을 선택하세요.'},400);

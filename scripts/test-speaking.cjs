@@ -37,6 +37,8 @@ const request=(body,auth,origin='http://localhost')=>new NextRequest('http://loc
  assert.equal((await sandbox.exports.POST(request({action:'review',score:99,answers:[],comment:'bad'},'valid'))).status,400);
  assert.equal((await sandbox.exports.POST(request({action:'reset',id:'fixture'},'valid'))).status,400,'retry requires an explicit start question');
  assert.equal((await sandbox.exports.POST(request({action:'reset',id:'fixture',restart_from:20},'valid'))).status,400);
+ assert.equal((await sandbox.exports.POST(request({action:'reset',id:'fixture',retry_mode:'full_random',restart_from:4},'valid'))).status,400,'partial retries are no longer allowed');
+ assert.equal((await sandbox.exports.POST(request({action:'reset',id:'fixture',retry_mode:'full_random'},'valid'))).status,503,'new retry must fail closed until DB capability is present');
  assert.equal((await sandbox.exports.POST(request({action:'reset',id:'fixture',restart_from:4}))).status,401);
  assert.equal((await sandbox.exports.POST(request({action:'history',id:'fixture'}))).status,401);
  assert.equal((await sandbox.exports.POST(request({action:'history_audio',id:'fixture',question_no:0}))).status,401);
